@@ -18,7 +18,7 @@ app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-// Routers
+// API Routers
 
 // General Server Error Handling
 app.use((err, req, res, next) => {

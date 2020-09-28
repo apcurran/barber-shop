@@ -6,6 +6,9 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 5000;
+// Import Routers
+const usersRouter = require("./api/routes/users-router");
+const companyRouter = require("./api/routes/company-router");
 
 const app = express();
 
@@ -19,6 +22,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 // API Routers
+app.use("/api/users", usersRouter);
+app.use("/api/company", companyRouter);
 
 // General Server Error Handling
 app.use((err, req, res, next) => {

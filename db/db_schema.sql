@@ -2,9 +2,9 @@ CREATE DATABASE barber_shop;
 
 CREATE TABLE app_user(
     user_id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    password VARCHAR(50) NOT NULL
+    password VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE appointment(
@@ -12,4 +12,25 @@ CREATE TABLE appointment(
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
     FOREIGN KEY(user_id) REFERENCES app_user(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE description(
+    description_id SERIAL PRIMARY KEY,
+    content VARCHAR NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE employee(
+    employee_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE service(
+    service_id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    content VARCHAR,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

@@ -5,7 +5,23 @@ const SQL = require("sql-template-strings");
 
 // GET controllers
 async function getAboutUs(req, res, next) {
-    res.send("About us info");
+    try {
+        // Combine description and employee tables into single query.
+        const { rows } = await db.query(SQL`
+            SELECT
+                description.content,
+                employee.first_name,
+                employee.skill_level,
+                employee.avatar_url 
+            FROM description
+            CROSS JOIN employee
+        `);
+
+        res.status(200).json(rows);
+        
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function getDescription(req, res, next) {
@@ -117,7 +133,11 @@ async function patchDescription(req, res, next) {
 }
 
 async function patchEmployee(req, res, next) {
-    res.send("Updated employee");
+    try {
+        
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function patchService(req, res, next) {
@@ -160,7 +180,13 @@ async function deleteEmployee(req, res, next) {
 
 async function deleteService(req, res, next) {
     try {
-        
+        const { id } = req.params;
+
+        await db.query(SQL`
+            DELETE FROM service
+            WHERE service_id = ${id}
+        `);
+
     } catch (err) {
         next(err);
     }

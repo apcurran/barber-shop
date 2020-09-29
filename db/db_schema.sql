@@ -3,7 +3,7 @@ CREATE DATABASE barber_shop;
 CREATE TABLE app_user(
     user_id SERIAL PRIMARY KEY,
     email VARCHAR(100) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

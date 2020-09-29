@@ -23,11 +23,31 @@ async function getDescription(req, res, next) {
 }
 
 async function getEmployees(req, res, next) {
-    res.send("Employees info");
+    try {
+        const { rows } = await db.query(SQL`
+            SELECT *
+            FROM employee
+        `);
+
+        res.status(200).json(rows);
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function getServices(req, res, next) {
-    res.send("Services info");
+    try {
+        const { rows } = await db.query(SQL`
+            SELECT *
+            FROM service
+        `);
+
+        res.status(200).json(rows);
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 // POST controllers
@@ -47,7 +67,18 @@ async function postDescription(req, res, next) {
 }
 
 async function postEmployee(req, res, next) {
-    res.send("Created employee");
+    try {
+        const { first_name, last_name, email, skill_level } = req.body;
+        const newEmployee = await db.query(SQL`
+            INSERT INTO employee (first_name, last_name, email, skill_level)
+            VALUES (${first_name}, ${last_name}, ${email}, ${skill_level})
+        `);
+
+        res.status(201).json({ message: "New employee created." });
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function postService(req, res, next) {
@@ -58,7 +89,7 @@ async function postService(req, res, next) {
             VALUES (${title}, ${content}, ${price})
         `);
 
-        res.status(201).json(newService.rows);
+        res.status(201).json({ message: "New service created." });
 
     } catch (err) {
         next(err);

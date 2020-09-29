@@ -134,7 +134,22 @@ async function patchDescription(req, res, next) {
 
 async function patchEmployee(req, res, next) {
     try {
-        
+        const { id } = req.params;
+        const { first_name, last_name, email, skill_level, avatar_url } = req.body;
+
+        await db.query(SQL`
+            UPDATE employee
+            SET
+                first_name = COALESCE(${first_name}, first_name),
+                last_name = COALESCE(${last_name}, last_name),
+                email = COALESCE(${email}, email),
+                skill_level = COALESCE(${skill_level}, skill_level),
+                avatar_url = COALESCE(${avatar_url}, avatar_url)
+            WHERE employee_id = ${id}
+        `);
+
+        res.status(200).json({ message: "Employee updated." });
+
     } catch (err) {
         next(err);
     }

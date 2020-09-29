@@ -143,11 +143,27 @@ async function patchService(req, res, next) {
 
 // DELETE controllers
 async function deleteEmployee(req, res, next) {
-    res.send(`Deleted employee ${req.params.id}`);
+    try {
+        const { id } = req.params;
+        
+        await db.query(SQL`
+            DELETE FROM employee
+            WHERE employee_id = ${id}
+        `);
+
+        res.status(200).json({ message: `Employee with id, ${id} deleted.` });
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function deleteService(req, res, next) {
-    res.send(`Deleted service ${req.params.id}`);
+    try {
+        
+    } catch (err) {
+        next(err);
+    }
 }
 
 module.exports = {

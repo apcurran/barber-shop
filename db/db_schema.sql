@@ -30,7 +30,8 @@ CREATE TABLE employee(
 
 CREATE TABLE service(
     service_id SERIAL PRIMARY KEY,
-    name VARCHAR(50),
-    content VARCHAR,
+    title VARCHAR(50) NOT NULL,
+    content VARCHAR NOT NULL,
+    price DECIMAL(4, 2) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

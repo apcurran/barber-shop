@@ -51,7 +51,18 @@ async function postEmployee(req, res, next) {
 }
 
 async function postService(req, res, next) {
-    res.send("Created service");
+    try {
+        const { title, content, price } = req.body;
+        const newService = await db.query(SQL`
+            INSERT INTO service (title, content, price)
+            VALUES (${title}, ${content}, ${price})
+        `);
+
+        res.status(201).json(newService.rows);
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 // PATCH controllers

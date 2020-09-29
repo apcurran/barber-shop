@@ -1,12 +1,25 @@
 "use strict";
 
+const db = require("../../db/index");
+const SQL = require("sql-template-strings");
+
 // GET controllers
 async function getAboutUs(req, res, next) {
     res.send("About us info");
 }
 
 async function getDescription(req, res, next) {
-    res.send("Description info");
+    try {
+        const { rows } = await db.query(SQL`
+            SELECT *
+            FROM description
+        `);
+
+        res.status(200).json(rows[0]);
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function getEmployees(req, res, next) {
@@ -19,7 +32,18 @@ async function getServices(req, res, next) {
 
 // POST controllers
 async function postDescription(req, res, next) {
-    res.send("Created description");
+    try {
+        const { content } = req.body;
+        const newDescription = await db.query(SQL`
+            INSERT INTO description (content)
+            VALUES (${content})
+        `);
+
+        res.status(201).json(newDescription.rows[0]);
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function postEmployee(req, res, next) {

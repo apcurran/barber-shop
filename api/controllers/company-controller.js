@@ -39,7 +39,7 @@ async function postDescription(req, res, next) {
             VALUES (${content})
         `);
 
-        res.status(201).json(newDescription.rows[0]);
+        res.status(201).json({ message: "New description created." });
 
     } catch (err) {
         next(err);

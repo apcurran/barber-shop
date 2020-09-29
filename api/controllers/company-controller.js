@@ -102,7 +102,14 @@ async function postService(req, res, next) {
 // PATCH controllers
 async function patchDescription(req, res, next) {
     try {
-        
+        const { content } = req.body;
+
+        await db.query(SQL`
+            UPDATE description
+            SET content = ${content}
+        `);
+
+        res.status(200).json({ message: "Description updated." });
 
     } catch (err) {
         next(err);
@@ -114,7 +121,24 @@ async function patchEmployee(req, res, next) {
 }
 
 async function patchService(req, res, next) {
-    res.send("Updated service");
+    try {
+        const { id } = req.params;
+        const { title, content, price } = req.body;
+
+        await db.query(SQL`
+            UPDATE service
+            SET
+                title = COALESCE(${title}, title),
+                content = COALESCE(${content}, content),
+                price = COALESCE(${price}, price)
+            WHERE service_id = ${id}
+        `);
+
+        res.status(200).json({ message: "Service updated." });
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 // DELETE controllers

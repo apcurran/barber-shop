@@ -26,6 +26,7 @@ CREATE TABLE employee(
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     skill_level INT NOT NULL,
+    avatar_url VARCHAR NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

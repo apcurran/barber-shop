@@ -54,7 +54,8 @@ async function getServices(req, res, next) {
 async function postDescription(req, res, next) {
     try {
         const { content } = req.body;
-        const newDescription = await db.query(SQL`
+        
+        await db.query(SQL`
             INSERT INTO description (content)
             VALUES (${content})
         `);
@@ -68,10 +69,11 @@ async function postDescription(req, res, next) {
 
 async function postEmployee(req, res, next) {
     try {
-        const { first_name, last_name, email, skill_level } = req.body;
-        const newEmployee = await db.query(SQL`
-            INSERT INTO employee (first_name, last_name, email, skill_level)
-            VALUES (${first_name}, ${last_name}, ${email}, ${skill_level})
+        const { first_name, last_name, email, skill_level, avatar_url } = req.body;
+        
+        await db.query(SQL`
+            INSERT INTO employee (first_name, last_name, email, skill_level, avatar_url)
+            VALUES (${first_name}, ${last_name}, ${email}, ${skill_level}, ${avatar_url})
         `);
 
         res.status(201).json({ message: "New employee created." });
@@ -84,7 +86,8 @@ async function postEmployee(req, res, next) {
 async function postService(req, res, next) {
     try {
         const { title, content, price } = req.body;
-        const newService = await db.query(SQL`
+
+        await db.query(SQL`
             INSERT INTO service (title, content, price)
             VALUES (${title}, ${content}, ${price})
         `);
@@ -98,7 +101,12 @@ async function postService(req, res, next) {
 
 // PATCH controllers
 async function patchDescription(req, res, next) {
-    res.send("Updated description");
+    try {
+        
+
+    } catch (err) {
+        next(err);
+    }
 }
 
 async function patchEmployee(req, res, next) {

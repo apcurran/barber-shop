@@ -4,6 +4,8 @@ const db = require("../../db/index");
 const SQL = require("sql-template-strings");
 const bcrypt = require("bcrypt");
 
+const { signupValidation, loginValidation } = require("../validation/users-validation");
+
 // GET controllers
 async function postUserLogin(req, res, next) {
     try {
@@ -17,6 +19,12 @@ async function postUserLogin(req, res, next) {
 // POST controllers
 async function postUserSignup(req, res, next) {
     // TODO Validate incoming data
+    try {
+        await signupValidation(req.body);
+
+    } catch (err) {
+        return res.status(400).json({ error: err.details[0].message });
+    }
 
     try {
         const { email, password } = req.body;

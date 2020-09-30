@@ -21,6 +21,28 @@ function signupValidation(data) {
     return schema.validateAsync(data);
 }
 
+function adminSignupValidation(data) {
+    const schema = Joi.object({
+        email: Joi
+                .string()
+                .min(4)
+                .email()
+                .required(),
+        password: Joi
+                .string()
+                .min(6)
+                .required(),
+        repeat_password: Joi
+                .ref("password"),
+        admin_secret: Joi
+                .string()
+                .valid(process.env.ADMIN_SECRET)
+    })
+        .with("password", "repeat_password");
+
+    return schema.validateAsync(data);
+}
+
 function loginValidation(data) {
     const schema = Joi.object({
         email: Joi
@@ -39,5 +61,6 @@ function loginValidation(data) {
 
 module.exports = {
     signupValidation,
+    adminSignupValidation,
     loginValidation
 };

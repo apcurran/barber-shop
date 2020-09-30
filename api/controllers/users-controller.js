@@ -5,7 +5,7 @@ const SQL = require("sql-template-strings");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { signupValidation, loginValidation } = require("../validation/users-validation");
+const { signupValidation, loginValidation, adminSignupValidation } = require("../validation/users-validation");
 
 // POST controllers
 async function postUserSignup(req, res, next) {
@@ -85,7 +85,87 @@ async function postUserLogin(req, res, next) {
     }
 }
 
+// ADMIN
+function postAdminSignup(req, res, next) {
+    try {
+        await adminSignupValidation(req.body);
+
+    } catch (err) {
+        return res.status(400).json({ error: err.details[0].message });
+    }
+
+    try {
+        // Data valid, now reject creating an existing admin.
+        const { email, password } = req.body;
+        const emailExists = await db.query(SQL`
+            SELECT app_admin.admin_id
+            FROM app_admin
+            WHERE app_admin.email = ${email}
+        `);
+
+        if (emailExists.rows.length > 0) {
+            return res.status(400).json({ error: "Email already exists." });
+        }
+
+        // Hash password.
+        const saltRounds = 12;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        // Add new admin to db.
+        const admin = await db.query(SQL`
+            INSERT INTO app_admin (email, password)
+            VALUES (${email}, ${hashedPassword})
+        `);
+
+        res.status(201).json({ message: "New admin created." });
+
+    } catch (err) {
+        next(err);
+    }  
+}
+
+function postAdminLogin(req, res, next) {
+    try {
+        await loginValidation(req.body);
+
+    } catch (err) {
+        return res.status(400).json({ error: err.details[0].message });
+    }
+
+    try {
+        // Validation passed, now check for an existing email.
+        const { email, password } = req.body;
+        const adminResult = await db.query(SQL`
+            SELECT app_admin.admin_id
+            FROM app_admin
+            WHERE app_admin.email = ${email}
+        `);
+        const admin = adminResult.rows[0];
+
+        if (admin.length === 0) {
+            return res.status(400).json({ error: "Email is not found." });
+        }
+
+        // Validate password.
+        const validPassword = await bcrypt.compare(password, admin.password);
+
+        if (!validPassword) {
+            return res.status(400).json({ error: "Invalid password." });
+        }
+
+        // Create and send token.
+        const token = jwt.sign({ _id: admin.admin_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
+
+        res.status(200).json({ accessToken: token });
+
+    } catch (err) {
+        next(err);
+    }
+}
+
 module.exports = {
     postUserLogin,
     postUserSignup,
+    postAdminSignup,
+    postAdminLogin,
 };

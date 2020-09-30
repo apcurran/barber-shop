@@ -3,6 +3,7 @@
 const db = require("../../db/index");
 const SQL = require("sql-template-strings");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const { signupValidation, loginValidation } = require("../validation/users-validation");
 
@@ -75,7 +76,9 @@ async function postUserLogin(req, res, next) {
         }
 
         // Create and assign token
-        
+        const token = jwt.sign({ _id: user.user_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
+
+        res.status(200).json({ accessToken: token });
 
     } catch (err) {
         next(err);

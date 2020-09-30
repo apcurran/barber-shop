@@ -68,14 +68,14 @@ async function postUserLogin(req, res, next) {
             return res.status(400).json({ error: "Email is not found." });
         }
 
-        // Validate password
+        // Validate password.
         const validPassword = await bcrypt.compare(password, user.password);
 
         if (!validPassword) {
             return res.status(400).json({ error: "Invalid password." });
         }
 
-        // Create and assign token
+        // Create and send token.
         const token = jwt.sign({ _id: user.user_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
 
         res.status(200).json({ accessToken: token });

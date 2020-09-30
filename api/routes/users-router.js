@@ -8,5 +8,7 @@ router.post("/login", usersController.postUserLogin);
 
 router.post("/signup", usersController.postUserSignup);
 
+// TODO user appointments
+
 
 module.exports = router;

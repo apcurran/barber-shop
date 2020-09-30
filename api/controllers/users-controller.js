@@ -6,16 +6,6 @@ const bcrypt = require("bcrypt");
 
 const { signupValidation, loginValidation } = require("../validation/users-validation");
 
-// GET controllers
-async function postUserLogin(req, res, next) {
-    try {
-
-
-    } catch (err) {
-        next(err);
-    }
-}
-
 // POST controllers
 async function postUserSignup(req, res, next) {
     // TODO Validate incoming data
@@ -56,13 +46,14 @@ async function postUserSignup(req, res, next) {
     }
 }
 
+async function postUserLogin(req, res, next) {
+    try {
 
-// PATCH controllers
 
-
-
-// DELETE controllers
-
+    } catch (err) {
+        next(err);
+    }
+}
 
 module.exports = {
     postUserLogin,

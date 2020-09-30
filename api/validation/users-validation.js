@@ -15,7 +15,8 @@ function signupValidation(data) {
                 .required(),
         repeat_password: Joi
                 .ref("password")
-    }).with("password", "repeat_password");
+    })
+        .with("password", "repeat_password");
 
     return schema.validateAsync(data);
 }

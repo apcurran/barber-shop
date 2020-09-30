@@ -58,7 +58,7 @@ async function postUserLogin(req, res, next) {
         // Validation passed, now check for an existing email.
         const { email, password } = req.body;
         const userResult = await db.query(SQL`
-            SELECT app_user.user_id
+            SELECT app_user.user_id, app_user.password
             FROM app_user
             WHERE app_user.email = ${email}
         `);
@@ -140,7 +140,7 @@ async function postAdminLogin(req, res, next) {
         // Validation passed, now check for an existing email.
         const { email, password } = req.body;
         const adminResult = await db.query(SQL`
-            SELECT app_admin.admin_id
+            SELECT app_admin.admin_id, app_admin.password
             FROM app_admin
             WHERE app_admin.email = ${email}
         `);

@@ -36,7 +36,7 @@ function adminSignupValidation(data) {
                 .ref("password"),
         admin_secret: Joi
                 .string()
-                .valid(process.env.ADMIN_SECRET)
+                .required()
     })
         .with("password", "repeat_password");
 

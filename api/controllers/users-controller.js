@@ -86,8 +86,12 @@ async function postUserLogin(req, res, next) {
 }
 
 // ADMIN
-function postAdminSignup(req, res, next) {
+async function postAdminSignup(req, res, next) {
     try {
+        if (req.body.admin_secret !== process.env.ADMIN_SECRET) {
+            return res.status(403).json({ error: "Invalid credentials provided." });
+        }
+
         await adminSignupValidation(req.body);
 
     } catch (err) {
@@ -124,7 +128,7 @@ function postAdminSignup(req, res, next) {
     }  
 }
 
-function postAdminLogin(req, res, next) {
+async function postAdminLogin(req, res, next) {
     try {
         await loginValidation(req.body);
 

@@ -2,7 +2,9 @@
 
 const express = require("express");
 const router = express.Router();
+
 const companyController = require("../controllers/company-controller");
+const verifyAuth = require("../middleware/verify-auth");
 
 router.get("/about-us", companyController.getAboutUs);
 

@@ -1,4 +1,17 @@
 .header {
-    padding: 2rem;
-    background-color: lightblue;
+    padding: 2rem 0;
+    border-top: .35rem solid #000;
+}
+
+.nav {
+    max-width: var(--wrapper-max-width);
+    width: var(--wrapper-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo-img {
+    width: 12.75rem;
 }

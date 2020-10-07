@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./components/layout/header/Header";
-import AboutUs from "./components/company/about-us/AboutUs";
 import Footer from "./components/layout/footer/Footer";
 import "./App.css";
+// Routes
+import AboutUs from "./components/company/about-us/AboutUs";
+import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={AboutUs} />
+          <Route path="/admin/dashboard" component={AdminDashboard} />
         </Switch>
         <Footer />
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../../../assets/images/logo.svg";
 import SignedInLinks from './SignedInLinks';
@@ -11,9 +12,9 @@ function Header() {
     return (
         <header className="header">
             <nav className="nav">
-                <a href="" className="nav__logo-link">
+                <NavLink to="/" className="nav__logo-link">
                     <img src={logo} alt="Black Premium Cuts logo" className="nav__logo-img"/>
-                </a>
+                </NavLink>
                 {links}
             </nav>
         </header>

@@ -1,10 +1,12 @@
 import React from 'react';
 
+import Hero from "./hero/Hero";
+
 function AboutUs() {
     return (
-        <div>
-            About Us
-        </div>
+        <>
+            <Hero />
+        </>
     );
 }
 

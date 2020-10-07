@@ -1,6 +1,6 @@
 .header {
     padding: 2rem 0;
-    border-top: .35rem solid #000;
+    border-top: .375rem solid #000;
 }
 
 .nav {
@@ -14,4 +14,17 @@
 
 .nav__logo-img {
     width: 12.75rem;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2.5ch;
+    list-style: none;
+}
+
+.nav__link {
+    padding: .5rem 0;
+    color: inherit;
+    text-decoration: none;
 }

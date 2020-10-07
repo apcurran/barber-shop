@@ -1,0 +1,23 @@
+.hero {
+    position: relative;
+    height: 70vh;
+}
+
+.hero__img {
+    filter: brightness(.65);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.hero__title-container {
+    position: absolute;
+    top: 25%;
+    right: 18%;
+    color: #fff;
+}
+
+.hero__title {
+    font-size: 2rem;
+}

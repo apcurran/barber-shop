@@ -1,5 +1,13 @@
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
     background-color: #000;
     color: #fff;
+}
+
+.footer__title {
+    font-size: .95rem;
+    color: hsl(0, 0%, 60%);
 }

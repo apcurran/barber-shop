@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./AdminDashboard.css";
 
 import AdminDashboardLinks from "./AdminDashboardLinks";
@@ -11,7 +11,7 @@ import Services from "./Services";
 function AdminDashboard() {
     return (
         <section className="admin-dashboard">
-            <h1>Admin Dashboard</h1>
+            <h1 className="admin-dashboard__title">Admin Dashboard</h1>
             <AdminDashboardLinks />
             <Switch>
                 <Route exact path="/admin/dashboard/appointments" component={Appointments} />

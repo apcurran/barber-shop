@@ -1,17 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
 import { loggedIn } from "../../store/actions/auth-actions";
 
 function Login({ loggedIn }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
     // Fake log in for testing
-    function handleLogin() {
-        loggedIn();
+    async function handleSubmit(event) {
+        event.preventDefault();
+        console.log("Submitting data to api...");
+
+        const API_URL = "/api/users/login";
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        };
+
+        try {
+            const response = await fetch(API_URL, options);
+            const data = await response.json();
+
+            if (data.hasOwnProperty("error")) {
+                console.error(data);
+                setError(data.error);
+
+                return;
+            }
+
+            const token = data;
+            console.log(token);
+
+        } catch (err) {
+            console.error(err);
+        }
+        // loggedIn();
     }
 
     return (
         <div>
-            <button onClick={handleLogin}>Log In</button>
+            <h1>Log In</h1>
+            <form onSubmit={handleSubmit} className="auth-form">
+                <div className="auth-form__group">
+                    <label htmlFor="email" className="auth-form__group__label">Email</label>
+                    <input
+                        onChange={(event) => setEmail(event.target.value)}
+                        type="email"
+                        id="email"
+                        className="auth-form__group__input"
+                    />
+                </div>
+                <div className="auth-form__group">
+                    <label htmlFor="password" className="auth-form__group__label">Password</label>
+                    <input
+                        onChange={(event) => setPassword(event.target.value)}
+                        type="password"
+                        id="password"
+                        className="auth-form__group__input"
+                    />
+                </div>
+                <button type="submit">Log In</button>
+            </form>
         </div>
     );
 }

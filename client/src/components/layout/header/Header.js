@@ -8,7 +8,6 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
 function Header({ auth }) {
-    // const isAuth = false; // Temp, for testing
     const links = auth ? <SignedInLinks /> : <SignedOutLinks /> 
 
     return (
@@ -24,7 +23,7 @@ function Header({ auth }) {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
+    // console.log(state);
 
     return {
         auth: state.auth

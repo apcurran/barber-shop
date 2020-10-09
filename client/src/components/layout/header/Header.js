@@ -1,13 +1,15 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+
 import "./Header.css";
 import logo from "../../../assets/images/logo.svg";
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
-function Header() {
-    const isAuth = false; // Temp, for testing
-    const links = isAuth ? <SignedInLinks /> : <SignedOutLinks /> 
+function Header({ auth }) {
+    // const isAuth = false; // Temp, for testing
+    const links = auth ? <SignedInLinks /> : <SignedOutLinks /> 
 
     return (
         <header className="header">
@@ -21,4 +23,12 @@ function Header() {
     );
 }
 
-export default Header;
+function mapStateToProps(state) {
+    console.log(state);
+
+    return {
+        auth: state.auth
+    };
+}
+
+export default connect(mapStateToProps)(Header);

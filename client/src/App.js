@@ -7,6 +7,7 @@ import "./App.css";
 // Routes
 import AboutUs from "./components/company/about-us/AboutUs";
 import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
+import Login from "./components/auth/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={AboutUs} />
           <Route path="/admin/dashboard" component={AdminDashboard} />
+          <Route path="/users/login" component={Login} />
         </Switch>
         <Footer />
       </div>

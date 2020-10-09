@@ -3,7 +3,7 @@ function authReducer(state = false, action) {
         case "LOGGED_IN":
             return true;
         default:
-            return state;
+            return false;
     }
 }
 

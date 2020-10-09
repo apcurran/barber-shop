@@ -16,6 +16,13 @@ const store = createStore(
   )
 );
 
+// Check for token and update app state if required
+const token = localStorage.getItem("token");
+
+if (token) {
+  store.dispatch({ type: "LOGGED_IN" });
+}
+
 ReactDOM.render(
   <Provider store={store}>
 

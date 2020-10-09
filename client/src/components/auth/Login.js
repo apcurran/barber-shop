@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 import { loggedIn } from "../../store/actions/auth-actions";
 
@@ -8,10 +8,10 @@ function Login({ loggedIn }) {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    // Fake log in for testing
+    const dispatch = useDispatch();
+
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log("Submitting data to api...");
 
         const API_URL = "/api/users/login";
         const options = {
@@ -36,8 +36,12 @@ function Login({ loggedIn }) {
                 return;
             }
 
-            const token = data;
+            const token = data.accessToken;
             console.log(token);
+            
+            localStorage.setItem("token", token);
+
+            dispatch(loggedIn);
 
         } catch (err) {
             console.error(err);

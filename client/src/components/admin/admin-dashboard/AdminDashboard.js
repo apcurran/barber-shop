@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from "react-router-dom";
 
 import "./AdminDashboard.css";
@@ -8,7 +8,36 @@ import Description from "./Description";
 import Employees from "./Employees";
 import Services from "./Services";
 
+// const API_DESCRIPTION_URL = "/api/company/description";
+
 function AdminDashboard() {
+    // const [descriptionData, setDescriptionData] = useState([]);
+    // const [descriptionFormData, setDescriptionFormData] = useState(descriptionData.content);
+
+    function getDescriptionData() {
+        // fetch(API_DESCRIPTION_URL)
+        //     .then(response => response.json())
+        //     .then(data => setDescriptionData(data))
+        //     .catch(err => console.error(err));
+    }
+
+    function patchDescriptionData(newContent) {
+        // const options = {
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         content: newContent
+        //     })
+        // };
+
+        // fetch(API_DESCRIPTION_URL, options)
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.error(err));
+    }
+
     return (
         <section className="admin-dashboard">
             <h1 className="admin-dashboard__title">Admin Dashboard</h1>

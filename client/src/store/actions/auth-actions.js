@@ -4,8 +4,8 @@ export function loggedIn() {
     };
 }
 
-export function loggedOut() {
+export function logOut() {
     return {
-        type: "LOGGED_OUT"
+        type: "LOG_OUT"
     };
 }

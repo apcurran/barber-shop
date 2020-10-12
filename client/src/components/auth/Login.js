@@ -41,7 +41,7 @@ function Login({ loggedIn }) {
             
             localStorage.setItem("token", token);
 
-            dispatch(loggedIn);
+            dispatch(loggedIn());
 
         } catch (err) {
             console.error(err);

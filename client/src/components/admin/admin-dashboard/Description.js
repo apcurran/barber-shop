@@ -7,7 +7,6 @@ function Description() {
     // Redux
     const dispatch = useDispatch();
     const descTxt = useSelector(state => state.admin);
-    
     // Local state
     const [updatedDescTxt, setUpdatedDescTxt] = useState("");
 

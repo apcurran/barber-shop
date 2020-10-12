@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import rootReducer from "./store/reducers/root-reducer";
 import { loggedIn } from "./store/actions/auth-actions";
+import { getAboutDescription } from "./store/actions/admin-actions";
 
 const store = createStore(
   rootReducer,
@@ -23,6 +24,9 @@ const token = localStorage.getItem("token");
 if (token) {
   store.dispatch(loggedIn());
 }
+
+// Dispatch the getAboutDescription() before the root component renders
+store.dispatch(getAboutDescription());
 
 ReactDOM.render(
   <Provider store={store}>

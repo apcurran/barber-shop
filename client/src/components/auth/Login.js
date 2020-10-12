@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { loggedIn } from "../../store/actions/auth-actions";
 
-function Login({ loggedIn }) {
+function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -46,7 +46,6 @@ function Login({ loggedIn }) {
         } catch (err) {
             console.error(err);
         }
-        // loggedIn();
     }
 
     return (
@@ -77,10 +76,4 @@ function Login({ loggedIn }) {
     );
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        loggedIn: () => dispatch(loggedIn())
-    };
-}
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

@@ -1,13 +1,15 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./Header.css";
 import logo from "../../../assets/images/logo.svg";
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
-function Header({ auth }) {
+function Header() {
+    // Grab auth state from Redux store
+    const auth = useSelector(state => state.auth);
     const links = auth ? <SignedInLinks /> : <SignedOutLinks /> 
 
     return (
@@ -22,12 +24,4 @@ function Header({ auth }) {
     );
 }
 
-function mapStateToProps(state) {
-    // console.log(state);
-
-    return {
-        auth: state.auth
-    };
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

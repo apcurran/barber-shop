@@ -1,0 +1,13 @@
+.shop-description {
+    max-width: var(--wrapper-max-width);
+    width: var(--wrapper-width);
+    margin: 0 auto;
+}
+
+.shop-description__title {
+    margin-bottom: 1rem;
+}
+
+.shop-description__txt {
+    white-space: pre-wrap;
+}

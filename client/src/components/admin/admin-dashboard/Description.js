@@ -6,7 +6,7 @@ import { patchAboutDescription } from "../../../store/actions/admin-description-
 function Description() {
     // Redux
     const dispatch = useDispatch();
-    const descTxt = useSelector(state => state.admin);
+    const descTxt = useSelector(state => state.adminDescription);
     // Local state
     const [updatedDescTxt, setUpdatedDescTxt] = useState("");
 

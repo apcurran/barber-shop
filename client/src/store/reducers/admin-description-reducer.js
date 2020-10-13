@@ -1,4 +1,4 @@
-function adminReducer(state = "", action) {
+function adminDescriptionReducer(state = "", action) {
     switch (action.type) {
         case "GET_ABOUT_DESCRIPTION_SUCCESS":
             return action.payload;
@@ -9,4 +9,4 @@ function adminReducer(state = "", action) {
     }
 }
 
-export default adminReducer;
+export default adminDescriptionReducer;

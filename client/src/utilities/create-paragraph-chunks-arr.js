@@ -1,9 +1,7 @@
 function createParagraphChunksArr(str) {
-    if (!str.includes("\r\n")) return str;
+    if (!str.includes("\n")) return str;
 
-    return str
-            .split("\r\n")
-            .filter(" ");
+    return str.split("\n\n");
 }
 
 export default createParagraphChunksArr;

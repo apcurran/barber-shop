@@ -1,13 +1,23 @@
 .shop-description {
     max-width: var(--wrapper-max-width);
     width: var(--wrapper-width);
-    margin: 0 auto;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem
 }
 
 .shop-description__title {
+    line-height: 1;
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .shop-description__txt {
     white-space: pre-wrap;
+}
+
+.shop-description__img {
+    width: 100%;
+    height: auto;
 }

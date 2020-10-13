@@ -7,11 +7,11 @@ import ShopDescription from "./shop-description/ShopDescription";
 
 function AboutUs() {
     return (
-        <>
+        <div>
             <Hero />
             <ShopHours />
             <ShopDescription />
-        </>
+        </div>
     );
 }
 

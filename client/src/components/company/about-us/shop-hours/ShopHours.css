@@ -1,16 +1,37 @@
 .shop-description__hours-table-container {
     position: relative;
-    width: 40rem;
-    margin: -3rem auto 6rem auto;
+    width: 35rem;
+    margin: -5rem auto 6rem auto;
     z-index: 5;
     padding: 3rem 5rem;
     background-color: #000;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .175);
 }
 
 .shop-description__hours-table {
+    width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 0;
     color: #fff;
+}
+
+.hours-table__title {
+    padding-bottom: .75rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.hours-table__row__header,
+.hours-table__row__value {
+    padding: .25rem 0;
+}
+
+.hours-table__row__header {
+    text-align: left;
+    font-weight: 400;
+}
+
+.hours-table__row__value {
+    text-align: right;
 }

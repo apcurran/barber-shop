@@ -12,7 +12,18 @@ function ShopHours() {
                     </tr>
                 </thead>
                 <tbody className="hours-table__body">
-
+                    <tr>
+                        <th className="hours-table__row__header">Monday - Friday</th>
+                        <td className="hours-table__row__value">8:00 A.M. - 9:30 P.M.</td>
+                    </tr>
+                    <tr>
+                        <th className="hours-table__row__header">Saturday</th>
+                        <td className="hours-table__row__value">8:00 A.M. - 10:00 P.M.</td>
+                    </tr>
+                    <tr>
+                        <th className="hours-table__row__header">Sunday</th>
+                        <td className="hours-table__row__value">10:00 A.M. - 5:00 P.M.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

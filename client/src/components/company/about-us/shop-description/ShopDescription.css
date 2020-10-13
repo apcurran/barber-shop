@@ -1,7 +1,8 @@
 .shop-description {
     max-width: var(--wrapper-max-width);
     width: var(--wrapper-width);
-    margin: 4rem auto;
+    margin: 0 auto;
+    margin-bottom: 6rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 4rem

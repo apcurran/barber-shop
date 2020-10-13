@@ -8,7 +8,7 @@ import './index.css';
 import App from './App';
 import rootReducer from "./store/reducers/root-reducer";
 import { loggedIn } from "./store/actions/auth-actions";
-import { getAboutDescription } from "./store/actions/admin-actions";
+import { getAboutDescription } from "./store/actions/admin-description-actions";
 
 const store = createStore(
   rootReducer,

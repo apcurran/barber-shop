@@ -58,6 +58,7 @@
     background-color: #f7fafc;
     border-color: #e2e8f0;
     font-size: 1rem;
+    white-space: pre-wrap;
 }
 
 .admin-dashboard__form__submit-btn {

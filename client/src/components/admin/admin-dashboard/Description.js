@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
-import { patchAboutDescription } from "../../../store/actions/admin-actions";
+import { patchAboutDescription } from "../../../store/actions/admin-description-actions";
 
 function Description() {
     // Redux

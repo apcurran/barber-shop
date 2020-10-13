@@ -1,0 +1,16 @@
+.shop-description__hours-table-container {
+    position: relative;
+    width: 40rem;
+    margin: -3rem auto 6rem auto;
+    z-index: 5;
+    padding: 3rem 5rem;
+    background-color: #000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+}
+
+.shop-description__hours-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #fff;
+}

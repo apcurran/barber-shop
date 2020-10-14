@@ -28,6 +28,10 @@ export function getEmployees() {
     };
 }
 
+export function addEmployee() {
+    
+}
+
 export function removeEmployee(id) {
     return async (dispatch, getState) => {
         try {

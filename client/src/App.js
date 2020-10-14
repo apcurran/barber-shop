@@ -6,6 +6,7 @@ import Footer from "./components/layout/footer/Footer";
 import "./App.css";
 // Routes
 import AboutUs from "./components/company/about-us/AboutUs";
+import Services from "./components/company/services/Services";
 import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
 import Login from "./components/auth/Login";
 
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={AboutUs} />
+          <Route path="/services" component={Services} />
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/users/login" component={Login} />
         </Switch>

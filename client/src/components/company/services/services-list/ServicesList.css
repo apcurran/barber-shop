@@ -1,0 +1,16 @@
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.service-container:nth-of-type(even) figure {
+    order: 2;
+}
+
+.service__fig__img {
+    width: 100%;
+    height: auto;
+}

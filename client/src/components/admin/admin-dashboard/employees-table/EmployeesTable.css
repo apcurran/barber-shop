@@ -1,0 +1,42 @@
+.employees-table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, .12);
+}
+
+.employees-table__header,
+.employees-table__body__data {
+    text-align: left;
+}
+
+.employees-table__body tr:nth-last-of-type(even) {
+    background-color: #edf2f7;
+}
+
+.employees-table__header {
+    padding: .5rem 3rem .5rem 5rem;
+    background-color: #f7fafc;
+    font-size: .95rem;
+}
+
+.skill-data {
+    text-align: right;
+}
+
+.employees-table__body__data {
+    padding: 1rem 3rem 1rem 5rem;
+}
+
+.employee-action:first-of-type {
+    border-right: 1px solid #cbd5e0;
+    padding-right: .7rem;
+}
+
+.employee-action:last-of-type {
+    padding-left: .7rem;
+}
+
+.employee-action {
+    background: none;
+    border: none;
+    font-size: 1rem;
+}

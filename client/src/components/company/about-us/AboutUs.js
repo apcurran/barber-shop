@@ -14,7 +14,7 @@ function AboutUs() {
 
     useEffect(() => {
         dispatch(getEmployees());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>

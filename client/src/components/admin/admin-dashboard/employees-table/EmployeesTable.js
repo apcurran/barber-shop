@@ -12,7 +12,7 @@ function EmployeesTable({ employeesArr }) {
     }
 
     function handleAddEmployee(params) {
-        
+        // TODO
     }
 
     return (

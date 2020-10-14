@@ -29,7 +29,7 @@ export function getEmployees() {
 }
 
 export function addEmployee() {
-    
+    // TODO
 }
 
 export function removeEmployee(id) {

@@ -39,7 +39,7 @@
 }
 
 .shop-staff__employee__name {
-    color: hsl(0, 0%, 45%);
+    color: var(--grey);
 }
 
 .shop-staff__employee__level {

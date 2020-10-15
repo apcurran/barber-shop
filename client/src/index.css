@@ -8,6 +8,7 @@
 :root {
   --wrapper-max-width: 77rem;
   --wrapper-width: 92.5%;
+  --grey: hsl(0, 0%, 45%);
 }
 
 p {

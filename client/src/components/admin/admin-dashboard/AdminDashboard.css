@@ -48,7 +48,7 @@
 .admin-dashboard__subtitle {
     font-size: 1.25rem;
     margin-bottom: .5rem;
-    color: hsl(0, 0%, 40%);
+    color: var(--grey);
 }
 
 .admin-dashboard__form__textarea {

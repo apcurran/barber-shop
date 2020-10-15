@@ -13,4 +13,17 @@
 .service__fig__img {
     width: 100%;
     height: auto;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, .175);
+}
+
+.service__info__title {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+}
+
+.service__info__price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--grey);
 }

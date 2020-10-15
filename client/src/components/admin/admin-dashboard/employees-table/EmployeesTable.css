@@ -8,7 +8,7 @@
     text-align: left;
 }
 
-.employees-table__body tr:nth-last-of-type(even) {
+.employees-table__body tr:nth-of-type(even) {
     background-color: #edf2f7;
 }
 

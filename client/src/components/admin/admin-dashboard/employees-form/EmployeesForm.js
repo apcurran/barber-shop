@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./EmployeesForm.css";
 import { patchEmployee } from "../../../../store/actions/admin-employees-actions";
 
-function EmployeesForm({ currentEmployeeData }) {
+function EmployeesForm({ currentEmployeeData, setIsEditing }) {
     const [updatedFirstName, setUpdatedFirstName] = useState(currentEmployeeData.first_name);
     const [updatedLastName, setUpdatedLastName] = useState(currentEmployeeData.last_name);
     const [updatedEmail, setUpdatedEmail] = useState(currentEmployeeData.email);
@@ -26,6 +26,7 @@ function EmployeesForm({ currentEmployeeData }) {
         };
 
         dispatch(patchEmployee(employeeData));
+        setIsEditing(false); // Close modal after submitting data.
     }
 
     return (

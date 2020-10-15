@@ -19,7 +19,7 @@ function EmployeesModal({ currentEmployeeData, setIsEditing }) {
             animate={{ opacity: 1 }}
         >
             <section className="employee-modal">
-                <EmployeesForm currentEmployeeData={currentEmployeeData} />
+                <EmployeesForm currentEmployeeData={currentEmployeeData} setIsEditing={setIsEditing} />
             </section>
         </motion.div>
     );

@@ -31,7 +31,7 @@ function Employees() {
                 setIsEditing={setIsEditing}
                 updateCurrentEmployee={updateCurrentEmployee}
             />
-            {isEditing ? <EmployeesModal selectedEmployeeId={selectedEmployeeId} setSelectedEmployeeId={setSelectedEmployeeId} setIsEditing={setIsEditing} /> : null}
+            {isEditing ? <EmployeesModal setIsEditing={setIsEditing} currentEmployeeData={currentEmployeeData} /> : null}
         </div>
     );
 }

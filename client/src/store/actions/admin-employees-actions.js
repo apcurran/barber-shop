@@ -7,6 +7,13 @@ function getEmployeesSuccess(employeeData) {
     };
 }
 
+function patchEmployeeSuccess(updatedEmployeesArr) {
+    return {
+        type: "PATCH_EMPLOYEE_SUCCESS",
+        payload: updatedEmployeesArr
+    };
+}
+
 function removeEmployeeSuccess(updatedEmployeesArr) {
     return {
         type: "REMOVE_EMPLOYEE_SUCCESS",
@@ -30,6 +37,41 @@ export function getEmployees() {
 
 export function addEmployee() {
     // TODO
+}
+
+export function patchEmployee(employeeData) {
+    return async (dispatch, getState) => {
+        try {
+            const API_PATCH_URL = `${API_EMPLOYEES_URL}/${employeeData.employee_id}`;
+            const options = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    // TODO auth with JWT token
+                },
+                body: JSON.stringify(employeeData)
+            };
+
+            // Update employee in db.
+            const response = await fetch(API_PATCH_URL, options);
+            await response.json();
+            // Update employee in store state.
+            const oldEmployeesArr = getState().employees;
+            const updatedEmployeesArr = oldEmployeesArr.map(employee => {
+                if (employee.employee_id === employeeData.employee_id) {
+                    return employeeData; // Transform current employee to updated employee data.
+                } else {
+                    return employee;
+                }
+            });
+
+            dispatch(patchEmployeeSuccess(updatedEmployeesArr));
+
+        } catch (err) {
+            console.error(err);
+        }
+
+    };
 }
 
 export function removeEmployee(id) {

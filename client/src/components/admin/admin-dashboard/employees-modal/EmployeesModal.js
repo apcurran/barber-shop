@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from "framer-motion";
 
 import "./EmployeesModal.css";
+import EmployeesForm from "../employees-form/EmployeesForm";
 
-function EmployeesModal({ selectedEmployeeId, setSelectedEmployeeId, setIsEditing }) {
-
+function EmployeesModal({ currentEmployeeData, setIsEditing }) {
     function handleBackdropClick(event) {
         if (event.target.classList.contains("backdrop")) {
             setIsEditing(false);
@@ -19,7 +19,7 @@ function EmployeesModal({ selectedEmployeeId, setSelectedEmployeeId, setIsEditin
             animate={{ opacity: 1 }}
         >
             <section className="employee-modal">
-                Employee Editing Modal
+                <EmployeesForm currentEmployeeData={currentEmployeeData} />
             </section>
         </motion.div>
     );

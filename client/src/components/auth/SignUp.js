@@ -44,38 +44,40 @@ function SignUp({ history }) {
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit} className="auth-form">
-                <div className="auth-form__group">
-                    <label htmlFor="email" className="auth-form__group__label">Email</label>
-                    <input
-                        onChange={(event) => setEmail(event.target.value)}
-                        type="email"
-                        id="email"
-                        className="auth-form__group__input"
-                    />
-                </div>
-                <div className="auth-form__group">
-                    <label htmlFor="password" className="auth-form__group__label">Password</label>
-                    <input
-                        onChange={(event) => setPassword(event.target.value)}
-                        type="password"
-                        id="password"
-                        className="auth-form__group__input"
-                    />
-                </div>
-                <div className="auth-form__group">
-                    <label htmlFor="repeat-password" className="auth-form__group__label">Confirm Password</label>
-                    <input
-                        onChange={(event) => setRepeatPassword(event.target.value)}
-                        type="password"
-                        id="repeat-password"
-                        className="auth-form__group__input"
-                    />
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
+        <div className="signup-container auth">
+            <div className="auth-inner-wrapper">
+                <h1 className="auth-title">Sign Up</h1>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="auth-form__group">
+                        <label htmlFor="email" className="auth-form__group__label">Email</label>
+                        <input
+                            onChange={(event) => setEmail(event.target.value)}
+                            type="email"
+                            id="email"
+                            className="auth-form__group__input"
+                        />
+                    </div>
+                    <div className="auth-form__group">
+                        <label htmlFor="password" className="auth-form__group__label">Password</label>
+                        <input
+                            onChange={(event) => setPassword(event.target.value)}
+                            type="password"
+                            id="password"
+                            className="auth-form__group__input"
+                        />
+                    </div>
+                    <div className="auth-form__group">
+                        <label htmlFor="repeat-password" className="auth-form__group__label">Confirm Password</label>
+                        <input
+                            onChange={(event) => setRepeatPassword(event.target.value)}
+                            type="password"
+                            id="repeat-password"
+                            className="auth-form__group__input"
+                        />
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
         </div>
     );
 }

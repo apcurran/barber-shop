@@ -1,0 +1,40 @@
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-inner-wrapper {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, .65);
+    color: #fff;
+    /* flex-grow: 1; */
+    width: 30rem;
+    max-width: 92%;
+}
+
+.auth-title {
+    margin-bottom: 1rem;
+}
+
+.signup-container {
+    background: url("/barber-tools-signup-bg-opt.jpg") no-repeat center center;
+}
+
+.auth-form {
+    width: 90%;
+    max-width: 30rem;
+}
+
+.auth-form__group {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form__group__input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--grey);
+    font-size: 1rem;
+}

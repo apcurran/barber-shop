@@ -14,9 +14,6 @@ function SignedInLinks() {
     return (
         <ul className="nav__list">
             <li className="nav__item">
-                <NavLink to="/" className="nav__link">About</NavLink>
-            </li>
-            <li className="nav__item">
                 <NavLink to="/services" className="nav__link">Services</NavLink>
             </li>
             <li className="nav__item">

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
-import { patchAboutDescription } from "../../../store/actions/admin-description-actions";
+import { getAboutDescription, patchAboutDescription } from "../../../store/actions/admin-description-actions";
 
 function Description() {
     // Redux
     const dispatch = useDispatch();
-    const descTxt = useSelector(state => state.adminDescription);
+    const descTxt = useSelector(state => state.aboutDescription);
     // Local state
     const [updatedDescTxt, setUpdatedDescTxt] = useState("");
 
     // Update to new description text when data comes back from API.
     useEffect(() => {
+        dispatch(getAboutDescription());
         setUpdatedDescTxt(descTxt);
     }, [descTxt]);
 

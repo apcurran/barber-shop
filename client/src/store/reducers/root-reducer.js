@@ -7,7 +7,7 @@ import adminServicesReducer from "./admin-services-reducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    adminDescription: adminDescriptionReducer,
+    aboutDescription: adminDescriptionReducer,
     employees: adminEmployeesReducer,
     services: adminServicesReducer,
 });

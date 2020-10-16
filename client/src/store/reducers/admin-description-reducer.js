@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 function adminDescriptionReducer(state = "", action) {
     switch (action.type) {
         case "GET_ABOUT_DESCRIPTION_SUCCESS":

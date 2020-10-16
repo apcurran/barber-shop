@@ -14,7 +14,7 @@ function Description() {
     useEffect(() => {
         dispatch(getAboutDescription());
         setUpdatedDescTxt(descTxt);
-    }, [descTxt]);
+    }, [descTxt, dispatch]);
 
     function handleChange(event) {
         setUpdatedDescTxt(event.target.value);

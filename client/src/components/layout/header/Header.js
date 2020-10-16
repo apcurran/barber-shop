@@ -9,8 +9,8 @@ import SignedOutLinks from './SignedOutLinks';
 
 function Header() {
     // Grab auth state from Redux store
-    const auth = useSelector(state => state.auth);
-    const links = auth ? <SignedInLinks /> : <SignedOutLinks /> 
+    const { userAuth } = useSelector(state => state.auth);
+    const links = userAuth ? <SignedInLinks /> : <SignedOutLinks /> 
 
     return (
         <header className="header">

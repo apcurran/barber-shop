@@ -1,11 +1,62 @@
-export function loggedIn() {
+export function verifyAuth() {
     return {
-        type: "LOGGED_IN"
+        type: "VERIFY_AUTH"
     };
 }
 
-export function logOut() {
+function logInUserSuccess() {
     return {
-        type: "LOG_OUT"
+        type: "LOG_IN_USER_SUCCESS"
+    };
+}
+
+function logOutUserSuccess() {
+    return {
+        type: "LOG_OUT_USER_SUCCESS"
+    };
+}
+
+export function logInUser(email, password) {
+    return async (dispatch) => {
+        const API_URL = "/api/users/login";
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        };
+
+        try {
+            const response = await fetch(API_URL, options);
+            const data = await response.json();
+
+            if (data.hasOwnProperty("error")) {
+                console.error(data);
+
+                return;
+            }
+
+            const token = data.accessToken;
+            console.log(token);
+            
+            localStorage.setItem("token", token);
+
+            dispatch(logInUserSuccess());
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
+}
+
+export function logOutUser() {
+    return (dispatch) => {
+        localStorage.removeItem("token");
+
+        dispatch(logOutUserSuccess());
     };
 }

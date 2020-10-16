@@ -1,51 +1,51 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
-import { loggedIn } from "../../store/actions/auth-actions";
+import { logInUser } from "../../store/actions/auth-actions";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
 
     const dispatch = useDispatch();
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const API_URL = "/api/users/login";
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email,
-                password
-            })
-        };
+        dispatch(logInUser(email, password));
+        // const API_URL = "/api/users/login";
+        // const options = {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         email,
+        //         password
+        //     })
+        // };
 
-        try {
-            const response = await fetch(API_URL, options);
-            const data = await response.json();
+        // try {
+        //     const response = await fetch(API_URL, options);
+        //     const data = await response.json();
 
-            if (data.hasOwnProperty("error")) {
-                console.error(data);
-                setError(data.error);
+        //     if (data.hasOwnProperty("error")) {
+        //         console.error(data);
+        //         setError(data.error);
 
-                return;
-            }
+        //         return;
+        //     }
 
-            const token = data.accessToken;
-            console.log(token);
+        //     const token = data.accessToken;
+        //     console.log(token);
             
-            localStorage.setItem("token", token);
+        //     localStorage.setItem("token", token);
 
-            dispatch(loggedIn());
+        //     dispatch(loggedIn());
 
-        } catch (err) {
-            console.error(err);
-        }
+        // } catch (err) {
+        //     console.error(err);
+        // }
     }
 
     return (

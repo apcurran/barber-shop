@@ -1,13 +1,13 @@
 function authReducer(state = false, action) {
     switch (action.type) {
-        case "LOGGED_IN":
-            return true;
-        case "LOG_OUT":
-            localStorage.removeItem("token");
-
-            return false;
+        case "VERIFY_AUTH":
+            return { ...state, userAuth: true };
+        case "LOG_IN_USER_SUCCESS":
+            return { ...state, userAuth: true };
+        case "LOG_OUT_USER_SUCCESS":
+            return { ...state, userAuth: false };
         default:
-            return false;
+            return state;
     }
 }
 

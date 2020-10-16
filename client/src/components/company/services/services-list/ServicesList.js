@@ -6,7 +6,7 @@ function ServicesList({ servicesArr }) {
     return (
         <main className="services-list-container">
             {servicesArr.map(service => (
-                <div className="service-container">
+                <div className="service-container" key={service.service_id}>
                     <figure className="service__fig">
                         <img src={service.img_url} alt={service.title} className="service__fig__img" width="640" height="426" />
                     </figure>

@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import './index.css';
 import App from './App';
 import rootReducer from "./store/reducers/root-reducer";
-import { loggedIn } from "./store/actions/auth-actions";
+import { verifyAuth } from "./store/actions/auth-actions";
 
 const store = createStore(
   rootReducer,
@@ -21,7 +21,7 @@ const store = createStore(
 const token = localStorage.getItem("token");
 
 if (token) {
-  store.dispatch(loggedIn());
+  store.dispatch(verifyAuth());
 }
 
 ReactDOM.render(

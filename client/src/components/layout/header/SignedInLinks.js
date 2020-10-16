@@ -2,12 +2,12 @@ import React, { useCallback } from 'react';
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { logOut } from "../../../store/actions/auth-actions";
+import { logOutUser } from "../../../store/actions/auth-actions";
 
 function SignedInLinks() {
     const dispatch = useDispatch();
     const handleLogOut = useCallback(
-        () => dispatch(logOut()),
+        () => dispatch(logOutUser()),
         [dispatch]
     );
 

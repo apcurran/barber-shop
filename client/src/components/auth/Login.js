@@ -13,39 +13,6 @@ function Login() {
         event.preventDefault();
 
         dispatch(logInUser(email, password));
-        // const API_URL = "/api/users/login";
-        // const options = {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         email,
-        //         password
-        //     })
-        // };
-
-        // try {
-        //     const response = await fetch(API_URL, options);
-        //     const data = await response.json();
-
-        //     if (data.hasOwnProperty("error")) {
-        //         console.error(data);
-        //         setError(data.error);
-
-        //         return;
-        //     }
-
-        //     const token = data.accessToken;
-        //     console.log(token);
-            
-        //     localStorage.setItem("token", token);
-
-        //     dispatch(loggedIn());
-
-        // } catch (err) {
-        //     console.error(err);
-        // }
     }
 
     return (

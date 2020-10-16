@@ -9,6 +9,7 @@ import AboutUs from "./components/company/about-us/AboutUs";
 import Services from "./components/company/services/Services";
 import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
 import Login from "./components/auth/Login";
+import SignUp from "./components/auth/SignUp";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/services" component={Services} />
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/users/login" component={Login} />
+          <Route path="/users/signup" component={SignUp} />
         </Switch>
         <Footer />
       </div>

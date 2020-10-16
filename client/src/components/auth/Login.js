@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
+import "./Auth.css";
 import { logInUser } from "../../store/actions/auth-actions";
 
 function Login() {

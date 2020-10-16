@@ -41,7 +41,6 @@ export function logInUser(email, password) {
             }
 
             const token = data.accessToken;
-            console.log(token);
             
             localStorage.setItem("token", token);
 

@@ -46,7 +46,7 @@ function SignUp({ history }) {
     return (
         <div className="signup-container auth">
             <div className="auth-inner-wrapper">
-                <h1 className="auth-title">Sign Up</h1>
+                <h1 className="auth-title">Create Your Account</h1>
                 <form onSubmit={handleSubmit} className="auth-form">
                     <div className="auth-form__group">
                         <label htmlFor="email" className="auth-form__group__label">Email</label>
@@ -75,7 +75,7 @@ function SignUp({ history }) {
                             className="auth-form__group__input"
                         />
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" className="auth-form__submit">Sign Up</button>
                 </form>
             </div>
         </div>

@@ -5,10 +5,9 @@
 }
 
 .auth-inner-wrapper {
-    padding: 2rem;
+    padding: 2rem 3rem;
     background-color: rgba(0, 0, 0, .65);
     color: #fff;
-    /* flex-grow: 1; */
     width: 30rem;
     max-width: 92%;
 }
@@ -21,9 +20,8 @@
     background: url("/barber-tools-signup-bg-opt.jpg") no-repeat center center;
 }
 
-.auth-form {
-    width: 90%;
-    max-width: 30rem;
+.login-container {
+    background: url("/barber-tools-login-bg-opt.jpg") no-repeat center center;
 }
 
 .auth-form__group {
@@ -32,9 +30,33 @@
     margin-bottom: 1.5rem;
 }
 
+.auth-form__group__label {
+    margin-bottom: .5rem;
+}
+
 .auth-form__group__input {
+    padding: .5rem;
     background: none;
     border: none;
     border-bottom: 2px solid var(--grey);
     font-size: 1rem;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.auth-form__group__input:focus {
+    border-bottom-color: #fff;
+}
+
+.auth-form__submit {
+    padding: .75rem 1.35rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
 }

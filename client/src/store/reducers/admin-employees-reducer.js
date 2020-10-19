@@ -6,6 +6,8 @@ function adminEmployeesReducer(state = [], action) {
             return action.payload;
         case "PATCH_EMPLOYEE_SUCCESS":
             return action.payload;
+        case "ADD_EMPLOYEE_SUCCESS":
+            return action.payload;
         default:
             return state;
     }

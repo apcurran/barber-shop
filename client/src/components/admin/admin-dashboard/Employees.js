@@ -7,6 +7,7 @@ import EmployeesModal from "./employees-modal/EmployeesModal";
 
 function Employees() {
     // Local state
+    const [isNewEmployee, setIsNewEmployee] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
     const [currentEmployeeData, setCurrentEmployeeData] = useState({});
@@ -23,15 +24,29 @@ function Employees() {
         setCurrentEmployeeData(currentEmployee);
     }
 
+    function newCurrentEmployee() {
+        const newEmployeeBlank = {
+            first_name: "",
+            last_name: "",
+            email: "",
+            skill_level: "",
+            avatar_url: ""
+        };
+
+        setIsNewEmployee(true);
+        setCurrentEmployeeData(newEmployeeBlank);
+    }
+
     return (
         <div>
             <EmployeesTable
+                newCurrentEmployee={newCurrentEmployee}
                 employeesArr={employeesArr}
                 setSelectedEmployeeId={setSelectedEmployeeId}
                 setIsEditing={setIsEditing}
                 updateCurrentEmployee={updateCurrentEmployee}
             />
-            {isEditing ? <EmployeesModal setIsEditing={setIsEditing} currentEmployeeData={currentEmployeeData} /> : null}
+            {isEditing ? <EmployeesModal isNewEmployee={isNewEmployee} setIsEditing={setIsEditing} currentEmployeeData={currentEmployeeData} /> : null}
         </div>
     );
 }

@@ -4,8 +4,14 @@ import { useDispatch } from "react-redux";
 import "./EmployeesTable.css";
 import { removeEmployee } from "../../../../store/actions/admin-employees-actions";
 
-function EmployeesTable({ employeesArr, setSelectedEmployeeId, setIsEditing, updateCurrentEmployee }) {
+function EmployeesTable({ newCurrentEmployee, employeesArr, setSelectedEmployeeId, setIsEditing, updateCurrentEmployee }) {
     const dispatch = useDispatch();
+
+    function handleAddEmployee() {
+        console.log("Adding employee...");
+        setIsEditing(true);
+        newCurrentEmployee(); // Create blank starting data
+    }
 
     function handleDelete(id) {
         dispatch(removeEmployee(id));
@@ -19,7 +25,7 @@ function EmployeesTable({ employeesArr, setSelectedEmployeeId, setIsEditing, upd
 
     return (
         <div>
-            <button className="add-employee-btn">
+            <button onClick={handleAddEmployee} className="add-employee-btn">
                 <svg className="plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                 <span className="add-employee-btn__span">Add Employee</span>
             </button>

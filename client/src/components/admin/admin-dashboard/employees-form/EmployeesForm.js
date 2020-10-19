@@ -2,9 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 
 import "./EmployeesForm.css";
-import { patchEmployee } from "../../../../store/actions/admin-employees-actions";
+import { addEmployee, patchEmployee } from "../../../../store/actions/admin-employees-actions";
 
-function EmployeesForm({ currentEmployeeData, setIsEditing }) {
+function EmployeesForm({ isNewEmployee, currentEmployeeData, setIsEditing }) {
     const [updatedFirstName, setUpdatedFirstName] = useState(currentEmployeeData.first_name);
     const [updatedLastName, setUpdatedLastName] = useState(currentEmployeeData.last_name);
     const [updatedEmail, setUpdatedEmail] = useState(currentEmployeeData.email);
@@ -37,6 +37,24 @@ function EmployeesForm({ currentEmployeeData, setIsEditing }) {
     function handleEmployeeSubmit(event) {
         event.preventDefault();
 
+        if (isNewEmployee) {
+            // debugger;
+            // Create New Employee
+            const employeeData = {
+                first_name: updatedFirstName,
+                last_name: updatedLastName,
+                email: updatedEmail,
+                skill_level: updatedSkillLevel,
+                avatar_url: updatedAvatarUrl
+            };
+
+            dispatch(addEmployee(employeeData));
+            setIsEditing(false); // Close modal after submitting data.
+
+            return;
+        }
+
+        // Patch Employee
         const employeeData = {
             employee_id: currentEmployeeData.employee_id,
             first_name: updatedFirstName,
@@ -72,7 +90,7 @@ function EmployeesForm({ currentEmployeeData, setIsEditing }) {
                 <label htmlFor="avatar-url" className="employee-form__label">Avatar URL</label>
                 <input type="text" className="employee-form__input" id="avatar-url" value={updatedAvatarUrl} onChange={memSetUpdatedAvatarUrl} />
             </div>
-            <button type="submit" className="employee-form__submit">Update</button>
+            <button type="submit" className="employee-form__submit">Submit</button>
         </form>
     );
 }

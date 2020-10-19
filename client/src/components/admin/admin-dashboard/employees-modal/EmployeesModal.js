@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import "./EmployeesModal.css";
 import EmployeesForm from "../employees-form/EmployeesForm";
 
-function EmployeesModal({ currentEmployeeData, setIsEditing }) {
+function EmployeesModal({ isNewEmployee, currentEmployeeData, setIsEditing }) {
     function handleBackdropClick(event) {
         if (event.target.classList.contains("backdrop")) {
             setIsEditing(false);
@@ -19,7 +19,7 @@ function EmployeesModal({ currentEmployeeData, setIsEditing }) {
             animate={{ opacity: 1 }}
         >
             <section className="employee-modal">
-                <EmployeesForm currentEmployeeData={currentEmployeeData} setIsEditing={setIsEditing} />
+                <EmployeesForm isNewEmployee={isNewEmployee} currentEmployeeData={currentEmployeeData} setIsEditing={setIsEditing} />
             </section>
         </motion.div>
     );

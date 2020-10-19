@@ -21,6 +21,13 @@ function removeEmployeeSuccess(updatedEmployeesArr) {
     };
 }
 
+function addEmployeeSuccess(updatedEmployeesArr) {
+    return {
+        type: "ADD_EMPLOYEE_SUCCESS",
+        payload: updatedEmployeesArr
+    };
+}
+
 export function getEmployees() {
     return async (dispatch) => {
         try {
@@ -35,8 +42,31 @@ export function getEmployees() {
     };
 }
 
-export function addEmployee() {
-    // TODO
+export function addEmployee(employeeData) {
+    return async (dispatch, getState) => {
+        try {
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(employeeData)
+            };
+
+            const response = await fetch(API_EMPLOYEES_URL, options);
+            const data = await response.json();
+            console.log(data);
+
+            const oldEmployeesArr = getState().employees;
+            // Update with new employee data obj first.
+            const updatedEmployeesArr = [employeeData, ...oldEmployeesArr];
+
+            dispatch(addEmployeeSuccess(updatedEmployeesArr));
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
 }
 
 export function patchEmployee(employeeData) {

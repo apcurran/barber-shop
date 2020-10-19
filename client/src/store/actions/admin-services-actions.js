@@ -43,7 +43,6 @@ export function removeService(id) {
             const response = await fetch(API_DELETE_URL, options);
             const data = await response.json();
             console.log(data);
-            console.log("Deleted Service");
             // Delete service from store state.
             const oldServicesArr = getState().services;
             const updatedServicesArr = oldServicesArr.filter(service => service.service_id !== id);

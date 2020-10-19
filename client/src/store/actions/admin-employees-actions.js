@@ -55,7 +55,6 @@ export function addEmployee(employeeData) {
 
             const response = await fetch(API_EMPLOYEES_URL, options);
             const data = await response.json();
-            console.log(data);
 
             const oldEmployeesArr = getState().employees;
             // Update with new employee data obj first.

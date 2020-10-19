@@ -38,7 +38,6 @@ function EmployeesForm({ isNewEmployee, currentEmployeeData, setIsEditing }) {
         event.preventDefault();
 
         if (isNewEmployee) {
-            // debugger;
             // Create New Employee
             const employeeData = {
                 first_name: updatedFirstName,

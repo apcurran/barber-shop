@@ -52,7 +52,7 @@ export function addService(newServiceData) {
             console.log(data);
             // Add service to Redux store.
             const oldServicesArr = getState().services;
-            const updatedServicesArr = [newServiceData, ...oldServicesArr];
+            const updatedServicesArr = [...oldServicesArr, newServiceData];
 
             dispatch(addServiceSuccess(updatedServicesArr));
 

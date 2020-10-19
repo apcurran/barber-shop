@@ -1,12 +1,17 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
 
-function ServicesTable({ servicesArr }) {
+import { removeService } from "../../../../store/actions/admin-services-actions";
+
+function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, setIsEditing, updateCurrentService }) {
+    const dispatch = useDispatch();
+
     function handleAddService() {
         
     }
 
     function handleDelete(id) {
-        // dispatch(removeService(id));
+        dispatch(removeService(id));
     }
 
     function handleEditingUpdate(id) {

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getServices } from "../../../store/actions/admin-services-actions";
 import ServicesTable from "./services-table/ServicesTable";
+import ServicesModal from "./services-modal/ServicesModal";
 
 function Services() {
     // Local state
@@ -45,7 +46,7 @@ function Services() {
                 setSelectedServiceId={setSelectedServiceId}
                 updateCurrentService={updateCurrentService}
             />
-            {/* {isEditing ? <ServicesModal isNewService={isNewService} setIsEditing={setIsEditing} currentServiceData={currentServiceData} /> : null} */}
+            {isEditing ? <ServicesModal isNewService={isNewService} setIsEditing={setIsEditing} currentServiceData={currentServiceData} /> : null}
         </div>
     );
 }

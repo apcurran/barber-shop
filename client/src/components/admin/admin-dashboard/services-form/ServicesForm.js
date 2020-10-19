@@ -39,6 +39,7 @@ function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
                 price: updatedPrice,
                 img_url: updatedImgUrl
             };
+            console.log(serviceData);
 
             dispatch(addService(serviceData));
             setIsEditing(false); // Close modal after submitting data.
@@ -68,7 +69,7 @@ function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
             </div>
             <div className="employee-form__group">
                 <label htmlFor="content" className="employee-form__label">Content</label>
-                <input type="text" className="employee-form__input" id="content" value={updatedContent} onChange={memSetUpdatedContent} />
+                <textarea className="employee-form__input" name="content" id="content" cols="30" rows="10" value={updatedContent} onChange={memSetUpdatedContent}></textarea>
             </div>
             <div className="employee-form__group">
                 <label htmlFor="price" className="employee-form__label">Price</label>

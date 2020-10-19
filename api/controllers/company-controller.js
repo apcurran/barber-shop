@@ -101,11 +101,11 @@ async function postEmployee(req, res, next) {
 
 async function postService(req, res, next) {
     try {
-        const { title, content, price } = req.body;
+        const { title, content, price, img_url } = req.body;
 
         await db.query(SQL`
-            INSERT INTO service (title, content, price)
-            VALUES (${title}, ${content}, ${price})
+            INSERT INTO service (title, content, price, img_url)
+            VALUES (${title}, ${content}, ${price}, ${img_url})
         `);
 
         res.status(201).json({ message: "New service created." });

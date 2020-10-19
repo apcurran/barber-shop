@@ -8,7 +8,6 @@ function EmployeesTable({ newCurrentEmployee, employeesArr, setSelectedEmployeeI
     const dispatch = useDispatch();
 
     function handleAddEmployee() {
-        console.log("Adding employee...");
         setIsEditing(true);
         newCurrentEmployee(); // Create blank starting data
     }

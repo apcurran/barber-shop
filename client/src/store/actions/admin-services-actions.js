@@ -7,6 +7,13 @@ function getServicesSuccess(servicesData) {
     };
 }
 
+function addServiceSuccess(updatedServicesArr) {
+    return {
+        type: "ADD_SERVICE_SUCCESS",
+        payload: updatedServicesArr
+    };
+}
+
 function removeServiceSuccess(updatedServicesArr) {
     return {
         type: "REMOVE_SERVICE_SUCCESS",
@@ -21,6 +28,33 @@ export function getServices() {
             const services = await response.json();
 
             dispatch(getServicesSuccess(services));
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
+}
+
+export function addService(newServiceData) {
+    return async (dispatch, getState) => {
+        try {
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newServiceData)
+            };
+
+            // Add service to db.
+            const response = await fetch(API_SERVICES_URL, options);
+            const data = await response.json();
+            console.log(data);
+            // Add service to Redux store.
+            const oldServicesArr = getState().services;
+            const updatedServicesArr = [newServiceData, ...oldServicesArr];
+
+            dispatch(addServiceSuccess(updatedServicesArr));
 
         } catch (err) {
             console.error(err);

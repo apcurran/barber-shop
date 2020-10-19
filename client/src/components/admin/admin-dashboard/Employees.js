@@ -21,6 +21,7 @@ function Employees() {
     
     function updateCurrentEmployee(id) {
         const currentEmployee = employeesArr.filter(employee => employee.employee_id === id)[0];
+
         setCurrentEmployeeData(currentEmployee);
     }
 
@@ -42,8 +43,8 @@ function Employees() {
             <EmployeesTable
                 newCurrentEmployee={newCurrentEmployee}
                 employeesArr={employeesArr}
-                setSelectedEmployeeId={setSelectedEmployeeId}
                 setIsEditing={setIsEditing}
+                setSelectedEmployeeId={setSelectedEmployeeId}
                 updateCurrentEmployee={updateCurrentEmployee}
             />
             {isEditing ? <EmployeesModal isNewEmployee={isNewEmployee} setIsEditing={setIsEditing} currentEmployeeData={currentEmployeeData} /> : null}

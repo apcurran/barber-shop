@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function ServicesTable({ servicesArr }) {
     function handleAddService() {
@@ -25,6 +25,7 @@ function ServicesTable({ servicesArr }) {
                         <tr key={service.service_id}>
                             <td className="employees-table__body__data">{service.title}</td>
                             <td className="employees-table__body__data">${service.price}</td>
+                            <td className="employees-table__body__data">{service.content.slice(0, 12)}...</td>
                             {/* <td className="employees-table__body__data"><button onClick={() => handleEditingUpdate(employee.employee_id)} className="employee-action">edit</button><button onClick={() => handleDelete(employee.employee_id)} className="employee-action">delete</button></td> */}
                         </tr>
                     ))}

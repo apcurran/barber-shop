@@ -17,9 +17,10 @@ function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, s
     }
 
     function handleEditingUpdate(id) {
-        // setIsEditing(true);
-        // setSelectedServiceId(id);
-        // updateCurrentService(id);
+        console.log(`Editing service ${id}...`);
+        setIsEditing(true);
+        setSelectedServiceId(id);
+        updateCurrentService(id);
     }
 
     return (

@@ -57,7 +57,6 @@ export function addEmployee(employeeData) {
             const data = await response.json();
 
             const oldEmployeesArr = getState().employees;
-            // Update with new employee data obj first.
             const updatedEmployeesArr = [...oldEmployeesArr, employeeData];
 
             dispatch(addEmployeeSuccess(updatedEmployeesArr));

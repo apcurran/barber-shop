@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 
 import "./EmployeesTable.css";
 import { removeEmployee } from "../../../../store/actions/admin-employees-actions";
@@ -39,12 +40,17 @@ function EmployeesTable({ newCurrentEmployee, employeesArr, setSelectedEmployeeI
                 </thead>
                 <tbody className="employees-table__body">
                     {employeesArr.map(employee => (
-                        <tr key={employee.employee_id}>
+                        <motion.tr
+                            layout
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            key={employee.employee_id}
+                        >
                             <td className="employees-table__body__data">{employee.first_name} {employee.last_name}</td>
                             <td className="employees-table__body__data">{employee.email}</td>
                             <td className="employees-table__body__data skill-data">{employee.skill_level}</td>
                             <td className="employees-table__body__data"><button onClick={() => handleEditingUpdate(employee.employee_id)} className="employee-action">edit</button><button onClick={() => handleDelete(employee.employee_id)} className="employee-action">delete</button></td>
-                        </tr>
+                        </motion.tr>
                     ))}
                 </tbody>
             </table>

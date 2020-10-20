@@ -14,7 +14,7 @@ CREATE TABLE app_user(
     email VARCHAR(100) NOT NULL,
     phone_number VARCHAR NOT NULL,
     password VARCHAR NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE appointment(
@@ -22,7 +22,7 @@ CREATE TABLE appointment(
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     phone_number VARCHAR NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
     FOREIGN KEY(user_id) REFERENCES app_user(user_id) ON DELETE CASCADE
 );

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import "./AppointmentsList.css";
+import formatDate from "../../../../utilities/format-date";
 
 function AppointmentsList({ appointmentsArr }) {
     return (

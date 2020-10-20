@@ -7,7 +7,6 @@ function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, s
     const dispatch = useDispatch();
 
     function handleAddService() {
-        console.log("Adding service...");
         setIsEditing(true);
         newCurrentService();
     }
@@ -17,7 +16,6 @@ function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, s
     }
 
     function handleEditingUpdate(id) {
-        console.log(`Editing service ${id}...`);
         setIsEditing(true);
         setSelectedServiceId(id);
         updateCurrentService(id);

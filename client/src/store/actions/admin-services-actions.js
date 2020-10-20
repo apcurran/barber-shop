@@ -56,7 +56,6 @@ export function addService(newServiceData) {
             // Add service to db.
             const response = await fetch(API_SERVICES_URL, options);
             const data = await response.json();
-            console.log(data);
             // Add service to Redux store.
             const oldServicesArr = getState().services;
             const updatedServicesArr = [...oldServicesArr, newServiceData];

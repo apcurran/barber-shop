@@ -6,17 +6,16 @@ import AppointmentsList from "./appointments-list/AppointmentsList";
 
 function Appointments() {
     const dispatch = useDispatch();
-    
-    // dispatch(getAppointments());
+    const appointmentsArr = useSelector(state => state.appointments);
 
     useEffect(() => {
         dispatch(getAppointments());
     }, [dispatch]);
 
     return (
-        <div>
-            <h1>Appointments</h1>
-            <AppointmentsList />
+        <div className="admin-appointments">
+            <h1 className="admin-appointments__title">Appointments</h1>
+            <AppointmentsList appointmentsArr={appointmentsArr} />
         </div>
     );
 }

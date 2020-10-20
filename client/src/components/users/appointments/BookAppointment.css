@@ -1,0 +1,12 @@
+.book-appointment {
+    max-width: var(--wrapper-max-width);
+    width: var(--wrapper-width);
+    margin: 3rem auto;
+}
+
+.book-appointment__title {
+    margin-bottom: 5rem;
+    padding-bottom: .5rem;
+    font-size: var(--page-title-fz);
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+}

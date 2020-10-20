@@ -11,7 +11,7 @@
 .shop-description__title {
     line-height: 1;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: var(--page-title-fz);
 }
 
 .shop-description__txt {

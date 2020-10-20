@@ -1,10 +1,12 @@
 import React from 'react';
 
+import "./BookAppointment.css";
+
 function BookAppointment() {
     return (
-        <div>
-            Book Appointment
-        </div>
+        <main className="book-appointment">
+            <h1 className="book-appointment__title">Book Appointment</h1>
+        </main>
     );
 }
 

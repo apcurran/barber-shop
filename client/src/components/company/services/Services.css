@@ -7,6 +7,6 @@
 .services-page__title {
     margin-bottom: 5rem;
     padding-bottom: .5rem;
-    font-size: 1.75rem;
+    font-size: var(--page-title-fz);
     border-bottom: 1px solid hsl(0, 0%, 90%);
 }

@@ -10,6 +10,7 @@ import Services from "./components/company/services/Services";
 import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
+import BookAppointment from "./components/users/appointments/BookAppointment";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/users/login" component={Login} />
           <Route path="/users/signup" component={SignUp} />
+          <Route path="/users/appointments" component={BookAppointment} />
         </Switch>
         <Footer />
       </div>

@@ -87,7 +87,22 @@ async function postUserLogin(req, res, next) {
 
 async function postUserAppointment(req, res, next) {
     try {
-        console.log(req.user);
+        const userId = req.user._id;
+        const currentUser = await db.query(SQL`
+            SELECT app_user.first_name, app_user.last_name, app_user.phone_number
+            FROM app_user
+            WHERE app_user.user_id = ${userId}
+        `);
+        const currentUserData = currentUser.rows[0];
+
+        // Add new appointment for user into db.
+        const bookedAppointment = await db.query(SQL`
+            INSERT INTO appointment (first_name, last_name, phone_number, user_id)
+            VALUES (${currentUserData.first_name}, ${currentUserData.last_name}, ${currentUserData.phone_number}, ${userId})
+        `);
+        console.log(bookedAppointment);
+
+        res.status(201).json({ message: "New appointment created." });
 
     } catch (err) {
         next(err);

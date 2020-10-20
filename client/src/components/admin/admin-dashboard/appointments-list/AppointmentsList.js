@@ -1,9 +1,14 @@
 import React from 'react';
 
 import "./AppointmentsList.css";
-import formatDate from "../../../../utilities/format-date";
+import { format, parseISO } from "date-fns";
 
 function AppointmentsList({ appointmentsArr }) {
+    
+    function formatDate(currAppointment) {
+        return format(parseISO(currAppointment.created_at), "hh:mm aa MMMM dd, yyyy");
+    }
+
     return (
         <main className="appointments-list">
             {appointmentsArr.map(appointment => (
@@ -22,7 +27,7 @@ function AppointmentsList({ appointmentsArr }) {
                         </div>
                         <div className="appointments-list__info-container">
                             <h3 className="appointments-list__info__title">Check-In Time</h3>
-                            <p className="appointments-list__info__value">{appointment.created_at}</p>
+                            <p className="appointments-list__info__value">{formatDate(appointment)}</p>
                         </div>
                     </div>
                     <button className="appointments-list__delete-btn">Done</button>

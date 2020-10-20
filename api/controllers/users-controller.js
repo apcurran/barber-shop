@@ -191,10 +191,25 @@ async function postAdminLogin(req, res, next) {
     }
 }
 
+async function getAdminAppointments(req, res, next) {
+    try {
+        const { rows } = await db.query(SQL`
+            SELECT *
+            FROM appointment
+        `);
+
+        res.status(200).json(rows);
+
+    } catch (err) {
+        next(err);
+    }
+}
+
 module.exports = {
     postUserLogin,
     postUserSignup,
     postUserAppointment,
     postAdminSignup,
     postAdminLogin,
+    getAdminAppointments
 };

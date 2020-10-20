@@ -19,6 +19,7 @@ router.post("/admin/signup", usersController.postAdminSignup);
 
 router.post("/admin/login", usersController.postAdminLogin);
 
+router.get("/admin/appointments", usersController.getAdminAppointments);
 
 
 module.exports = router;

@@ -14,6 +14,13 @@ function addServiceSuccess(updatedServicesArr) {
     };
 }
 
+function patchServiceSuccess(updatedServicesArr) {
+    return {
+        type: "PATCH_SERVICE_SUCCESS",
+        payload: updatedServicesArr
+    };
+}
+
 function removeServiceSuccess(updatedServicesArr) {
     return {
         type: "REMOVE_SERVICE_SUCCESS",
@@ -55,6 +62,41 @@ export function addService(newServiceData) {
             const updatedServicesArr = [...oldServicesArr, newServiceData];
 
             dispatch(addServiceSuccess(updatedServicesArr));
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
+}
+
+export function patchService(serviceData) {
+    return async (dispatch, getState) => {
+        try {
+            const API_PATCH_URL = `${API_SERVICES_URL}/${serviceData.service_id}`;
+            const options = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    // TODO auth JWT token
+                },
+                body: JSON.stringify(serviceData)
+            };
+
+            // Update service in db.
+            const response = await fetch(API_PATCH_URL, options);
+            const data = await response.json();
+            console.log(data);
+            // Update service in store state.
+            const oldServicesArr = getState().services;
+            const updatedServicesArr = oldServicesArr.map(service => {
+                if (service.service_id === serviceData.service_id) {
+                    return serviceData; // transform obj to updated obj
+                } else {
+                    return service;
+                }
+            });
+
+            dispatch(patchServiceSuccess(updatedServicesArr));
 
         } catch (err) {
             console.error(err);

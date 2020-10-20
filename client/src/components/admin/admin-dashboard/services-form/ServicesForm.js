@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 
-import { addService } from "../../../../store/actions/admin-services-actions";
+import { addService, patchService } from "../../../../store/actions/admin-services-actions";
 
 function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
     const [updatedTitle, setUpdatedTitle] = useState(currentServiceData.title);
@@ -28,7 +28,7 @@ function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
 
     const dispatch = useDispatch();
 
-    function handleEmployeeSubmit(event) {
+    function handleServiceFormSubmit(event) {
         event.preventDefault();
 
         if (isNewService) {
@@ -56,12 +56,12 @@ function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
             img_url: updatedImgUrl
         };
 
-        // dispatch(patchService(serviceData));
+        dispatch(patchService(serviceData));
         setIsEditing(false); // Close modal after submitting data.
     }
 
     return (
-        <form onSubmit={handleEmployeeSubmit} className="employee-form">
+        <form onSubmit={handleServiceFormSubmit} className="employee-form">
             <h2 className="modal-form__title">Service</h2>
             <div className="employee-form__group">
                 <label htmlFor="title" className="employee-form__label">Title</label>

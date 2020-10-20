@@ -21,6 +21,9 @@ function SignUp({ history }) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                phone_number: phoneNumber,
                 email: email,
                 password: password,
                 repeat_password: repeatPassword

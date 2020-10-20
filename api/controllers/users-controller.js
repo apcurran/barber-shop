@@ -87,7 +87,7 @@ async function postUserLogin(req, res, next) {
 
 async function postUserAppointment(req, res, next) {
     try {
-        
+        console.log(req.user);
 
     } catch (err) {
         next(err);

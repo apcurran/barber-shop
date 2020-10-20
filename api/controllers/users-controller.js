@@ -18,7 +18,7 @@ async function postUserSignup(req, res, next) {
 
     try {
         // Data valid, now reject creating an existing user.
-        const { email, password } = req.body;
+        const { first_name, last_name, email, phone_number, password } = req.body;
         const emailExists = await db.query(SQL`
             SELECT app_user.user_id
             FROM app_user
@@ -34,9 +34,9 @@ async function postUserSignup(req, res, next) {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         // Add new user to db.
-        const user = await db.query(SQL`
-            INSERT INTO app_user (email, password)
-            VALUES (${email}, ${hashedPassword})
+        await db.query(SQL`
+            INSERT INTO app_user (first_name, last_name, email, phone_number, password)
+            VALUES (${first_name}, ${last_name}, ${email}, ${phone_number}, ${hashedPassword})
         `);
 
         res.status(201).json({ message: "New user created." });

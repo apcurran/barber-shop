@@ -4,6 +4,15 @@ const Joi = require("joi");
 
 function signupValidation(data) {
     const schema = Joi.object({
+        first_name: Joi
+                .string()
+                .required(),
+        last_name: Joi
+                .string()
+                .required(),
+        phone_number: Joi
+                .string()
+                .required(),
         email: Joi
                 .string()
                 .min(4)

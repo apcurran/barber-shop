@@ -85,6 +85,15 @@ async function postUserLogin(req, res, next) {
     }
 }
 
+async function postUserAppointment(req, res, next) {
+    try {
+        
+
+    } catch (err) {
+        next(err);
+    }
+}
+
 // ADMIN
 async function postAdminSignup(req, res, next) {
     try {
@@ -170,6 +179,7 @@ async function postAdminLogin(req, res, next) {
 module.exports = {
     postUserLogin,
     postUserSignup,
+    postUserAppointment,
     postAdminSignup,
     postAdminLogin,
 };

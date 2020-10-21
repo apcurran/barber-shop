@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
 import "./AppointmentsList.css";
 import { format, parseISO } from "date-fns";
@@ -12,7 +13,12 @@ function AppointmentsList({ appointmentsArr }) {
     return (
         <main className="appointments-list">
             {appointmentsArr.map(appointment => (
-                <article className="appointments-list__appointment">
+                <motion.article
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="appointments-list__appointment"
+                >
                     <div className="appointments-list__icon-container">
                         <svg className="info-circle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
@@ -31,7 +37,7 @@ function AppointmentsList({ appointmentsArr }) {
                         </div>
                     </div>
                     <button className="appointments-list__delete-btn">Done</button>
-                </article>
+                </motion.article>
             ))}
         </main>
     );

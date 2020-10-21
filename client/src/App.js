@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./components/layout/header/Header";
@@ -10,9 +11,11 @@ import Services from "./components/company/services/Services";
 import AdminDashboard from "./components/admin/admin-dashboard/AdminDashboard";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-import BookAppointment from "./components/users/appointments/BookAppointment";
+import BookAppointmentModal from "./components/users/appointments/BookAppointmentModal";
 
 function App() {
+  const isAppointmentModalActive = useSelector(state => state.isAppointmentModalActive);
+
   return (
     <Router>
       <div className="app">
@@ -23,8 +26,8 @@ function App() {
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/users/login" component={Login} />
           <Route path="/users/signup" component={SignUp} />
-          <Route path="/users/appointments" component={BookAppointment} />
         </Switch>
+        {isAppointmentModalActive ? <BookAppointmentModal /> : null}
         <Footer />
       </div>
     </Router>

@@ -22,10 +22,10 @@ function SignedInLinks() {
                 <NavLink to="/services" className="nav__link">Services</NavLink>
             </li>
             <li className="nav__item">
-                <button onClick={handleActivateAppointmentModal} className="nav__link book-appointment-btn">Book Appointment</button>
+                <button onClick={handleActivateAppointmentModal} className="nav__link btn-link-styling">Book Appointment</button>
             </li>
             <li className="nav__item">
-                <a onClick={handleLogOut} href="#" className="nav__link">Log Out</a>
+                <button onClick={handleLogOut} className="nav__link btn-link-styling">Log Out</button>
             </li>
         </ul>
     );

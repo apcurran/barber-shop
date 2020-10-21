@@ -15,9 +15,9 @@ function BookAppointmentModal() {
 
     return (
         <div onClick={handleBackdropClick} className="backdrop">
-            <main className="book-appointment-modal">
+            <section className="book-appointment-modal">
                 <h1 className="book-appointment__title">Book Appointment</h1>
-            </main>
+            </section>
         </div>
     );
 }

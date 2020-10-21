@@ -1,13 +1,20 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-
-import "./AppointmentsList.css";
 import { format, parseISO } from "date-fns";
 
+import "./AppointmentsList.css";
+import { removeAppointment } from "../../../../store/actions/admin-appointments-actions";
+
 function AppointmentsList({ appointmentsArr }) {
+    const dispatch = useDispatch();
     
     function formatDate(currAppointment) {
         return format(parseISO(currAppointment.created_at), "hh:mm aa MMMM dd, yyyy");
+    }
+
+    function handleAppointmentDelete(id) {
+        dispatch(removeAppointment(id));
     }
 
     return (
@@ -36,7 +43,7 @@ function AppointmentsList({ appointmentsArr }) {
                             <p className="appointments-list__card__info__value">{formatDate(appointment)}</p>
                         </div>
                     </div>
-                    <button className="appointments-list__card__delete-btn">Done</button>
+                    <button onClick={() => handleAppointmentDelete(appointment.appointment_id)} className="appointments-list__card__delete-btn">Done</button>
                 </motion.article>
             ))}
         </main>

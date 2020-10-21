@@ -21,5 +21,6 @@ router.post("/admin/login", usersController.postAdminLogin);
 
 router.get("/admin/appointments", usersController.getAdminAppointments);
 
+router.delete("/admin/appointments/:id", usersController.deleteAppointment);
 
 module.exports = router;

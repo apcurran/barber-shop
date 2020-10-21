@@ -205,11 +205,28 @@ async function getAdminAppointments(req, res, next) {
     }
 }
 
+async function deleteAppointment(req, res, next) {
+    try {
+       const { id } = req.params;
+       
+       await db.query(SQL`
+            DELETE FROM appointment
+            WHERE appointment_id = ${id}
+       `);
+
+       res.status(200).json({ message: `Appointment with id, ${id} deleted.` });
+
+    } catch (err) {
+        next(err);
+    }
+}
+
 module.exports = {
     postUserLogin,
     postUserSignup,
     postUserAppointment,
     postAdminSignup,
     postAdminLogin,
-    getAdminAppointments
+    getAdminAppointments,
+    deleteAppointment
 };

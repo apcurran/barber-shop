@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./Auth.css";
 import { logInUser } from "../../store/actions/auth-actions";
 
-function Login() {
+function Login({ history }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,6 +14,8 @@ function Login() {
         event.preventDefault();
 
         dispatch(logInUser(email, password));
+
+        history.push("/"); // Send to about home
     }
 
     return (

@@ -8,9 +8,6 @@ function SignedInLinks() {
                 <NavLink to="/services" className="nav__link">Services</NavLink>
             </li>
             <li className="nav__item">
-                <NavLink to="/users/appointments" className="nav__link">Book Appointment</NavLink>
-            </li>
-            <li className="nav__item">
                 <NavLink to="/users/login" className="nav__link">Log In</NavLink>
             </li>
             <li className="nav__item">

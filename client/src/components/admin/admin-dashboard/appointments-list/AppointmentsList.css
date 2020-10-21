@@ -2,7 +2,7 @@
     margin-bottom: 1rem;
 }
 
-.appointments-list__appointment {
+.appointments-list__card {
     width: 70%;
     padding: 2rem 6rem;
     background-color: #edf2f7;
@@ -10,13 +10,13 @@
     color: hsl(218, 23%, 20%);
 }
 
-.appointments-list__info-group-wrapper {
+.appointments-list__card__info-group-wrapper {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
 }
 
-.appointments-list__icon-container {
+.appointments-list__card__icon-container {
     margin-bottom: .5rem;
 }
 
@@ -26,7 +26,7 @@
     stroke: #718096;
 }
 
-.appointments-list__delete-btn {
+.appointments-list__card__delete-btn {
     padding: .7rem 3.5rem;
     background-color: hsl(218, 23%, 20%);
     color: #fff;

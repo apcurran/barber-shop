@@ -5,6 +5,7 @@
 .appointments-list__card {
     width: 70%;
     padding: 2rem 6rem;
+    margin-bottom: 2rem;
     background-color: #edf2f7;
     box-shadow: 0 13px 15px -13px rgba(0, 0, 0, .2);
     color: hsl(218, 23%, 20%);

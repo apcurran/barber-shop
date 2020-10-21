@@ -1,4 +1,24 @@
 .book-appointment-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 6rem;
     background-color: #fff;
+}
+
+.book-appointment-modal__title {
+    margin-bottom: 1.5rem;
+}
+
+.book-appointment-modal__confirm-btn {
+    padding: .75rem 2rem;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    cursor: pointer;
 }

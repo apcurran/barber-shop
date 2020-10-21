@@ -4,7 +4,7 @@
 }
 
 .hero__img {
-    filter: brightness(.65);
+    filter: brightness(.6);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -20,4 +20,26 @@
 
 .hero__title {
     font-size: 2rem;
+}
+
+.hero__subtitle {
+    margin-bottom: 1.25rem;
+}
+
+.hero__log-in-info {
+    margin-bottom: .5rem;
+}
+
+.hero__log-in-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: .75rem 2rem;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    cursor: pointer;
 }

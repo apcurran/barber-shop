@@ -26,11 +26,11 @@
     margin-bottom: 1.25rem;
 }
 
-.hero__log-in-info {
+.hero__cta-info {
     margin-bottom: .5rem;
 }
 
-.hero__log-in-link {
+.hero__cta-link {
     display: inline-block;
     text-decoration: none;
     padding: .75rem 2rem;

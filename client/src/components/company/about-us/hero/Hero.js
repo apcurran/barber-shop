@@ -19,8 +19,8 @@ function Hero() {
                     null :
                     (
                         <>
-                            <p className="hero__log-in-info">Log In to Book Your Appointment Today!</p>
-                            <Link to="/users/login" className="hero__log-in-link">Log In</Link>
+                            <p className="hero__cta-info">Log In to Book Your Appointment Today!</p>
+                            <Link to="/users/login" className="hero__cta-link">Log In</Link>
                         </>
                     )
                 }

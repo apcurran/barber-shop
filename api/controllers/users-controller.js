@@ -201,6 +201,7 @@ async function getAdminAppointments(req, res, next) {
         const { rows } = await db.query(SQL`
             SELECT *
             FROM appointment
+            ORDER BY appointment.created_at DESC
         `);
 
         res.status(200).json(rows);

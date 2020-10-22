@@ -43,6 +43,7 @@ async function getEmployees(req, res, next) {
         const { rows } = await db.query(SQL`
             SELECT *
             FROM employee
+            ORDER BY employee.created_at ASC
         `);
 
         res.status(200).json(rows);

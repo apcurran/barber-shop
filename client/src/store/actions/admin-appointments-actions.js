@@ -37,7 +37,7 @@ export function getAppointments() {
 export function addNewAppointment(appointmentData) {
     return (dispatch, getState) => {
         const oldAppointmentsArr = getState().appointments;
-        const updatedAppointmentsArr = [appointmentData, ...oldAppointmentsArr];
+        const updatedAppointmentsArr = [...oldAppointmentsArr, appointmentData];
 
         dispatch(addNewAppointmentSuccess(updatedAppointmentsArr));
     };

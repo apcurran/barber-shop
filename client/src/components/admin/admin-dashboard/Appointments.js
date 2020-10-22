@@ -11,8 +11,12 @@ function Appointments() {
 
     useEffect(() => {
         dispatch(getAppointments());
-        openSocket("http://localhost:5000");
+        openSocket("/");
     }, [dispatch]);
+
+    function addAppointment(appointmentData) {
+        
+    }
 
     return (
         <div className="admin-appointments">

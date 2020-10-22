@@ -15,7 +15,6 @@ function Appointments() {
         const socket = openSocket("/");
 
         socket.on("appointment added", data => {
-            console.log(data);
             dispatch(addNewAppointment(data.appointment));
         });
 

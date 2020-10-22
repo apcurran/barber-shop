@@ -38,7 +38,8 @@ export function patchAboutDescription(updatedDescTxt) {
             const options = {
                 method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify({
                     content: updatedDescTxt

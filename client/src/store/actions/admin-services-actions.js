@@ -48,7 +48,8 @@ export function addService(newServiceData) {
             const options = {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify(newServiceData)
             };
@@ -76,7 +77,7 @@ export function patchService(serviceData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    // TODO auth JWT token
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify(serviceData)
             };
@@ -110,7 +111,7 @@ export function removeService(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    // TODO add auth with JWT token
+                    "Authorization": `Bearer ${localStorage.token}`
                 }
             };
 

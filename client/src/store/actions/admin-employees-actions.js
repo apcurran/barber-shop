@@ -48,7 +48,8 @@ export function addEmployee(employeeData) {
             const options = {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify(employeeData)
             };
@@ -75,7 +76,7 @@ export function patchEmployee(employeeData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    // TODO auth with JWT token
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify(employeeData)
             };
@@ -109,7 +110,7 @@ export function removeEmployee(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    // TODO authorization with JWT token
+                    "Authorization": `Bearer ${localStorage.token}`
                 }
             };
 

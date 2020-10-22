@@ -50,7 +50,7 @@ export function removeAppointment(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    // TODO auth JWT token
+                    "Authorization": `Bearer ${localStorage.token}`
                 }
             };
 

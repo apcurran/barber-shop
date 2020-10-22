@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import openSocket from "socket.io-client";
 
 import { getAppointments } from "../../../store/actions/admin-appointments-actions";
 import AppointmentsList from "./appointments-list/AppointmentsList";
@@ -10,6 +11,7 @@ function Appointments() {
 
     useEffect(() => {
         dispatch(getAppointments());
+        openSocket("http://localhost:5000");
     }, [dispatch]);
 
     return (

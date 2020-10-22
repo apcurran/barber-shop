@@ -37,4 +37,10 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode, and listening on PORT ${PORT}.`));
+const server = app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode, and listening on PORT ${PORT}.`));
+// WebSockets
+const io = require("socket.io")(server);
+
+io.on("connection", (clientConnection) => {
+    console.log("Client connected");
+});

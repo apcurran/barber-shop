@@ -58,6 +58,7 @@ async function getServices(req, res, next) {
         const { rows } = await db.query(SQL`
             SELECT *
             FROM service
+            ORDER BY service.created_at ASC
         `);
 
         res.status(200).json(rows);

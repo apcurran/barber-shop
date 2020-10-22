@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import openSocket from "socket.io-client";
 
-import { getAppointments } from "../../../store/actions/admin-appointments-actions";
+import { getAppointments, addNewAppointment } from "../../../store/actions/admin-appointments-actions";
 import AppointmentsList from "./appointments-list/AppointmentsList";
 
 function Appointments() {
@@ -11,12 +11,15 @@ function Appointments() {
 
     useEffect(() => {
         dispatch(getAppointments());
-        openSocket("/");
-    }, [dispatch]);
 
-    function addAppointment(appointmentData) {
-        
-    }
+        const socket = openSocket("/");
+
+        socket.on("appointment added", data => {
+            console.log(data);
+            dispatch(addNewAppointment(data.appointment));
+        });
+
+    }, [dispatch]);
 
     return (
         <div className="admin-appointments">

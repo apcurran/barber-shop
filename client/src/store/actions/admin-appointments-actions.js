@@ -7,6 +7,13 @@ function getAppointmentsSuccess(appointmentsArr) {
     };
 }
 
+function addNewAppointmentSuccess(updatedAppointmentsArr) {
+    return {
+        type: "ADD_NEW_APPOINTMENT_SUCCESS",
+        payload: updatedAppointmentsArr
+    };
+}
+
 function removeAppointmentSuccess(updatedAppointmentsArr) {
     return {
         type: "REMOVE_APPOINTMENT_SUCCESS",
@@ -24,6 +31,15 @@ export function getAppointments() {
         } catch (err) {
             console.error(err);
         }
+    };
+}
+
+export function addNewAppointment(appointmentData) {
+    return (dispatch, getState) => {
+        const oldAppointmentsArr = getState().appointments;
+        const updatedAppointmentsArr = [appointmentData, ...oldAppointmentsArr];
+
+        dispatch(addNewAppointmentSuccess(updatedAppointmentsArr));
     };
 }
 

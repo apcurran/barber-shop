@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const { signupValidation, loginValidation, adminSignupValidation } = require("../validation/users-validation");
+const io = require("../../socket");
 
 // POST controllers
 async function postUserSignup(req, res, next) {
@@ -99,8 +100,12 @@ async function postUserAppointment(req, res, next) {
         const bookedAppointment = await db.query(SQL`
             INSERT INTO appointment (first_name, last_name, phone_number, user_id)
             VALUES (${currentUserData.first_name}, ${currentUserData.last_name}, ${currentUserData.phone_number}, ${userId})
+            RETURNING *
         `);
-        console.log(bookedAppointment);
+        const savedAppointmentData = bookedAppointment.rows[0];
+
+        // Inform all clients Socket.io emit
+        io.getIo().emit("appointment added", { appointment: savedAppointmentData });
 
         res.status(201).json({ message: "New appointment created." });
 

@@ -10,6 +10,7 @@
   --wrapper-width: 92.5%;
   --grey: hsl(0, 0%, 45%);
   --page-title-fz: 1.75rem;
+  --admin-primary-btn-clr: hsl(218, 23%, 20%);
 }
 
 p {

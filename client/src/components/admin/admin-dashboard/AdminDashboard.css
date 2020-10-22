@@ -64,7 +64,7 @@
 .admin-dashboard__form__submit-btn {
     padding: .75rem 1.75rem;
     border: none;
-    background-color: #000;
+    background-color: var(--admin-primary-btn-clr);
     color: #fff;
     font-size: 1rem;
     text-transform: uppercase;

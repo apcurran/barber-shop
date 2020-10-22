@@ -12,6 +12,38 @@
 }
 
 .employee-modal {
-    padding: 6rem;
+    padding: 2.5rem 3.5rem;
     background-color: #fff;
+    width: 92.5%;
+    max-width: 30rem;
+}
+
+.employee-form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .75rem;
+}
+
+.employee-form__group:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.employee-form__label {
+    margin-bottom: .25rem;
+}
+
+.employee-form__input {
+    padding: .25rem .5rem;
+    font-size: 1rem;
+}
+
+.employee-form__submit {
+    padding: .75rem 1.75rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    border: none;
+    cursor: pointer;
+    background-color: var(--admin-primary-btn-clr);
+    color: #fff;
 }

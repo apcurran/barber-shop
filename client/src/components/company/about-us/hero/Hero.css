@@ -44,3 +44,10 @@
     letter-spacing: .08em;
     cursor: pointer;
 }
+
+@media screen and (max-width: 29em) {
+    .hero__title-container {
+        top: 25%;
+        left: 10%;
+    }
+}

@@ -36,3 +36,9 @@
 .hours-table__row__value {
     text-align: right;
 }
+
+@media screen and (max-width: 29em) {
+    .shop-description__hours-table-container {
+        padding: 1.75rem 2rem;
+    }
+}

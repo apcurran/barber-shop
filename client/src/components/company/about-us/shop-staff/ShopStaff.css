@@ -13,7 +13,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 35rem;
+    max-width: 35rem;
+    width: 100%;
     margin: 0 auto;
 }
 

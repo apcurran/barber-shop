@@ -19,8 +19,8 @@ router.post("/admin/signup", usersController.postAdminSignup);
 
 router.post("/admin/login", usersController.postAdminLogin);
 
-router.get("/admin/appointments", usersController.getAdminAppointments);
+router.get("/admin/appointments", verifyAuth, usersController.getAdminAppointments);
 
-router.delete("/admin/appointments/:id", usersController.deleteAppointment);
+router.delete("/admin/appointments/:id", verifyAuth, usersController.deleteAppointment);
 
 module.exports = router;

@@ -5,15 +5,16 @@
 }
 
 .auth-inner-wrapper {
-    padding: 2rem 3rem;
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
     background-color: rgba(0, 0, 0, .65);
     color: #fff;
-    width: 30rem;
-    max-width: 92%;
+    max-width: 30rem;
+    width: 92.5%;
 }
 
 .auth-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.75rem;
 }
 
 .signup-container {
@@ -28,6 +29,10 @@
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 1.5rem;
+}
+
+.auth-form__group:last-of-type {
+    margin-bottom: 2.25rem;
 }
 
 .auth-form__group__label {

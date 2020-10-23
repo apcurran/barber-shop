@@ -28,3 +28,9 @@
     font-weight: 700;
     color: var(--grey);
 }
+
+@media screen and (max-width: 36.35em) {
+    .service-container {
+      grid-template-columns: 1fr;
+    }
+}

@@ -35,3 +35,13 @@
     font-size: 1rem;
     cursor: pointer;
 }
+
+@media screen and (max-width: 36.35em) {
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav__list {
+        margin-top: 1rem;
+    }
+}

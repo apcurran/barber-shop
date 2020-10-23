@@ -24,7 +24,13 @@ function removeAppointmentSuccess(updatedAppointmentsArr) {
 export function getAppointments() {
     return async (dispatch) => {
         try {
-            const response = await fetch(API_APPOINTMENTS_URL);
+            const options = {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.token}`
+                }
+            };
+            const response = await fetch(API_APPOINTMENTS_URL, options);
             const appointments = await response.json();
 
             dispatch(getAppointmentsSuccess(appointments));

@@ -69,6 +69,7 @@ function EmployeesForm({ isNewEmployee, currentEmployeeData, setIsEditing }) {
 
     return (
         <form onSubmit={handleEmployeeSubmit} className="employee-form">
+            <h2 className="modal-form__title">Employee</h2>
             <div className="employee-form__group">
                 <label htmlFor="first-name" className="employee-form__label">First Name</label>
                 <input type="text" className="employee-form__input" id="first-name" value={updatedFirstName} onChange={memSetUpdatedFirstname} />

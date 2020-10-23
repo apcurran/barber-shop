@@ -12,16 +12,20 @@
 }
 
 .employee-modal {
-    padding: 2.5rem 3.5rem;
+    padding: 2.5rem 3rem;
     background-color: #fff;
     width: 92.5%;
     max-width: 30rem;
 }
 
+.modal-form__title {
+    margin-bottom: 1.5rem;
+}
+
 .employee-form__group {
     display: flex;
     flex-direction: column;
-    margin-bottom: .75rem;
+    margin-bottom: .9rem;
 }
 
 .employee-form__group:last-of-type {

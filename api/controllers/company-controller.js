@@ -70,6 +70,10 @@ async function getServices(req, res, next) {
 
 // POST controllers
 async function postDescription(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { content } = req.body;
         
@@ -86,6 +90,10 @@ async function postDescription(req, res, next) {
 }
 
 async function postEmployee(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { first_name, last_name, email, skill_level, avatar_url } = req.body;
         
@@ -102,7 +110,11 @@ async function postEmployee(req, res, next) {
 }
 
 async function postService(req, res, next) {
-    try {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
+    try {    
         const { title, content, price, img_url } = req.body;
 
         await db.query(SQL`
@@ -119,6 +131,10 @@ async function postService(req, res, next) {
 
 // PATCH controllers
 async function patchDescription(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { content } = req.body;
 
@@ -135,6 +151,10 @@ async function patchDescription(req, res, next) {
 }
 
 async function patchEmployee(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { id } = req.params;
         const { first_name, last_name, email, skill_level, avatar_url } = req.body;
@@ -158,6 +178,10 @@ async function patchEmployee(req, res, next) {
 }
 
 async function patchService(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { id } = req.params;
         const { title, content, price } = req.body;
@@ -180,6 +204,10 @@ async function patchService(req, res, next) {
 
 // DELETE controllers
 async function deleteEmployee(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { id } = req.params;
         
@@ -196,6 +224,10 @@ async function deleteEmployee(req, res, next) {
 }
 
 async function deleteService(req, res, next) {
+    if (!req.admin) {
+        return res.status(403).json({ error: "User is not an authorized admin." });
+    }
+
     try {
         const { id } = req.params;
 

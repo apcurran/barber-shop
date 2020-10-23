@@ -39,7 +39,8 @@ export function patchAboutDescription(updatedDescTxt) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 },
                 body: JSON.stringify({
                     content: updatedDescTxt

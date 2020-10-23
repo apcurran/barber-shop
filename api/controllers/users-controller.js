@@ -168,7 +168,6 @@ async function postAdminLogin(req, res, next) {
     try {
         // Validation passed, now check for an existing email.
         const { email, password } = req.body;
-        console.log(email, password);
         const adminResult = await db.query(SQL`
             SELECT app_admin.admin_id, app_admin.password
             FROM app_admin
@@ -199,6 +198,10 @@ async function postAdminLogin(req, res, next) {
 
 async function getAdminAppointments(req, res, next) {
     try {
+        if (!req.admin) {
+            return res.status(403).json({ error: "User is not an authorized admin." });
+        }
+
         const { rows } = await db.query(SQL`
             SELECT *
             FROM appointment
@@ -214,14 +217,18 @@ async function getAdminAppointments(req, res, next) {
 
 async function deleteAppointment(req, res, next) {
     try {
-       const { id } = req.params;
-       
-       await db.query(SQL`
-            DELETE FROM appointment
-            WHERE appointment_id = ${id}
-       `);
+        if (!req.admin) {
+            return res.status(403).json({ error: "User is not an authorized admin." });
+        }
 
-       res.status(200).json({ message: `Appointment with id, ${id} deleted.` });
+        const { id } = req.params;
+        
+        await db.query(SQL`
+                DELETE FROM appointment
+                WHERE appointment_id = ${id}
+        `);
+
+        res.status(200).json({ message: `Appointment with id, ${id} deleted.` });
 
     } catch (err) {
         next(err);

@@ -14,20 +14,20 @@ router.get("/employees", companyController.getEmployees);
 
 router.get("/services", companyController.getServices);
 
-router.post("/description", companyController.postDescription);
+router.post("/description", verifyAuth, companyController.postDescription);
 
-router.post("/employees", companyController.postEmployee);
+router.post("/employees", verifyAuth, companyController.postEmployee);
 
-router.post("/services", companyController.postService);
+router.post("/services", verifyAuth, companyController.postService);
 
-router.patch("/description", companyController.patchDescription);
+router.patch("/description", verifyAuth, companyController.patchDescription);
 
-router.patch("/employees/:id", companyController.patchEmployee);
+router.patch("/employees/:id", verifyAuth, companyController.patchEmployee);
 
-router.patch("/services/:id", companyController.patchService);
+router.patch("/services/:id", verifyAuth, companyController.patchService);
 
-router.delete("/employees/:id", companyController.deleteEmployee);
+router.delete("/employees/:id", verifyAuth, companyController.deleteEmployee);
 
-router.delete("/services/:id", companyController.deleteService);
+router.delete("/services/:id", verifyAuth, companyController.deleteService);
 
 module.exports = router;

@@ -33,4 +33,8 @@
     .service-container {
       grid-template-columns: 1fr;
     }
+
+    .service-container:nth-of-type(even) figure {
+        order: -1;
+    }
 }

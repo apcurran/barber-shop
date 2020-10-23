@@ -60,6 +60,10 @@ export function logInUser(email, password) {
 
 export function logOutUser() {
     return (dispatch) => {
+        if (localStorage.isAdmin) {
+            localStorage.removeItem("isAdmin");
+        }
+        
         localStorage.removeItem("token");
 
         dispatch(logOutUserSuccess());
@@ -90,9 +94,13 @@ export function logInAdmin(email, password) {
                 return;
             }
 
+            console.log(data);
+
             const token = data.accessToken;
+            const { isAdmin } = data;
             
             localStorage.setItem("token", token);
+            localStorage.setItem("isAdmin", isAdmin);
 
             dispatch(logInUserSuccess());
 

@@ -168,6 +168,7 @@ async function postAdminLogin(req, res, next) {
     try {
         // Validation passed, now check for an existing email.
         const { email, password } = req.body;
+        console.log(email, password);
         const adminResult = await db.query(SQL`
             SELECT app_admin.admin_id, app_admin.password
             FROM app_admin
@@ -189,7 +190,7 @@ async function postAdminLogin(req, res, next) {
         // Create and send token.
         const token = jwt.sign({ _id: admin.admin_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
 
-        res.status(200).json({ accessToken: token });
+        res.status(200).json({ accessToken: token, isAdmin: true });
 
     } catch (err) {
         next(err);

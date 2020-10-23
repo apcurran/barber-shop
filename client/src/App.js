@@ -25,6 +25,7 @@ function App() {
           <Route path="/services" component={Services} />
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/users/login" component={Login} />
+          <Route path="/admin/login" render={() => <Login adminTitle="Admin" />} /> {/* Send prop down to Login comp */}
           <Route path="/users/signup" component={SignUp} />
         </Switch>
         {isAppointmentModalActive ? <BookAppointmentModal /> : null}

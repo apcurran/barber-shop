@@ -22,3 +22,9 @@
     width: 100%;
     height: auto;
 }
+
+@media screen and (max-width: 53em) {
+    .shop-description {
+        grid-template-columns: 1fr;
+    }
+}

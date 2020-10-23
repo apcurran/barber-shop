@@ -1,6 +1,7 @@
 .hero {
     position: relative;
     height: 70vh;
+    width: 100%;
 }
 
 .hero__img {

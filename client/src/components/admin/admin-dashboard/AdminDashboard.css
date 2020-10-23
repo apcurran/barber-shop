@@ -71,3 +71,9 @@
     letter-spacing: .08em;
     cursor: pointer;
 }
+
+@media screen and (max-width: 26.125em) {
+    .admin-dashboard__list {
+        flex-direction: column;
+    }
+}

@@ -3,7 +3,8 @@
 }
 
 .appointments-list__card {
-    width: 70%;
+    max-width: 55rem;
+    width: 100%;
     padding: 2rem 6rem;
     margin-bottom: 2rem;
     background-color: #edf2f7;
@@ -37,4 +38,15 @@
     text-transform: uppercase;
     letter-spacing: .08em;
     cursor: pointer;
+}
+
+@media screen and (max-width: 50.25em) {
+    .appointments-list__card {
+        padding: 2rem 3rem;
+    }
+
+    .appointments-list__card__info-group-wrapper {
+        flex-direction: column;
+        gap: 1.75rem;
+    }
 }

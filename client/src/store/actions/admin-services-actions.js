@@ -49,7 +49,8 @@ export function addService(newServiceData) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 },
                 body: JSON.stringify(newServiceData)
             };
@@ -77,7 +78,8 @@ export function patchService(serviceData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 },
                 body: JSON.stringify(serviceData)
             };
@@ -111,7 +113,8 @@ export function removeService(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 }
             };
 

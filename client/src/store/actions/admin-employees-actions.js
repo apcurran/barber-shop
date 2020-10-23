@@ -49,7 +49,8 @@ export function addEmployee(employeeData) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 },
                 body: JSON.stringify(employeeData)
             };
@@ -76,7 +77,8 @@ export function patchEmployee(employeeData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 },
                 body: JSON.stringify(employeeData)
             };
@@ -110,7 +112,8 @@ export function removeEmployee(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
+                    "Authorization": `Bearer ${localStorage.token}`,
+                    "Admin": `${localStorage.isAdmin}`
                 }
             };
 

@@ -9,7 +9,9 @@ function authReducer(state = false, action) {
         case "LOG_OUT_USER_SUCCESS":
             return { ...state, userAuth: false };
         case "LOG_IN_ADMIN_SUCCESS":
-            return { ...state, adminAuth: true };
+            return { ...state, userAuth: true };
+        case "LOG_IN_ADMIN_ERROR":
+            return { ...state, error: action.error };
         default:
             return state;
     }

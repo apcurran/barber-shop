@@ -29,6 +29,13 @@ function logInAdminSuccess() {
     };
 }
 
+function logInAdminError(err) {
+    return {
+        type: "LOG_IN_ADMIN_ERROR",
+        error: err
+    };
+}
+
 export function logInUser(email, password, history) {
     return async (dispatch) => {
         const API_URL = "/api/users/login";
@@ -76,7 +83,7 @@ export function logOutUser() {
     };
 }
 
-export function logInAdmin(email, password) {
+export function logInAdmin(email, password, history) {
     return async (dispatch) => {
         const API_URL = "/api/users/admin/login";
         const options = {
@@ -97,16 +104,16 @@ export function logInAdmin(email, password) {
             if (data.hasOwnProperty("error")) {
                 console.error(data);
 
+                dispatch(logInAdminError(data.error));
                 return;
             }
-
-            console.log(data);
 
             const token = data.accessToken;
             
             localStorage.setItem("token", token);
 
             dispatch(logInAdminSuccess());
+            history.push("/admin/dashboard");
 
         } catch (err) {
             console.error(err);

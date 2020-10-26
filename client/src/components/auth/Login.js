@@ -19,8 +19,7 @@ function Login({ adminTitle }) {
         
         if (adminTitle) {
             // Admin Log In
-            dispatch(logInAdmin(email, password));
-            history.push("/admin/dashboard");
+            dispatch(logInAdmin(email, password, history));
             
             return;
         }

@@ -145,7 +145,7 @@ async function postAdminSignup(req, res, next) {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         // Add new admin to db.
-        const admin = await db.query(SQL`
+        await db.query(SQL`
             INSERT INTO app_admin (email, password)
             VALUES (${email}, ${hashedPassword})
         `);
@@ -175,7 +175,7 @@ async function postAdminLogin(req, res, next) {
         `);
         const admin = adminResult.rows[0];
 
-        if (admin.length === 0) {
+        if (admin == null) {
             return res.status(400).json({ error: "Email is not found." });
         }
 

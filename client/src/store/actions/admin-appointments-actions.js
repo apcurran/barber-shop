@@ -27,8 +27,7 @@ export function getAppointments() {
             const options = {
                 method: "GET",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`,
-                    "Admin": `${localStorage.isAdmin}`
+                    "Authorization": `Bearer ${localStorage.token}`
                 }
             };
             const response = await fetch(API_APPOINTMENTS_URL, options);
@@ -57,8 +56,7 @@ export function removeAppointment(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`,
-                    "Admin": `${localStorage.isAdmin}`
+                    "Authorization": `Bearer ${localStorage.token}`
                 }
             };
 

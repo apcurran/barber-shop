@@ -189,7 +189,7 @@ async function postAdminLogin(req, res, next) {
         // Create and send token.
         const token = jwt.sign({ _id: admin.admin_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
 
-        res.status(200).json({ accessToken: token, isAdmin: true });
+        res.status(200).json({ accessToken: token });
 
     } catch (err) {
         next(err);

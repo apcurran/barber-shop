@@ -198,10 +198,6 @@ async function postAdminLogin(req, res, next) {
 
 async function getAdminAppointments(req, res, next) {
     try {
-        if (!req.admin) {
-            return res.status(403).json({ error: "User is not an authorized admin." });
-        }
-
         const { rows } = await db.query(SQL`
             SELECT *
             FROM appointment
@@ -217,10 +213,6 @@ async function getAdminAppointments(req, res, next) {
 
 async function deleteAppointment(req, res, next) {
     try {
-        if (!req.admin) {
-            return res.status(403).json({ error: "User is not an authorized admin." });
-        }
-
         const { id } = req.params;
         
         await db.query(SQL`

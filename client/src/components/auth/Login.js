@@ -52,7 +52,7 @@ function Login({ adminTitle }) {
                             className="auth-form__group__input"
                         />
                     </div>
-                    <p className="error">{loginError}</p>
+                    {loginError ? <p className="error">{loginError}</p> : null}
                     <button type="submit" className="auth-form__submit">Log In</button>
                 </form>
             </div>

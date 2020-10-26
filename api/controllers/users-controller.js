@@ -65,7 +65,7 @@ async function postUserLogin(req, res, next) {
         `);
         const user = userResult.rows[0];
 
-        if (user.length === 0) {
+        if (user == null) {
             return res.status(400).json({ error: "Email is not found." });
         }
 

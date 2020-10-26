@@ -5,6 +5,7 @@ const router = express.Router();
 
 const companyController = require("../controllers/company-controller");
 const verifyAuth = require("../middleware/verify-auth");
+const verifyAdmin = require("../middleware/verify-admin");
 
 router.get("/about-us", companyController.getAboutUs);
 
@@ -14,20 +15,20 @@ router.get("/employees", companyController.getEmployees);
 
 router.get("/services", companyController.getServices);
 
-router.post("/description", verifyAuth, companyController.postDescription);
+router.post("/description", verifyAuth, verifyAdmin, companyController.postDescription);
 
-router.post("/employees", verifyAuth, companyController.postEmployee);
+router.post("/employees", verifyAuth, verifyAdmin, companyController.postEmployee);
 
-router.post("/services", verifyAuth, companyController.postService);
+router.post("/services", verifyAuth, verifyAdmin, companyController.postService);
 
-router.patch("/description", verifyAuth, companyController.patchDescription);
+router.patch("/description", verifyAuth, verifyAdmin, companyController.patchDescription);
 
-router.patch("/employees/:id", verifyAuth, companyController.patchEmployee);
+router.patch("/employees/:id", verifyAuth, verifyAdmin, companyController.patchEmployee);
 
-router.patch("/services/:id", verifyAuth, companyController.patchService);
+router.patch("/services/:id", verifyAuth, verifyAdmin, companyController.patchService);
 
-router.delete("/employees/:id", verifyAuth, companyController.deleteEmployee);
+router.delete("/employees/:id", verifyAuth, verifyAdmin, companyController.deleteEmployee);
 
-router.delete("/services/:id", verifyAuth, companyController.deleteService);
+router.delete("/services/:id", verifyAuth, verifyAdmin, companyController.deleteService);
 
 module.exports = router;

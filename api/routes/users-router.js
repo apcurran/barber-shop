@@ -5,6 +5,7 @@ const router = express.Router();
 
 const usersController = require("../controllers/users-controller");
 const verifyAuth = require("../middleware/verify-auth");
+const verifyAdmin = require("../middleware/verify-admin");
 
 // APP USER routes
 router.post("/signup", usersController.postUserSignup);
@@ -19,8 +20,8 @@ router.post("/admin/signup", usersController.postAdminSignup);
 
 router.post("/admin/login", usersController.postAdminLogin);
 
-router.get("/admin/appointments", verifyAuth, usersController.getAdminAppointments);
+router.get("/admin/appointments", verifyAuth, verifyAdmin, usersController.getAdminAppointments);
 
-router.delete("/admin/appointments/:id", verifyAuth, usersController.deleteAppointment);
+router.delete("/admin/appointments/:id", verifyAuth, verifyAdmin, usersController.deleteAppointment);
 
 module.exports = router;

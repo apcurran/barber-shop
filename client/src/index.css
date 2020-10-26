@@ -22,3 +22,12 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
+
+/* Base error msg styling */
+.error {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #FED7D7;
+  color: #742A2A;
+  font-weight: 700;
+}

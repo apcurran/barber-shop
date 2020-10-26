@@ -10,6 +10,13 @@ function logInUserSuccess() {
     };
 }
 
+function logInUserError(err) {
+    return {
+        type: "LOG_IN_USER_ERROR",
+        error: err
+    };
+}
+
 function logOutUserSuccess() {
     return {
         type: "LOG_OUT_USER_SUCCESS"
@@ -22,7 +29,7 @@ function logInAdminSuccess() {
     };
 }
 
-export function logInUser(email, password) {
+export function logInUser(email, password, history) {
     return async (dispatch) => {
         const API_URL = "/api/users/login";
         const options = {
@@ -43,14 +50,17 @@ export function logInUser(email, password) {
             if (data.hasOwnProperty("error")) {
                 console.error(data);
 
+                dispatch(logInUserError(data.error));
                 return;
             }
 
+            // No error, continue
             const token = data.accessToken;
             
             localStorage.setItem("token", token);
 
             dispatch(logInUserSuccess());
+            history.push("/");
 
         } catch (err) {
             console.error(err);

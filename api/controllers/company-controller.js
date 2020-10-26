@@ -4,26 +4,6 @@ const db = require("../../db/index");
 const SQL = require("sql-template-strings");
 
 // GET controllers
-async function getAboutUs(req, res, next) {
-    try {
-        // Combine description and employee tables into single query.
-        const { rows } = await db.query(SQL`
-            SELECT
-                description.content,
-                employee.first_name,
-                employee.skill_level,
-                employee.avatar_url 
-            FROM description
-            CROSS JOIN employee
-        `);
-
-        res.status(200).json(rows);
-        
-    } catch (err) {
-        next(err);
-    }
-}
-
 async function getDescription(req, res, next) {
     try {
         const { rows } = await db.query(SQL`
@@ -212,7 +192,6 @@ async function deleteService(req, res, next) {
 }
 
 module.exports = {
-    getAboutUs,
     getDescription,
     getEmployees,
     getServices,
@@ -223,5 +202,5 @@ module.exports = {
     patchEmployee,
     patchService,
     deleteEmployee,
-    deleteService,
+    deleteService
 };

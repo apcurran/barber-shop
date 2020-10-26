@@ -7,8 +7,6 @@ const companyController = require("../controllers/company-controller");
 const verifyAuth = require("../middleware/verify-auth");
 const verifyAdmin = require("../middleware/verify-admin");
 
-router.get("/about-us", companyController.getAboutUs);
-
 router.get("/description", companyController.getDescription);
 
 router.get("/employees", companyController.getEmployees);

@@ -9,6 +9,7 @@ function SignUp({ history }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const [error, setError] = useState("");
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -37,7 +38,8 @@ function SignUp({ history }) {
             
             if (data.hasOwnProperty("error")) {
                 console.error(data);
-                
+                setError(data.error);
+
                 return;
             }
             
@@ -108,6 +110,7 @@ function SignUp({ history }) {
                             className="auth-form__group__input"
                         />
                     </div>
+                    {error ? <p className="error">{error}</p> : null}
                     <button type="submit" className="auth-form__submit">Sign Up</button>
                 </form>
             </div>

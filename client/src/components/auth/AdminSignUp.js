@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SignUp({ history }) {
+function AdminSignUp({ history }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
@@ -93,4 +93,4 @@ function SignUp({ history }) {
     );
 }
 
-export default SignUp;
+export default AdminSignUp;

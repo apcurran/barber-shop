@@ -1,5 +1,7 @@
 # Barber Shop
 
+[View Barber Shop Live Site](https://apcurran-premium-cuts.herokuapp.com/)
+
 ## Features:
 
 - Utilizes an Express back-end, with a PostgreSQL database

@@ -1,6 +1,6 @@
 # Barber Shop
 
-[View Barber Shop Live Site](https://apcurran-premium-cuts.herokuapp.com/)
+[View Barber Shop Site](https://apcurran-premium-cuts.herokuapp.com/)
 
 ## Features:
 

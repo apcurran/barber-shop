@@ -39,7 +39,6 @@ function ServicesForm({ isNewService, currentServiceData, setIsEditing }) {
                 price: updatedPrice,
                 img_url: updatedImgUrl
             };
-            console.log(serviceData);
 
             dispatch(addService(serviceData));
             setIsEditing(false); // Close modal after submitting data.

@@ -28,7 +28,6 @@ function AdminSignUp({ history }) {
         try {
             const response = await fetch(API_URL, options);
             const data = await response.json();
-            console.log(data);
             
             if (data.hasOwnProperty("error")) {
                 setError(data.error);

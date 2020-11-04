@@ -113,7 +113,7 @@ export function logInAdmin(email, password, history) {
             localStorage.setItem("token", token);
 
             dispatch(logInAdminSuccess());
-            history.push("/admin/dashboard");
+            history.push("/admin/dashboard/appointments");
 
         } catch (err) {
             console.error(err);

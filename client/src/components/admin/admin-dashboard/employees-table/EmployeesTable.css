@@ -106,7 +106,12 @@
     }
 
     .employees-table__body__data {
+        font-size: .8rem;
         padding: .35rem .5rem .35rem .5rem;
+    }
+
+    .employee-action {
+        font-size: .8rem;
     }
 
     .employee-action:first-of-type {

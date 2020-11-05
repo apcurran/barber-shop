@@ -2,6 +2,18 @@
 
 [View Barber Shop Site](https://apcurran-premium-cuts.herokuapp.com/)
 
+![Barber Shop About](./README-screenshots/about-opt.jpg)
+
+![Barber Shop Login](./README-screenshots/login-opt.png)
+
+![Barber Shop Dashboard Employees Table](./README-screenshots/dashboard-employees-opt.png)
+
+![Barber Shop Dashboard Appointments Tab](./README-screenshots/dashboard-appointments-opt.png)
+
+![Barber Shop Dashboard Services](./README-screenshots/services-opt.png)
+
+
+
 ## Features:
 
 - Utilizes an Express back-end, with a PostgreSQL database

@@ -4,9 +4,16 @@
     margin: 3rem auto;
 }
 
-.page-404__header {
+.page-404__test-header {
+    font-size: 24rem;
+    color: hsl(0, 0%, 58%);
+    line-height: 1;
+}
+
+.page-404__sub-header {
     margin-bottom: 1.25rem;
     font-size: var(--page-title-fz);
+    color: hsl(0, 0%, 28%);
 }
 
 .page-404__home-link {

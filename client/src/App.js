@@ -13,6 +13,7 @@ import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import AdminSignUp from "./components/auth/AdminSignUp";
 import BookAppointmentModal from "./components/users/appointments/BookAppointmentModal";
+import Page404 from "./components/Page404/Page404";
 
 function App() {
   const isAppointmentModalActive = useSelector(state => state.isAppointmentModalActive);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/users/login" component={Login} />
           <Route path="/admin/signup" component={AdminSignUp} />
           <Route path="/admin/login" render={() => <Login adminTitle="Admin" />} /> {/* Send prop down to Login comp */}
+          <Route component={Page404} />
         </Switch>
         {isAppointmentModalActive ? <BookAppointmentModal /> : null}
         <Footer />

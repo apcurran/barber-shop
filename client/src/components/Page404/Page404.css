@@ -1,0 +1,24 @@
+.page-404-container {
+    max-width: var(--wrapper-max-width);
+    width: var(--wrapper-width);
+    margin: 3rem auto;
+}
+
+.page-404__header {
+    margin-bottom: 1.25rem;
+    font-size: var(--page-title-fz);
+}
+
+.page-404__home-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: .75rem 1.35rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}

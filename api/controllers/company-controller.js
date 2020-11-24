@@ -7,7 +7,7 @@ const SQL = require("sql-template-strings");
 async function getDescription(req, res, next) {
     try {
         const { rows } = await db.query(SQL`
-            SELECT *
+            SELECT description.content
             FROM description
         `);
 

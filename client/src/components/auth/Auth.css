@@ -27,6 +27,17 @@
     background: url("/barber-tools-login-bg-opt.jpg") no-repeat center center;
 }
 
+/* Serve smaller bg imgs on mobile devices */
+@media screen and (max-width: 37.5em) {
+    .signup-container {
+        background: url("/barber-tools-signup-bg-sm-opt.jpg") no-repeat center center;
+    }
+
+    .login-container {
+        background: url("/barber-tools-login-bg-sm-opt.jpg") no-repeat center center;
+    }
+}
+
 .auth-form__group {
     display: grid;
     grid-template-columns: 1fr;

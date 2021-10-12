@@ -62,10 +62,10 @@ export function removeAppointment(id) {
 
             // Delete appointment from db.
             const response = await fetch(API_DELETE_URL, options);
-            const data = await response.json();
+            await response.json();
             // Delete appointment from store state.
             const oldAppointmentsArr = getState().appointments;
-            const updatedAppointmentsArr = oldAppointmentsArr.filter(appointment => appointment.appointment_id !== id);
+            const updatedAppointmentsArr = oldAppointmentsArr.filter((appointment) => appointment.appointment_id !== id);
 
             dispatch(removeAppointmentSuccess(updatedAppointmentsArr));
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getEmployees } from "../../../store/actions/admin-employees-actions";
@@ -13,14 +13,14 @@ function Employees() {
     const [currentEmployeeData, setCurrentEmployeeData] = useState({});
     // Redux store
     const dispatch = useDispatch();
-    const employeesArr = useSelector(state => state.employees);
+    const employeesArr = useSelector((state) => state.employees);
     
     useEffect(() => {
         dispatch(getEmployees());
     }, [dispatch]);
     
     function updateCurrentEmployee(id) {
-        const currentEmployee = employeesArr.filter(employee => employee.employee_id === id)[0];
+        const currentEmployee = employeesArr.filter((employee) => employee.employee_id === id)[0];
 
         setCurrentEmployeeData(currentEmployee);
     }

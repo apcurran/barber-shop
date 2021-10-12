@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getServices } from "../../../store/actions/admin-services-actions";
@@ -13,14 +13,14 @@ function Services() {
     const [currentServiceData, setCurrentServiceData] = useState({});
     // Redux store
     const dispatch = useDispatch();
-    const servicesArr = useSelector(state => state.services);
+    const servicesArr = useSelector((state) => state.services);
 
     useEffect(() => {
         dispatch(getServices());
     }, [dispatch]);
 
     function updateCurrentService(id) {
-        const currentService = servicesArr.filter(service => service.service_id === id)[0];
+        const currentService = servicesArr.filter((service) => service.service_id === id)[0];
 
         setCurrentServiceData(currentService);
     }

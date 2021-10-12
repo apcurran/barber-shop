@@ -55,7 +55,7 @@ export function addEmployee(employeeData) {
             };
 
             const response = await fetch(API_EMPLOYEES_URL, options);
-            const data = await response.json();
+            await response.json();
 
             const oldEmployeesArr = getState().employees;
             const updatedEmployeesArr = [...oldEmployeesArr, employeeData];
@@ -86,7 +86,7 @@ export function patchEmployee(employeeData) {
             await response.json();
             // Update employee in store state.
             const oldEmployeesArr = getState().employees;
-            const updatedEmployeesArr = oldEmployeesArr.map(employee => {
+            const updatedEmployeesArr = oldEmployeesArr.map((employee) => {
                 if (employee.employee_id === employeeData.employee_id) {
                     return employeeData; // Transform current employee to updated employee data.
                 } else {
@@ -120,7 +120,7 @@ export function removeEmployee(id) {
             console.log(data);
             // Delete employee from store state.
             const oldEmployeesArr = getState().employees;
-            const updatedEmployeesArr = oldEmployeesArr.filter(employee => employee.employee_id !== id);
+            const updatedEmployeesArr = oldEmployeesArr.filter((employee) => employee.employee_id !== id);
 
             dispatch(removeEmployeeSuccess(updatedEmployeesArr));
 

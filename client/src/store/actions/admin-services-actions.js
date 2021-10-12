@@ -56,7 +56,7 @@ export function addService(newServiceData) {
 
             // Add service to db.
             const response = await fetch(API_SERVICES_URL, options);
-            const data = await response.json();
+            await response.json();
             // Add service to Redux store.
             const oldServicesArr = getState().services;
             const updatedServicesArr = [...oldServicesArr, newServiceData];
@@ -88,7 +88,7 @@ export function patchService(serviceData) {
             console.log(data);
             // Update service in store state.
             const oldServicesArr = getState().services;
-            const updatedServicesArr = oldServicesArr.map(service => {
+            const updatedServicesArr = oldServicesArr.map((service) => {
                 if (service.service_id === serviceData.service_id) {
                     return serviceData; // transform obj to updated obj
                 } else {
@@ -121,7 +121,7 @@ export function removeService(id) {
             console.log(data);
             // Delete service from store state.
             const oldServicesArr = getState().services;
-            const updatedServicesArr = oldServicesArr.filter(service => service.service_id !== id);
+            const updatedServicesArr = oldServicesArr.filter((service) => service.service_id !== id);
 
             dispatch(removeServiceSuccess(updatedServicesArr));
 

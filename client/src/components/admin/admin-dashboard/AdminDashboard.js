@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -11,10 +11,10 @@ import Services from "./Services";
 
 function AdminDashboard() {
     // Grab auth state from Redux store
-    const { userAuth } = useSelector(state => state.auth);
+    const { userAuth } = useSelector((state) => state.auth);
 
     if (!userAuth) {
-        return <Redirect to="/admin/login" />
+        return <Redirect to="/admin/login" />;
     }
 
     return (

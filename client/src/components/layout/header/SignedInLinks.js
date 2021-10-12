@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -13,7 +13,7 @@ function SignedInLinks() {
         () => {
             dispatch(logOutUser());
             history.push("/");
-        },[dispatch]
+        },[dispatch, history]
     );
 
     function handleActivateAppointmentModal() {

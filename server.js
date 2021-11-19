@@ -5,7 +5,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
-const compression = require("compression");
+const shrinkRay = require("shrink-ray-current");
 const PORT = process.env.PORT || 5000;
 // Import Routers
 const usersRouter = require("./api/routes/users-router");
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Middleware
-app.use(compression());
+app.use(shrinkRay());
 app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client", "build")));

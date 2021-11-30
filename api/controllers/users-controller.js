@@ -11,15 +11,8 @@ const io = require("../../socket");
 // POST controllers
 async function postUserSignup(req, res, next) {
     try {
-        await signupValidation(req.body);
-
-    } catch (err) {
-        return res.status(400).json({ error: err.details[0].message });
-    }
-
-    try {
+        const { first_name, last_name, email, phone_number, password } = await signupValidation(req.body);
         // Data valid, now reject creating an existing user.
-        const { first_name, last_name, email, phone_number, password } = req.body;
         const emailExists = await db.query(SQL`
             SELECT app_user.user_id
             FROM app_user
@@ -43,21 +36,18 @@ async function postUserSignup(req, res, next) {
         res.status(201).json({ message: "New user created." });
 
     } catch (err) {
+        if (err.isJoi) {
+            return res.status(400).json({ error: err.message });
+        }
+
         next(err);
     }
 }
 
 async function postUserLogin(req, res, next) {
     try {
-        await loginValidation(req.body);
-
-    } catch (err) {
-        return res.status(400).json({ error: err.details[0].message });
-    }
-
-    try {
+        const { email, password } = await loginValidation(req.body);
         // Validation passed, now check for an existing email.
-        const { email, password } = req.body;
         const userResult = await db.query(SQL`
             SELECT app_user.user_id, app_user.password
             FROM app_user
@@ -82,6 +72,10 @@ async function postUserLogin(req, res, next) {
         res.status(200).json({ accessToken: token });
 
     } catch (err) {
+        if (err.isJoi) {
+            return res.status(400).json({ error: err.message });
+        }
+
         next(err);
     }
 }
@@ -116,20 +110,13 @@ async function postUserAppointment(req, res, next) {
 
 // ADMIN
 async function postAdminSignup(req, res, next) {
-    try {
-        if (req.body.admin_secret !== process.env.ADMIN_SECRET) {
-            return res.status(403).json({ error: "Invalid credentials provided." });
-        }
-
-        await adminSignupValidation(req.body);
-
-    } catch (err) {
-        return res.status(400).json({ error: err.details[0].message });
+    if (req.body.admin_secret !== process.env.ADMIN_SECRET) {
+        return res.status(403).json({ error: "Invalid credentials provided." });
     }
 
     try {
+        const { email, password } = await adminSignupValidation(req.body);
         // Data valid, now reject creating an existing admin.
-        const { email, password } = req.body;
         const emailExists = await db.query(SQL`
             SELECT app_admin.admin_id
             FROM app_admin
@@ -153,21 +140,18 @@ async function postAdminSignup(req, res, next) {
         res.status(201).json({ message: "New admin created." });
 
     } catch (err) {
+        if (err.isJoi) {
+            return res.status(400).json({ error: err.message });
+        }
+
         next(err);
     }  
 }
 
 async function postAdminLogin(req, res, next) {
     try {
-        await loginValidation(req.body);
-
-    } catch (err) {
-        return res.status(400).json({ error: err.details[0].message });
-    }
-
-    try {
+        const { email, password } = await loginValidation(req.body);
         // Validation passed, now check for an existing email.
-        const { email, password } = req.body;
         const adminResult = await db.query(SQL`
             SELECT app_admin.admin_id, app_admin.password
             FROM app_admin
@@ -192,6 +176,10 @@ async function postAdminLogin(req, res, next) {
         res.status(200).json({ accessToken: token });
 
     } catch (err) {
+        if (err.isJoi) {
+            return res.status(400).json({ error: err.message });
+        }
+
         next(err);
     }
 }

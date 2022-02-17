@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -16,7 +16,7 @@ import BookAppointmentModal from "./components/users/appointments/BookAppointmen
 import Page404 from "./components/Page404/Page404";
 
 function App() {
-  const isAppointmentModalActive = useSelector(state => state.isAppointmentModalActive);
+  const isAppointmentModalActive = useSelector((state) => state.isAppointmentModalActive);
 
   return (
     <Router>

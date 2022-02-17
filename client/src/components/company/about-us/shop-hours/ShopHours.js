@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import "./ShopHours.css";
 
@@ -27,7 +27,7 @@ function ShopHours() {
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
 export default ShopHours;

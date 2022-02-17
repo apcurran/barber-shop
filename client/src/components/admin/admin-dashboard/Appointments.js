@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import openSocket from "socket.io-client";
 
@@ -7,7 +7,7 @@ import AppointmentsList from "./appointments-list/AppointmentsList";
 
 function Appointments() {
     const dispatch = useDispatch();
-    const appointmentsArr = useSelector(state => state.appointments);
+    const appointmentsArr = useSelector((state) => state.appointments);
 
     useEffect(() => {
         dispatch(getAppointments());
@@ -15,7 +15,7 @@ function Appointments() {
         // Live appointment update
         const socket = openSocket("/");
 
-        socket.on("appointment added", data => {
+        socket.on("appointment added", (data) => {
             dispatch(addNewAppointment(data.appointment));
         });
 

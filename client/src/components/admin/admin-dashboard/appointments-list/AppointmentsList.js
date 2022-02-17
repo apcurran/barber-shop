@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { format, parseISO } from "date-fns";
@@ -19,7 +19,7 @@ function AppointmentsList({ appointmentsArr }) {
 
     return (
         <main className="appointments-list">
-            {appointmentsArr.map(appointment => (
+            {appointmentsArr.map((appointment) => (
                 <motion.article
                     layout
                     initial={{ opacity: 0 }}

@@ -22,10 +22,10 @@ function AdminDashboard() {
             <h1 className="admin-dashboard__title">Admin Dashboard</h1>
             <AdminDashboardLinks />
             <Routes>
-                <Route path="/admin/dashboard/appointments" element={<Appointments />} />
-                <Route path="/admin/dashboard/description" element={<Description />} />
-                <Route path="/admin/dashboard/employees" element={<Employees />} />
-                <Route path="/admin/dashboard/services" element={<Services />} />
+                <Route path="appointments" element={<Appointments />} />
+                <Route path="description" element={<Description />} />
+                <Route path="employees" element={<Employees />} />
+                <Route path="services" element={<Services />} />
             </Routes>
         </section>
     );

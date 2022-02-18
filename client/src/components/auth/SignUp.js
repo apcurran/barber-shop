@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Auth.css";
 
-function SignUp({ history }) {
+function SignUp() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -10,6 +11,8 @@ function SignUp({ history }) {
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -42,7 +45,7 @@ function SignUp({ history }) {
             }
             
             // Send user to log in page after account creation.
-            history.push("/users/login");
+            navigate("/users/login");
 
         } catch (err) {
             setError(err.message);

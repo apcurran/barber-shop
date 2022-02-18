@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function AdminSignUp({ history }) {
+function AdminSignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [adminSecret, setAdminSecret] = useState("");
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -36,7 +39,7 @@ function AdminSignUp({ history }) {
             }
             
             // Send user to log in page after account creation.
-            history.push("/admin/login");
+            navigate("/admin/login");
 
         } catch (err) {
             setError(err.message);

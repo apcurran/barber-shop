@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./Services.css";
@@ -7,7 +7,7 @@ import ServicesList from "./services-list/ServicesList";
 
 function Services() {
     const dispatch = useDispatch();
-    const servicesArr = useSelector(state => state.services);
+    const servicesArr = useSelector((state) => state.services);
 
     useEffect(() => {
         dispatch(getServices());

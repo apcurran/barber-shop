@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getAboutDescription, patchAboutDescription } from "../../../store/actions/admin-description-actions";
@@ -6,7 +6,7 @@ import { getAboutDescription, patchAboutDescription } from "../../../store/actio
 function Description() {
     // Redux
     const dispatch = useDispatch();
-    const descTxt = useSelector(state => state.aboutDescription);
+    const descTxt = useSelector((state) => state.aboutDescription);
     // Local state
     const [updatedDescTxt, setUpdatedDescTxt] = useState("");
 

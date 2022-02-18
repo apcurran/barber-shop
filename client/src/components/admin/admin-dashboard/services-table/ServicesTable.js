@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
@@ -38,7 +38,7 @@ function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, s
                     </tr>
                 </thead>
                 <tbody className="employees-table__body">
-                    {servicesArr.map(service => (
+                    {servicesArr.map((service) => (
                         <motion.tr
                             layout
                             initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ function ServicesTable({ newCurrentService, servicesArr, setSelectedServiceId, s
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
-export default ServicesTable
+export default ServicesTable;

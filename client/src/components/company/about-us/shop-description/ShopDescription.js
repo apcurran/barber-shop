@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import "./ShopDescription.css";
 import BarberPole from "../../../../assets/images/barber-pole-opt.jpg";

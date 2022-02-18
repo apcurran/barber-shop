@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import "./ShopStaff.css";
 
@@ -7,7 +7,7 @@ function ShopStaff({ employeesArr }) {
         <section className="shop-staff">
             <h2 className="shop-staff_title">Our Staff</h2>
             <div className="shop-staff__employees-container">
-                {employeesArr.map(employee => (
+                {employeesArr.map((employee) => (
                     <div className="shop-staff__employee" key={employee.employee_id}>
                         <figure className="shop-staff__employee__fig">
                             <img src={employee.avatar_url} alt="Employee avatar" className="shop-staff__employee__img" width="128" height="128" loading="lazy" />

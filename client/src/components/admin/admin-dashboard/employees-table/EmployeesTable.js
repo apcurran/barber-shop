@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
@@ -39,7 +39,7 @@ function EmployeesTable({ newCurrentEmployee, employeesArr, setSelectedEmployeeI
                     </tr>
                 </thead>
                 <tbody className="employees-table__body">
-                    {employeesArr.map(employee => (
+                    {employeesArr.map((employee) => (
                         <motion.tr
                             layout
                             initial={{ opacity: 0 }}
@@ -55,7 +55,7 @@ function EmployeesTable({ newCurrentEmployee, employeesArr, setSelectedEmployeeI
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
-export default EmployeesTable
+export default EmployeesTable;

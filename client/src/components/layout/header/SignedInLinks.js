@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { logOutUser } from "../../../store/actions/auth-actions";
@@ -7,13 +7,13 @@ import { setAppointmentModalActive } from "../../../store/actions/book-appointme
 
 function SignedInLinks() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleLogOut = useCallback(
         () => {
             dispatch(logOutUser());
-            history.push("/");
-        },[dispatch, history]
+            navigate("/");
+        },[dispatch, navigate]
     );
 
     function handleActivateAppointmentModal() {

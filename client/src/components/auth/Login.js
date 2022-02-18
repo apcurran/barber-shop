@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Auth.css";
 import { logInUser, logInAdmin } from "../../store/actions/auth-actions";
@@ -12,20 +12,20 @@ function Login({ adminTitle }) {
     // Get error from Redux store state
     const loginError = useSelector((state) => state.auth.error);
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     
     async function handleSubmit(event) {
         event.preventDefault();
         
         if (adminTitle) {
             // Admin Log In
-            dispatch(logInAdmin(email, password, history));
+            dispatch(logInAdmin(email, password, navigate));
             
             return;
         }
         
         // User Log In
-        dispatch(logInUser(email, password, history)); // Passing history obj to action
+        dispatch(logInUser(email, password, navigate)); // Passing history obj to action
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function Login({ adminTitle }) {
     const [password, setPassword] = useState("");
     
     // Get error from Redux store state
-    const loginError = useSelector(state => state.auth.error);
+    const loginError = useSelector((state) => state.auth.error);
     const dispatch = useDispatch();
     const history = useHistory();
     

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/layout/header/Header";
 import Footer from "./components/layout/footer/Footer";
@@ -22,16 +22,16 @@ function App() {
     <Router>
       <div className="app">
         <Header />
-        <Switch>
-          <Route path="/" exact component={AboutUs} />
-          <Route path="/services" component={Services} />
-          <Route path="/admin/dashboard" component={AdminDashboard} />
-          <Route path="/users/signup" component={SignUp} />
-          <Route path="/users/login" component={Login} />
-          <Route path="/admin/signup" component={AdminSignUp} />
-          <Route path="/admin/login" render={() => <Login adminTitle="Admin" />} /> {/* Send prop down to Login comp */}
-          <Route component={Page404} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/users/signup" element={<SignUp />} />
+          <Route path="/users/login" element={<Login adminTitle="" />} />
+          <Route path="/admin/signup" element={<AdminSignUp />} />
+          <Route path="/admin/login" element={<Login adminTitle="Admin" />} /> {/* Send prop down to Login comp */}
+          <Route element={<Page404 />} />
+        </Routes>
         {isAppointmentModalActive ? <BookAppointmentModal /> : null}
         <Footer />
       </div>

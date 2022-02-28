@@ -5,7 +5,9 @@ import "./BookAppointmentModal.css";
 import { setAppointmentModalActive, bookAppointment } from "../../../store/actions/book-appointment-modal-actions";
 
 function BookAppointmentModal() {
+    // global store state
     const dispatch = useDispatch();
+    // local component state
     const [isAppointmentBooked, setIsAppointmentBooked] = useState(false);
 
     function handleBackdropClick(event) {
@@ -18,10 +20,10 @@ function BookAppointmentModal() {
         dispatch(bookAppointment());
         setIsAppointmentBooked(true);
 
-        // modal closes automatically after 5 sec
+        // modal closes automatically after 6 sec
         setTimeout(() => {
             dispatch(setAppointmentModalActive(false));
-        }, 5000);
+        }, 6000);
     }
 
     const appointmentSection = isAppointmentBooked ? (

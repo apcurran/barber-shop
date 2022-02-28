@@ -10,4 +10,10 @@ describe("about us page", () => {
             .next()
             .should("be.visible");
     });
+
+    it("displays all 3 barber employees", () => {
+        cy.get(".shop-staff__employees-container")
+            .children()
+            .should("have.length", 3);
+    });
 });

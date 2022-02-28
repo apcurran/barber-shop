@@ -36,7 +36,7 @@ describe("user book appointment flow", () => {
         cy.contains("button", /Create Appointment/i)
             .click();
 
-        cy.contains("Great! You have been checked-in, and the wait estimation is 15 minutes.")
+        cy.contains("Great, you have been checked-in! The wait estimation is 15 minutes.")
             .should("exist");
     });
 });

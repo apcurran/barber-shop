@@ -9,6 +9,8 @@
 
 .book-appointment-modal__title {
     margin-bottom: 1.5rem;
+    max-width: 47ch;
+    text-align: center;
 }
 
 .book-appointment-modal__confirm-btn {

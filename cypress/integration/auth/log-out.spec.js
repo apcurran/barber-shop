@@ -1,21 +1,11 @@
 /// <reference types="cypress" />
 
 describe("log out flow", () => {
-    beforeEach(() => {
-        cy.visit("/users/login");
-    });
-
     it("logs a user out of the application", () => {
-        cy.get("form").within(() => {
-            cy.get("input[type=email]")
-                .type(Cypress.env("testUserEmail"));
+        // custom log in func
+        cy.userLogin();
 
-            cy.get("input[type=password]")
-                .type(Cypress.env("testUserPassword"));
-
-            cy.get("button[type=submit]")
-                .click();
-        });
+        cy.visit("/");
 
         cy.contains(/Log Out/i)
             .click();

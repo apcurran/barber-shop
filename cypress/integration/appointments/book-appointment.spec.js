@@ -2,20 +2,10 @@
 
 describe("user book appointment flow", () => {
     beforeEach(() => {
-        cy.visit("/users/login");
+        // custom log in function
+        cy.userLogin();
 
-        cy.get("form").within(() => {
-            cy.get("input[type=email]")
-                .type(Cypress.env("testUserEmail"));
-    
-            cy.get("input[type=password]")
-                .type(Cypress.env("testUserPassword"));
-    
-            cy.get("button[type=submit]")
-                .click();
-    
-            cy.url().should("eq", "http://localhost:3000/");
-        });
+        cy.visit("/");
     });
 
     it("displays a friendly message after the user books an appointment", () => {

@@ -2,8 +2,6 @@
 
 describe("log out flow", () => {
     beforeEach(() => {
-        localStorage.clear();
-
         cy.visit("/users/login");
     });
 

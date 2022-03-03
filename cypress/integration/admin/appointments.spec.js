@@ -2,8 +2,6 @@
 
 describe("user book appointment flow", () => {
     beforeEach(() => {
-        localStorage.clear();
-
         cy.visit("/admin/login");
 
         cy.get("form").within(() => {

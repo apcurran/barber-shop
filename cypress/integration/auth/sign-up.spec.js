@@ -2,8 +2,6 @@
 
 describe("user sign up flow", () => {
     it("signs up a user as Bob Doe", () => {
-        cy.visit("/users/signup");
-
         // stubbed API req for user sign up
         cy.intercept("POST", "/api/users/signup", {
             statusCode: 201,
@@ -11,6 +9,8 @@ describe("user sign up flow", () => {
                 message: "New user created."
             }
         });
+
+        cy.visit("/users/signup");
 
         cy.get("form").within(() => {
             cy.get("input[id=first-name]")

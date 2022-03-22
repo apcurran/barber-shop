@@ -12,7 +12,6 @@ export function setAppointmentModalActive(activeState) {
 }
 
 export function bookAppointment() {
-    // TODO check if state necessary in store, otherwise localize state to BookAppointmentModal comp
     return async (dispatch) => {
         const API_URL = "/api/users/appointments";
         const options = {

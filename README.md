@@ -38,6 +38,6 @@
 
 - Animations provided by framer-motion
 
-- Date formatting with modern library, date-fns
+- Date formatting with modern Intl.DateTimeFormat API
 
 - :test_tube: E2E testing with Cypress.io

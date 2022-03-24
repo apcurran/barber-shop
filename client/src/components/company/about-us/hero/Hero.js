@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "./Hero.css";
-import heroImg from "../../../../assets/images/barber-hero-tools-opt.jpg";
+import heroImg from "./imgs/barber-hero-tools-opt.jpg";
 
 function Hero() {
     const isAuth = useSelector((state) => state.auth.userAuth);

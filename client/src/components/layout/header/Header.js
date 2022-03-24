@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "./Header.css";
-import logo from "../../../assets/images/logo.svg";
+import logo from "./imgs/logo.svg";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 

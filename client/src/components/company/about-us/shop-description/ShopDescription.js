@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./ShopDescription.css";
-import BarberPole from "../../../../assets/images/barber-pole-opt.jpg";
+import BarberPole from "./imgs/barber-pole-opt.jpg";
 
 function ShopDescription({ aboutDesc }) {
     return (

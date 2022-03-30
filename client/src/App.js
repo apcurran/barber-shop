@@ -29,7 +29,7 @@ function App() {
           <Route path="/users/signup" element={<SignUp />} />
           <Route path="/users/login" element={<Login adminTitle="" />} />
           <Route path="/admin/signup" element={<AdminSignUp />} />
-          <Route path="/admin/login" element={<Login adminTitle="Admin" />} /> {/* Send prop down to Login comp */}
+          <Route path="/admin/login" element={<Login adminTitle="Admin" />} />
           <Route element={<Page404 />} />
         </Routes>
         {isAppointmentModalActive ? <BookAppointmentModal /> : null}

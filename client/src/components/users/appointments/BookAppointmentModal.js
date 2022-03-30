@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import "./BookAppointmentModal.css";
 import { setAppointmentModalActive, bookAppointment } from "../../../store/actions/book-appointment-modal-actions";
+import Modal from "../../modal/Modal";
 
 function BookAppointmentModal() {
     // global store state
@@ -38,9 +39,9 @@ function BookAppointmentModal() {
     );
 
     return (
-        <div onClick={handleBackdropClick} className="backdrop">
+        <Modal handleBackdropClick={handleBackdropClick}>
             {appointmentSection}
-        </div>
+        </Modal>
     );
 }
 

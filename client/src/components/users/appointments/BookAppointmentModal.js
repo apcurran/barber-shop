@@ -30,7 +30,7 @@ function BookAppointmentModal() {
         }, 6000);
     }
 
-    const appointmentSection = isAppointmentBooked ? (
+    const appointmentBody = isAppointmentBooked ? (
         <h2 className="modal__title">Great, you have been checked-in! The wait estimation is 15 minutes.</h2>
     ) : (
         <>
@@ -41,7 +41,7 @@ function BookAppointmentModal() {
 
     return (
         <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
-            {appointmentSection}
+            {appointmentBody}
         </Modal>
     );
 }

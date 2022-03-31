@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import "./BookAppointmentModal.css";
 import { setAppointmentModalActive, bookAppointment } from "../../../store/actions/book-appointment-modal-actions";
 import Modal from "../../modal/Modal";
 
@@ -13,8 +12,12 @@ function BookAppointmentModal() {
 
     function handleBackdropClick(event) {
         if (event.target.classList.contains("backdrop")) {
-            dispatch(setAppointmentModalActive(false)); // turn off
+            dispatch(setAppointmentModalActive(false));
         }
+    }
+
+    function handleCloseBtnClick() {
+        dispatch(setAppointmentModalActive(false));
     }
 
     function handleBookAppointment() {
@@ -28,18 +31,16 @@ function BookAppointmentModal() {
     }
 
     const appointmentSection = isAppointmentBooked ? (
-        <section className="book-appointment-modal">
-            <h2 className="book-appointment-modal__title">Great, you have been checked-in! The wait estimation is 15 minutes.</h2>
-        </section>
+        <h2 className="modal__title">Great, you have been checked-in! The wait estimation is 15 minutes.</h2>
     ) : (
-        <section className="book-appointment-modal">
-            <h2 className="book-appointment-modal__title">Are You Ready to Book Your Appointment?</h2>
-            <button onClick={handleBookAppointment} className="book-appointment-modal__confirm-btn">Create Appointment</button>
-        </section>
+        <>
+            <h2 className="modal__title">Are You Ready to Book Your Appointment?</h2>
+            <button onClick={handleBookAppointment} className="modal__confirm-btn">Create Appointment</button> 
+        </>
     );
 
     return (
-        <Modal handleBackdropClick={handleBackdropClick}>
+        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
             {appointmentSection}
         </Modal>
     );

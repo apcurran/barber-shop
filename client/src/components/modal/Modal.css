@@ -63,3 +63,9 @@
     letter-spacing: .08em;
     cursor: pointer;
 }
+
+@media screen and (max-width: 32em) {
+    .modal {
+        padding: 3rem;
+    }
+}

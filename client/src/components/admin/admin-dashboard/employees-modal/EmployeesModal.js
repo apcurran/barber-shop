@@ -1,8 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
+
 
 import "./EmployeesModal.css";
 import EmployeesForm from "../employees-form/EmployeesForm";
+import Modal from "../../../modal/Modal";
 
 function EmployeesModal({ isNewEmployee, currentEmployeeData, setIsEditing }) {
     function handleBackdropClick(event) {
@@ -11,17 +12,16 @@ function EmployeesModal({ isNewEmployee, currentEmployeeData, setIsEditing }) {
         }
     }
 
+    function handleCloseBtnClick(event) {
+        setIsEditing(false);
+    }
+
     return (
-        <motion.div
-            className="backdrop"
-            onClick={handleBackdropClick}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-        >
+        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
             <section className="employee-modal">
                 <EmployeesForm isNewEmployee={isNewEmployee} currentEmployeeData={currentEmployeeData} setIsEditing={setIsEditing} />
             </section>
-        </motion.div>
+        </Modal>
     );
 }
 

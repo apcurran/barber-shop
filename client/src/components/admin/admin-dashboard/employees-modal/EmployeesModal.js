@@ -12,7 +12,7 @@ function EmployeesModal({ isNewEmployee, currentEmployeeData, setIsEditing }) {
         }
     }
 
-    function handleCloseBtnClick(event) {
+    function handleCloseBtnClick() {
         setIsEditing(false);
     }
 

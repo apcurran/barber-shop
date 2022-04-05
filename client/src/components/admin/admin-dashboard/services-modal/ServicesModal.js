@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 import ServicesForm from "../services-form/ServicesForm";
+import Modal from "../../../modal/Modal";
 
 function ServicesModal({ isNewService, currentServiceData, setIsEditing }) {
     function handleBackdropClick(event) {
@@ -10,13 +10,12 @@ function ServicesModal({ isNewService, currentServiceData, setIsEditing }) {
         }
     }
 
+    function handleCloseBtnClick() {
+        setIsEditing(false);
+    }
+
     return (
-        <motion.div
-            className="backdrop"
-            onClick={handleBackdropClick}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-        >
+        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
             <section className="employee-modal">
                 <ServicesForm
                     isNewService={isNewService}
@@ -24,7 +23,7 @@ function ServicesModal({ isNewService, currentServiceData, setIsEditing }) {
                     setIsEditing={setIsEditing}
                 />
             </section>
-        </motion.div>
+        </Modal>
     );
 }
 

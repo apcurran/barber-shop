@@ -1,9 +1,3 @@
-export function verifyAuth() {
-    return {
-        type: "VERIFY_AUTH"
-    };
-}
-
 function logInUserSuccess() {
     return {
         type: "LOG_IN_USER_SUCCESS",
@@ -33,6 +27,12 @@ function logInAdminError(err) {
     return {
         type: "LOG_IN_ADMIN_ERROR",
         error: err
+    };
+}
+
+export function verifyAuth() {
+    return {
+        type: "VERIFY_AUTH"
     };
 }
 

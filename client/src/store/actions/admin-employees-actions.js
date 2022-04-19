@@ -117,7 +117,6 @@ export function removeEmployee(id) {
             // Delete employee from db.
             const response = await fetch(API_DELETE_URL, options);
             const data = await response.json();
-            console.log(data);
             // Delete employee from store state.
             const oldEmployeesArr = getState().employees;
             const updatedEmployeesArr = oldEmployeesArr.filter((employee) => employee.employee_id !== id);

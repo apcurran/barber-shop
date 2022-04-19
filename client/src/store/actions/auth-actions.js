@@ -6,7 +6,7 @@ export function verifyAuth() {
 
 function logInUserSuccess() {
     return {
-        type: "LOG_IN_USER_SUCCESS"
+        type: "LOG_IN_USER_SUCCESS",
     };
 }
 

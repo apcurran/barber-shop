@@ -9,6 +9,7 @@ function Employees() {
     // Local state
     const [isNewEmployee, setIsNewEmployee] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
     const [currentEmployeeData, setCurrentEmployeeData] = useState({});
     // Redux store

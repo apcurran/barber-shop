@@ -9,6 +9,7 @@ function Services() {
     // Local state
     const [isNewService, setIsNewService] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [selectedServiceId, setSelectedServiceId] = useState(null);
     const [currentServiceData, setCurrentServiceData] = useState({});
     // Redux store

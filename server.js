@@ -42,4 +42,4 @@ app.get("*", (req, res) => {
 
 const server = app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode, and listening on PORT ${PORT}.`));
 // WebSockets
-const io = require("./socket").init(server);
+require("./socket").init(server);

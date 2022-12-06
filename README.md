@@ -16,6 +16,8 @@
 
 ## Features:
 
+[View live site](https://premium-cuts.currandev.com)
+
 - Utilizes an Express back-end, with a PostgreSQL database
 
 - CRUD operations supported for admins when working with employees, services, or "about" description

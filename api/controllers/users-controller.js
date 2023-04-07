@@ -204,8 +204,8 @@ async function deleteAppointment(req, res, next) {
         const { id } = req.params;
         
         await db.query(SQL`
-                DELETE FROM appointment
-                WHERE appointment_id = ${id}
+            DELETE FROM appointment
+            WHERE appointment_id = ${id}
         `);
 
         res.status(200).json({ message: `Appointment with id, ${id} deleted.` });

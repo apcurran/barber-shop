@@ -4,15 +4,10 @@ import { motion } from "framer-motion";
 
 import "./AppointmentsList.css";
 import { removeAppointment } from "../../../../store/actions/admin-appointments-actions";
+import { formatDate } from "../../../../utils/format-date";
 
 function AppointmentsList({ appointmentsArr }) {
     const dispatch = useDispatch();
-    
-    function formatDate(dateISO) {
-        const dateObj = new Date(dateISO);
-
-        return new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeStyle: "short" }).format(dateObj);
-    }
 
     function handleAppointmentDelete(id) {
         dispatch(removeAppointment(id));

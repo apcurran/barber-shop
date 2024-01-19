@@ -1,20 +1,8 @@
 # Barber Shop
 
-![Barber Shop About](./README-screenshots/about-opt.jpg)
-
-![Barber Shop Login](./README-screenshots/login-opt.png)
-
-![Barber Shop Dashboard Employees Table](./README-screenshots/dashboard-employees-opt.png)
-
-![Barber Shop Dashboard Appointments Tab](./README-screenshots/dashboard-appointments-opt.png)
-
-![Barber Shop Dashboard Services](./README-screenshots/services-opt.png)
-
-
+[View live site](https://premium-cuts.currandev.com)
 
 ## Features:
-
-[View live site](https://premium-cuts.currandev.com)
 
 - Utilizes an Express back-end, with a PostgreSQL database
 
@@ -41,3 +29,13 @@
 - Date formatting with modern Intl.DateTimeFormat API
 
 - :test_tube: E2E testing with Cypress.io
+
+![Barber Shop About](./README-screenshots/about-opt.jpg)
+
+![Barber Shop Login](./README-screenshots/login-opt.png)
+
+![Barber Shop Dashboard Employees Table](./README-screenshots/dashboard-employees-opt.png)
+
+![Barber Shop Dashboard Appointments Tab](./README-screenshots/dashboard-appointments-opt.png)
+
+![Barber Shop Dashboard Services](./README-screenshots/services-opt.png)

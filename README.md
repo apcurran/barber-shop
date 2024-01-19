@@ -1,7 +1,5 @@
 # Barber Shop
 
-[View Barber Shop Site](https://apcurran-premium-cuts.herokuapp.com/)
-
 ![Barber Shop About](./README-screenshots/about-opt.jpg)
 
 ![Barber Shop Login](./README-screenshots/login-opt.png)

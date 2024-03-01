@@ -5,7 +5,6 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
-const shrinkRay = require("shrink-ray-current");
 const helmet = require("helmet");
 const PORT = process.env.PORT || 5000;
 // Import Routers
@@ -26,7 +25,6 @@ app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false
 }));
-app.use(shrinkRay());
 app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client", "build")));

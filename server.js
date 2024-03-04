@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const path = require("path");
 const express = require("express");
-const morgan = require("morgan");
 const helmet = require("helmet");
 const PORT = process.env.PORT || 5000;
 // Import Routers
@@ -14,6 +13,8 @@ const companyRouter = require("./api/routes/company-router");
 const app = express();
 
 if (process.env.NODE_ENV === "development") {
+    const morgan = require("morgan");
+    
     app.use(morgan("dev"));
 }
 

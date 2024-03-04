@@ -23,7 +23,6 @@
     "helmet": "^6.0.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0",
     "pg": "^8.7.3",
     "socket.io": "^4.4.1",
     "sql-template-strings": "^2.2.2"
@@ -31,6 +30,7 @@
   "devDependencies": {
     "cypress": "^9.5.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "morgan": "^1.10.0"
   }
 }

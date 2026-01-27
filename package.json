@@ -23,7 +23,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.17.2",
-    "socket.io": "^4.4.1",
+    "socket.io": "^4.8.3",
     "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {

@@ -1,80 +1,82 @@
 .auth {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth-inner-wrapper {
-    margin: 3rem 0;
-    padding: 2rem 2.5rem;
-    background-color: rgba(0, 0, 0, .65);
-    /* Desaturate and apply frosted glass effect */
-    backdrop-filter: saturate(160%) blur(10px);
-    color: #fff;
-    max-width: 30rem;
-    width: 92.5%;
+  margin: 3rem 0;
+  padding: 2rem 2.5rem;
+  background-color: rgba(0, 0, 0, 0.65);
+  /* Desaturate and apply frosted glass effect */
+  backdrop-filter: saturate(160%) blur(10px);
+  color: #fff;
+  max-width: 30rem;
+  width: 92.5%;
 }
 
 .auth-title {
-    margin-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
 .signup-container {
-    background: url("/barber-tools-signup-bg-opt.jpg") no-repeat center center;
+  background: url("./barber-tools-signup-bg-opt.jpg") no-repeat center center;
 }
 
 .login-container {
-    background: url("/barber-tools-login-bg-opt.jpg") no-repeat center center;
+  background: url("./barber-tools-login-bg-opt.jpg") no-repeat center center;
 }
 
 /* Serve smaller bg imgs on mobile devices */
 @media screen and (max-width: 37.5em) {
-    .signup-container {
-        background: url("/barber-tools-signup-bg-sm-opt.jpg") no-repeat center center;
-    }
+  .signup-container {
+    background: url("./barber-tools-signup-bg-sm-opt.jpg") no-repeat center
+      center;
+  }
 
-    .login-container {
-        background: url("/barber-tools-login-bg-sm-opt.jpg") no-repeat center center;
-    }
+  .login-container {
+    background: url("./barber-tools-login-bg-sm-opt.jpg") no-repeat center
+      center;
+  }
 }
 
 .auth-form__group {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
 }
 
 .auth-form__group:last-of-type {
-    margin-bottom: 2.25rem;
+  margin-bottom: 2.25rem;
 }
 
 .auth-form__group__label {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .auth-form__group__input {
-    padding: .5rem;
-    background: none;
-    border: none;
-    border-bottom: 2px solid var(--grey);
-    font-size: 1rem;
-    outline: none;
-    font-size: 1rem;
-    color: #fff;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--grey);
+  font-size: 1rem;
+  outline: none;
+  font-size: 1rem;
+  color: #fff;
 }
 
 .auth-form__group__input:focus {
-    border-bottom-color: #fff;
+  border-bottom-color: #fff;
 }
 
 .auth-form__submit {
-    padding: .75rem 1.35rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-weight: 700;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
+  padding: 0.75rem 1.35rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
 }

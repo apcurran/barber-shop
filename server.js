@@ -29,6 +29,7 @@ app.use(
 app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client", "build")));
+app.set("trust proxy", 1);
 
 // API Routers
 app.use("/api/users", usersRouter);

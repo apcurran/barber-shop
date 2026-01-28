@@ -22,7 +22,24 @@ app.disable("x-powered-by");
 // Middleware
 app.use(
     helmet({
-        contentSecurityPolicy: false,
+        contentSecurityPolicy: {
+            directives: {
+                "default-src": ["'self'"],
+                "img-src": ["'self'", "data:", "https://randomuser.me"],
+                "script-src": ["'self'", "'unsafe-inline'"],
+                "style-src": [
+                    "'self'",
+                    "'unsafe-inline'",
+                    "https://fonts.googleapis.com",
+                ],
+                "font-src": ["'self'", "https://fonts.gstatic.com"],
+                "connect-src": ["'self'"],
+                "upgrade-insecure-requests": [],
+            },
+        },
+        crossOriginResourcePolicy: {
+            policy: "cross-origin",
+        },
         crossOriginEmbedderPolicy: false,
     }),
 );

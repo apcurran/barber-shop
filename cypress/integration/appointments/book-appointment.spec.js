@@ -13,18 +13,17 @@ describe("user book appointment flow", () => {
         cy.intercept("POST", "/api/users/appointments", {
             statusCode: 201,
             body: {
-                message: "New appointment created."
-            }
+                message: "New appointment created.",
+            },
         });
-        
+
         // user logged in
-        cy.contains("button", /Book Appointment/i)
-            .click();
+        cy.contains("button", /Book Appointment/i).click();
 
-        cy.contains("button", /Create Appointment/i)
-            .click();
+        cy.contains("button", /Create Appointment/i).click();
 
-        cy.contains("Great, you have been checked-in! The wait estimation is 15 minutes.")
-            .should("exist");
+        cy.contains(
+            "Great, you have been checked-in! The wait estimation is 15 minutes.",
+        ).should("exist");
     });
 });

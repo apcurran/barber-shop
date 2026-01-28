@@ -3,21 +3,21 @@ const API_APPOINTMENTS_URL = "/api/users/admin/appointments";
 function getAppointmentsSuccess(appointmentsArr) {
     return {
         type: "GET_APPOINTMENTS_SUCCESS",
-        payload: appointmentsArr
+        payload: appointmentsArr,
     };
 }
 
 function addNewAppointmentSuccess(updatedAppointmentsArr) {
     return {
         type: "ADD_NEW_APPOINTMENT_SUCCESS",
-        payload: updatedAppointmentsArr
+        payload: updatedAppointmentsArr,
     };
 }
 
 function removeAppointmentSuccess(updatedAppointmentsArr) {
     return {
         type: "REMOVE_APPOINTMENT_SUCCESS",
-        payload: updatedAppointmentsArr
+        payload: updatedAppointmentsArr,
     };
 }
 
@@ -27,8 +27,8 @@ export function getAppointments() {
             const options = {
                 method: "GET",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
-                }
+                    Authorization: `Bearer ${localStorage.token}`,
+                },
             };
             const response = await fetch(API_APPOINTMENTS_URL, options);
             const appointments = await response.json();
@@ -56,8 +56,8 @@ export function removeAppointment(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
-                }
+                    Authorization: `Bearer ${localStorage.token}`,
+                },
             };
 
             // Delete appointment from db.
@@ -65,10 +65,11 @@ export function removeAppointment(id) {
             await response.json();
             // Delete appointment from store state.
             const oldAppointmentsArr = getState().appointments;
-            const updatedAppointmentsArr = oldAppointmentsArr.filter((appointment) => appointment.appointment_id !== id);
+            const updatedAppointmentsArr = oldAppointmentsArr.filter(
+                (appointment) => appointment.appointment_id !== id,
+            );
 
             dispatch(removeAppointmentSuccess(updatedAppointmentsArr));
-
         } catch (err) {
             console.error(err);
         }

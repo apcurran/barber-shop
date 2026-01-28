@@ -7,32 +7,32 @@ function logInUserSuccess() {
 function logInUserError(err) {
     return {
         type: "LOG_IN_USER_ERROR",
-        error: err
+        error: err,
     };
 }
 
 function logOutUserSuccess() {
     return {
-        type: "LOG_OUT_USER_SUCCESS"
+        type: "LOG_OUT_USER_SUCCESS",
     };
 }
 
 function logInAdminSuccess() {
     return {
-        type: "LOG_IN_ADMIN_SUCCESS"
+        type: "LOG_IN_ADMIN_SUCCESS",
     };
 }
 
 function logInAdminError(err) {
     return {
         type: "LOG_IN_ADMIN_ERROR",
-        error: err
+        error: err,
     };
 }
 
 export function verifyAuth() {
     return {
-        type: "VERIFY_AUTH"
+        type: "VERIFY_AUTH",
     };
 }
 
@@ -42,12 +42,12 @@ export function logInUser(email, password, navigate) {
         const options = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 email,
-                password
-            })
+                password,
+            }),
         };
 
         try {
@@ -63,12 +63,11 @@ export function logInUser(email, password, navigate) {
 
             // No error, continue
             const token = data.accessToken;
-            
+
             localStorage.setItem("token", token);
 
             dispatch(logInUserSuccess());
             navigate("/");
-
         } catch (err) {
             console.error(err);
         }
@@ -89,12 +88,12 @@ export function logInAdmin(email, password, navigate) {
         const options = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 email,
-                password
-            })
+                password,
+            }),
         };
 
         try {
@@ -109,12 +108,11 @@ export function logInAdmin(email, password, navigate) {
             }
 
             const token = data.accessToken;
-            
+
             localStorage.setItem("token", token);
 
             dispatch(logInAdminSuccess());
             navigate("/admin/dashboard/appointments");
-
         } catch (err) {
             console.error(err);
         }

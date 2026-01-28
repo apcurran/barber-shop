@@ -6,9 +6,7 @@ describe("about us page", () => {
     });
 
     it("displays the description text below 'Our Story' title", () => {
-        cy.contains("h2", "Our Story")
-            .next()
-            .should("be.visible");
+        cy.contains("h2", "Our Story").next().should("be.visible");
     });
 
     it("displays all 3 barber employees", () => {

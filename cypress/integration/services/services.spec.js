@@ -6,8 +6,6 @@ describe("services page", () => {
     });
 
     it("displays 4 services", () => {
-        cy.get(".services-list-container")
-            .children()
-            .should("have.length", 4);
+        cy.get(".services-list-container").children().should("have.length", 4);
     });
 });

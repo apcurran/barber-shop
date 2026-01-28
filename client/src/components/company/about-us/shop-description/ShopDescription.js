@@ -11,7 +11,14 @@ function ShopDescription({ aboutDesc }) {
                 <p className="shop-description__txt">{aboutDesc}</p>
             </div>
             <figure className="shop-description--right">
-                <img className="shop-description__img" src={BarberPole} alt="Striped barber pole on the front of a barber's shop." width="640" height="960" loading="lazy" />
+                <img
+                    className="shop-description__img"
+                    src={BarberPole}
+                    alt="Striped barber pole on the front of a barber's shop."
+                    width="640"
+                    height="960"
+                    loading="lazy"
+                />
             </figure>
         </section>
     );

@@ -13,14 +13,14 @@
 .service__fig__img {
     width: 100%;
     height: auto;
-    box-shadow: 0 4px 7px rgba(0, 0, 0, .175);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.175);
     filter: grayscale(1);
 }
 
 .service__info__title {
     display: inline-block;
     margin-right: 1rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .service__info__price {
@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 36.35em) {
     .service-container {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
     .service-container:nth-of-type(even) figure {

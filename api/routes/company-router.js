@@ -13,20 +13,60 @@ router.get("/employees", companyController.getEmployees);
 
 router.get("/services", companyController.getServices);
 
-router.post("/description", verifyAuth, verifyAdmin, companyController.postDescription);
+router.post(
+    "/description",
+    verifyAuth,
+    verifyAdmin,
+    companyController.postDescription,
+);
 
-router.post("/employees", verifyAuth, verifyAdmin, companyController.postEmployee);
+router.post(
+    "/employees",
+    verifyAuth,
+    verifyAdmin,
+    companyController.postEmployee,
+);
 
-router.post("/services", verifyAuth, verifyAdmin, companyController.postService);
+router.post(
+    "/services",
+    verifyAuth,
+    verifyAdmin,
+    companyController.postService,
+);
 
-router.patch("/description", verifyAuth, verifyAdmin, companyController.patchDescription);
+router.patch(
+    "/description",
+    verifyAuth,
+    verifyAdmin,
+    companyController.patchDescription,
+);
 
-router.patch("/employees/:id", verifyAuth, verifyAdmin, companyController.patchEmployee);
+router.patch(
+    "/employees/:id",
+    verifyAuth,
+    verifyAdmin,
+    companyController.patchEmployee,
+);
 
-router.patch("/services/:id", verifyAuth, verifyAdmin, companyController.patchService);
+router.patch(
+    "/services/:id",
+    verifyAuth,
+    verifyAdmin,
+    companyController.patchService,
+);
 
-router.delete("/employees/:id", verifyAuth, verifyAdmin, companyController.deleteEmployee);
+router.delete(
+    "/employees/:id",
+    verifyAuth,
+    verifyAdmin,
+    companyController.deleteEmployee,
+);
 
-router.delete("/services/:id", verifyAuth, verifyAdmin, companyController.deleteService);
+router.delete(
+    "/services/:id",
+    verifyAuth,
+    verifyAdmin,
+    companyController.deleteService,
+);
 
 module.exports = router;

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { setAppointmentModalActive, bookAppointment } from "../../../store/actions/book-appointment-modal-actions";
+import {
+    setAppointmentModalActive,
+    bookAppointment,
+} from "../../../store/actions/book-appointment-modal-actions";
 import Modal from "../../modal/Modal";
 
 function BookAppointmentModal() {
@@ -31,16 +34,28 @@ function BookAppointmentModal() {
     }
 
     const appointmentBody = isAppointmentBooked ? (
-        <h2 className="modal__title">Great, you have been checked-in! The wait estimation is 15 minutes.</h2>
+        <h2 className="modal__title">
+            Great, you have been checked-in! The wait estimation is 15 minutes.
+        </h2>
     ) : (
         <>
-            <h2 className="modal__title">Are You Ready to Book Your Appointment?</h2>
-            <button onClick={handleBookAppointment} className="modal__confirm-btn">Create Appointment</button> 
+            <h2 className="modal__title">
+                Are You Ready to Book Your Appointment?
+            </h2>
+            <button
+                onClick={handleBookAppointment}
+                className="modal__confirm-btn"
+            >
+                Create Appointment
+            </button>
         </>
     );
 
     return (
-        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
+        <Modal
+            handleBackdropClick={handleBackdropClick}
+            handleCloseBtnClick={handleCloseBtnClick}
+        >
             {appointmentBody}
         </Modal>
     );

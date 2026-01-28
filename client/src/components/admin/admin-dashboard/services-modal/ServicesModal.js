@@ -15,7 +15,10 @@ function ServicesModal({ isNewService, currentServiceData, setIsEditing }) {
     }
 
     return (
-        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
+        <Modal
+            handleBackdropClick={handleBackdropClick}
+            handleCloseBtnClick={handleCloseBtnClick}
+        >
             <section className="employee-modal">
                 <ServicesForm
                     isNewService={isNewService}

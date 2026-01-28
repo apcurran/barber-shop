@@ -15,13 +15,15 @@ function Employees() {
     // Redux store
     const dispatch = useDispatch();
     const employeesArr = useSelector((state) => state.employees);
-    
+
     useEffect(() => {
         dispatch(getEmployees());
     }, [dispatch]);
-    
+
     function updateCurrentEmployee(id) {
-        const currentEmployee = employeesArr.filter((employee) => employee.employee_id === id)[0];
+        const currentEmployee = employeesArr.filter(
+            (employee) => employee.employee_id === id,
+        )[0];
 
         setCurrentEmployeeData(currentEmployee);
     }
@@ -32,7 +34,7 @@ function Employees() {
             last_name: "",
             email: "",
             skill_level: "",
-            avatar_url: ""
+            avatar_url: "",
         };
 
         setIsNewEmployee(true);
@@ -48,7 +50,13 @@ function Employees() {
                 setSelectedEmployeeId={setSelectedEmployeeId}
                 updateCurrentEmployee={updateCurrentEmployee}
             />
-            {isEditing ? <EmployeesModal isNewEmployee={isNewEmployee} setIsEditing={setIsEditing} currentEmployeeData={currentEmployeeData} /> : null}
+            {isEditing ? (
+                <EmployeesModal
+                    isNewEmployee={isNewEmployee}
+                    setIsEditing={setIsEditing}
+                    currentEmployeeData={currentEmployeeData}
+                />
+            ) : null}
         </div>
     );
 }

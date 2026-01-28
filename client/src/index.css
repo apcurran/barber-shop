@@ -1,33 +1,34 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 :root {
-  --wrapper-max-width: 77rem;
-  --wrapper-width: 92.5%;
-  --grey: hsl(0, 0%, 45%);
-  --page-title-fz: 1.75rem;
-  --admin-primary-btn-clr: hsl(218, 23%, 20%);
+    --wrapper-max-width: 77rem;
+    --wrapper-width: 92.5%;
+    --grey: hsl(0, 0%, 45%);
+    --page-title-fz: 1.75rem;
+    --admin-primary-btn-clr: hsl(218, 23%, 20%);
 }
 
 p {
-  line-height: 1.6;
+    line-height: 1.6;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
 }
 
 /* Base error msg styling */
 .error {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: #FED7D7;
-  color: #742A2A;
-  font-weight: 700;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #fed7d7;
+    color: #742a2a;
+    font-weight: 700;
 }

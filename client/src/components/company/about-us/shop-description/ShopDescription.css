@@ -5,7 +5,7 @@
     margin-bottom: 6rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 4rem
+    gap: 4rem;
 }
 
 .shop-description__title {

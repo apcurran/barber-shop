@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import openSocket from "socket.io-client";
 
-import { getAppointments, addNewAppointment } from "../../../store/actions/admin-appointments-actions";
+import {
+    getAppointments,
+    addNewAppointment,
+} from "../../../store/actions/admin-appointments-actions";
 import AppointmentsList from "./appointments-list/AppointmentsList";
 
 function Appointments() {
@@ -18,7 +21,6 @@ function Appointments() {
         socket.on("appointment added", (data) => {
             dispatch(addNewAppointment(data.appointment));
         });
-
     }, [dispatch]);
 
     return (

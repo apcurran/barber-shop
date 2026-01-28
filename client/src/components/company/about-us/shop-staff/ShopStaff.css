@@ -32,11 +32,11 @@
 
 .shop-staff__employee__fig {
     display: inline-flex;
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
 }
 
 .shop-staff__employee__img {
-    box-shadow: 0 4px 7px rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
 }
 
 .shop-staff__employee__name {
@@ -44,7 +44,7 @@
 }
 
 .shop-staff__employee__level {
-    font-size: .95rem;
+    font-size: 0.95rem;
 }
 
 @media screen and (max-width: 40.5em) {

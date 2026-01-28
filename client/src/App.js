@@ -16,27 +16,38 @@ import BookAppointmentModal from "./components/users/appointments/BookAppointmen
 import Page404 from "./components/Page404/Page404";
 
 function App() {
-  const isAppointmentModalActive = useSelector((state) => state.isAppointmentModalActive);
+    const isAppointmentModalActive = useSelector(
+        (state) => state.isAppointmentModalActive,
+    );
 
-  return (
-    <Router>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
-          <Route path="/users/signup" element={<SignUp />} />
-          <Route path="/users/login" element={<Login adminTitle="" />} />
-          <Route path="/admin/signup" element={<AdminSignUp />} />
-          <Route path="/admin/login" element={<Login adminTitle="Admin" />} />
-          <Route element={<Page404 />} />
-        </Routes>
-        {isAppointmentModalActive ? <BookAppointmentModal /> : null}
-        <Footer />
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="app">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<AboutUs />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route
+                        path="/admin/dashboard/*"
+                        element={<AdminDashboard />}
+                    />
+                    <Route path="/users/signup" element={<SignUp />} />
+                    <Route
+                        path="/users/login"
+                        element={<Login adminTitle="" />}
+                    />
+                    <Route path="/admin/signup" element={<AdminSignUp />} />
+                    <Route
+                        path="/admin/login"
+                        element={<Login adminTitle="Admin" />}
+                    />
+                    <Route element={<Page404 />} />
+                </Routes>
+                {isAppointmentModalActive ? <BookAppointmentModal /> : null}
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;

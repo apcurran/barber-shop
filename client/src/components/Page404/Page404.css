@@ -19,10 +19,10 @@
 .page-404__home-link {
     display: inline-block;
     text-decoration: none;
-    padding: .75rem 1.35rem;
+    padding: 0.75rem 1.35rem;
     font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     font-weight: 700;
     color: #fff;
     background-color: #000;

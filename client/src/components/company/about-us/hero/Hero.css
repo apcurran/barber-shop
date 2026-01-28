@@ -5,7 +5,7 @@
 }
 
 .hero__img {
-    filter: brightness(.6);
+    filter: brightness(0.6);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -28,20 +28,20 @@
 }
 
 .hero__cta-info {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero__cta-link {
     display: inline-block;
     text-decoration: none;
-    padding: .75rem 2rem;
+    padding: 0.75rem 2rem;
     color: #000;
     background-color: #fff;
     border: none;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     cursor: pointer;
 }
 

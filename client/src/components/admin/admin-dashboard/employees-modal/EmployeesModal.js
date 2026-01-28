@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import "./EmployeesModal.css";
 import EmployeesForm from "../employees-form/EmployeesForm";
 import Modal from "../../../modal/Modal";
@@ -17,9 +16,16 @@ function EmployeesModal({ isNewEmployee, currentEmployeeData, setIsEditing }) {
     }
 
     return (
-        <Modal handleBackdropClick={handleBackdropClick} handleCloseBtnClick={handleCloseBtnClick}>
+        <Modal
+            handleBackdropClick={handleBackdropClick}
+            handleCloseBtnClick={handleCloseBtnClick}
+        >
             <section className="employee-modal">
-                <EmployeesForm isNewEmployee={isNewEmployee} currentEmployeeData={currentEmployeeData} setIsEditing={setIsEditing} />
+                <EmployeesForm
+                    isNewEmployee={isNewEmployee}
+                    currentEmployeeData={currentEmployeeData}
+                    setIsEditing={setIsEditing}
+                />
             </section>
         </Modal>
     );

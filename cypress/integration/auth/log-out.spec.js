@@ -7,10 +7,8 @@ describe("log out flow", () => {
 
         cy.visit("/");
 
-        cy.contains(/Log Out/i)
-            .click();
+        cy.contains(/Log Out/i).click();
 
-        cy.contains("Log In")
-            .should("exist");
+        cy.contains("Log In").should("exist");
     });
 });

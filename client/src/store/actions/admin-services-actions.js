@@ -3,28 +3,28 @@ const API_SERVICES_URL = "/api/company/services";
 function getServicesSuccess(servicesData) {
     return {
         type: "GET_SERVICES_SUCCESS",
-        payload: servicesData
+        payload: servicesData,
     };
 }
 
 function addServiceSuccess(updatedServicesArr) {
     return {
         type: "ADD_SERVICE_SUCCESS",
-        payload: updatedServicesArr
+        payload: updatedServicesArr,
     };
 }
 
 function patchServiceSuccess(updatedServicesArr) {
     return {
         type: "PATCH_SERVICE_SUCCESS",
-        payload: updatedServicesArr
+        payload: updatedServicesArr,
     };
 }
 
 function removeServiceSuccess(updatedServicesArr) {
     return {
         type: "REMOVE_SERVICE_SUCCESS",
-        payload: updatedServicesArr
+        payload: updatedServicesArr,
     };
 }
 
@@ -35,7 +35,6 @@ export function getServices() {
             const services = await response.json();
 
             dispatch(getServicesSuccess(services));
-
         } catch (err) {
             console.error(err);
         }
@@ -49,9 +48,9 @@ export function addService(newServiceData) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    Authorization: `Bearer ${localStorage.token}`,
                 },
-                body: JSON.stringify(newServiceData)
+                body: JSON.stringify(newServiceData),
             };
 
             // Add service to db.
@@ -62,7 +61,6 @@ export function addService(newServiceData) {
             const updatedServicesArr = [...oldServicesArr, newServiceData];
 
             dispatch(addServiceSuccess(updatedServicesArr));
-
         } catch (err) {
             console.error(err);
         }
@@ -77,9 +75,9 @@ export function patchService(serviceData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    Authorization: `Bearer ${localStorage.token}`,
                 },
-                body: JSON.stringify(serviceData)
+                body: JSON.stringify(serviceData),
             };
 
             // Update service in db.
@@ -97,7 +95,6 @@ export function patchService(serviceData) {
             });
 
             dispatch(patchServiceSuccess(updatedServicesArr));
-
         } catch (err) {
             console.error(err);
         }
@@ -111,8 +108,8 @@ export function removeService(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
-                }
+                    Authorization: `Bearer ${localStorage.token}`,
+                },
             };
 
             // Delete service from db.
@@ -121,10 +118,11 @@ export function removeService(id) {
             console.log(data);
             // Delete service from store state.
             const oldServicesArr = getState().services;
-            const updatedServicesArr = oldServicesArr.filter((service) => service.service_id !== id);
+            const updatedServicesArr = oldServicesArr.filter(
+                (service) => service.service_id !== id,
+            );
 
             dispatch(removeServiceSuccess(updatedServicesArr));
-
         } catch (err) {
             console.error(err);
         }

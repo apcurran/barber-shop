@@ -10,13 +10,17 @@ import SignedOutLinks from "./SignedOutLinks";
 function Header() {
     // Grab auth state from Redux store
     const { userAuth } = useSelector((state) => state.auth);
-    const links = userAuth ? <SignedInLinks /> : <SignedOutLinks />; 
+    const links = userAuth ? <SignedInLinks /> : <SignedOutLinks />;
 
     return (
         <header className="header">
             <nav className="nav">
                 <NavLink to="/" className="nav__logo-link">
-                    <img src={logo} alt="Black Premium Cuts logo" className="nav__logo-img"/>
+                    <img
+                        src={logo}
+                        alt="Black Premium Cuts logo"
+                        className="nav__logo-img"
+                    />
                 </NavLink>
                 {links}
             </nav>

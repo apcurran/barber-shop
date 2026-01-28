@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     employees: adminEmployeesReducer,
     services: adminServicesReducer,
     appointments: adminAppointmentsReducer,
-    isAppointmentModalActive: bookAppointmentModalReducer
+    isAppointmentModalActive: bookAppointmentModalReducer,
 });
 
 export default rootReducer;

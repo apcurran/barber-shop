@@ -21,7 +21,9 @@ function Services() {
     }, [dispatch]);
 
     function updateCurrentService(id) {
-        const currentService = servicesArr.filter((service) => service.service_id === id)[0];
+        const currentService = servicesArr.filter(
+            (service) => service.service_id === id,
+        )[0];
 
         setCurrentServiceData(currentService);
     }
@@ -31,7 +33,7 @@ function Services() {
             title: "",
             content: "",
             price: "",
-            img_url: ""
+            img_url: "",
         };
 
         setIsNewService(true);
@@ -47,7 +49,13 @@ function Services() {
                 setSelectedServiceId={setSelectedServiceId}
                 updateCurrentService={updateCurrentService}
             />
-            {isEditing ? <ServicesModal isNewService={isNewService} setIsEditing={setIsEditing} currentServiceData={currentServiceData} /> : null}
+            {isEditing ? (
+                <ServicesModal
+                    isNewService={isNewService}
+                    setIsEditing={setIsEditing}
+                    currentServiceData={currentServiceData}
+                />
+            ) : null}
         </div>
     );
 }

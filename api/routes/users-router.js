@@ -12,8 +12,10 @@ const verifyAdmin = require("../middleware/verify-admin");
 const authLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
     max: 7,
-    message: JSON.stringify({ error: "Too many requests, please try again in a minute." }),
-    legacyHeaders: false
+    message: JSON.stringify({
+        error: "Too many requests, please try again in a minute.",
+    }),
+    legacyHeaders: false,
 });
 
 // APP USER routes
@@ -29,8 +31,18 @@ router.post("/admin/signup", authLimiter, usersController.postAdminSignup);
 
 router.post("/admin/login", authLimiter, usersController.postAdminLogin);
 
-router.get("/admin/appointments", verifyAuth, verifyAdmin, usersController.getAdminAppointments);
+router.get(
+    "/admin/appointments",
+    verifyAuth,
+    verifyAdmin,
+    usersController.getAdminAppointments,
+);
 
-router.delete("/admin/appointments/:id", verifyAuth, verifyAdmin, usersController.deleteAppointment);
+router.delete(
+    "/admin/appointments/:id",
+    verifyAuth,
+    verifyAdmin,
+    usersController.deleteAppointment,
+);
 
 module.exports = router;

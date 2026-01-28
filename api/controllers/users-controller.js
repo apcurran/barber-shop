@@ -5,13 +5,18 @@ const SQL = require("sql-template-strings");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { signupValidation, loginValidation, adminSignupValidation } = require("../validation/users-validation");
+const {
+    signupValidation,
+    loginValidation,
+    adminSignupValidation,
+} = require("../validation/users-validation");
 const io = require("../../socket");
 
 // POST controllers
 async function postUserSignup(req, res, next) {
     try {
-        const { first_name, last_name, email, phone_number, password } = await signupValidation(req.body);
+        const { first_name, last_name, email, phone_number, password } =
+            await signupValidation(req.body);
         // Data valid, now reject creating an existing user.
         const emailExists = await db.query(SQL`
             SELECT app_user.user_id
@@ -34,7 +39,6 @@ async function postUserSignup(req, res, next) {
         `);
 
         res.status(201).json({ message: "New user created." });
-
     } catch (err) {
         if (err.isJoi) {
             return res.status(400).json({ error: err.message });
@@ -67,10 +71,13 @@ async function postUserLogin(req, res, next) {
         }
 
         // Create and send token.
-        const token = jwt.sign({ _id: user.user_id }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
+        const token = jwt.sign(
+            { _id: user.user_id },
+            process.env.TOKEN_SECRET,
+            { expiresIn: "3h" },
+        );
 
         res.status(200).json({ accessToken: token });
-
     } catch (err) {
         if (err.isJoi) {
             return res.status(400).json({ error: err.message });
@@ -99,10 +106,11 @@ async function postUserAppointment(req, res, next) {
         const savedAppointmentData = bookedAppointment.rows[0];
 
         // Inform all clients Socket.io emit
-        io.getIo().emit("appointment added", { appointment: savedAppointmentData });
+        io.getIo().emit("appointment added", {
+            appointment: savedAppointmentData,
+        });
 
         res.status(201).json({ message: "New appointment created." });
-
     } catch (err) {
         next(err);
     }
@@ -138,14 +146,13 @@ async function postAdminSignup(req, res, next) {
         `);
 
         res.status(201).json({ message: "New admin created." });
-
     } catch (err) {
         if (err.isJoi) {
             return res.status(400).json({ error: err.message });
         }
 
         next(err);
-    }  
+    }
 }
 
 async function postAdminLogin(req, res, next) {
@@ -171,10 +178,13 @@ async function postAdminLogin(req, res, next) {
         }
 
         // Create and send token.
-        const token = jwt.sign({ _id: admin.admin_id, isAdmin: true }, process.env.TOKEN_SECRET, { expiresIn: "3h" });
+        const token = jwt.sign(
+            { _id: admin.admin_id, isAdmin: true },
+            process.env.TOKEN_SECRET,
+            { expiresIn: "3h" },
+        );
 
         res.status(200).json({ accessToken: token });
-
     } catch (err) {
         if (err.isJoi) {
             return res.status(400).json({ error: err.message });
@@ -193,7 +203,6 @@ async function getAdminAppointments(req, res, next) {
         `);
 
         res.status(200).json(rows);
-
     } catch (err) {
         next(err);
     }
@@ -202,14 +211,15 @@ async function getAdminAppointments(req, res, next) {
 async function deleteAppointment(req, res, next) {
     try {
         const { id } = req.params;
-        
+
         await db.query(SQL`
             DELETE FROM appointment
             WHERE appointment_id = ${id}
         `);
 
-        res.status(200).json({ message: `Appointment with id, ${id} deleted.` });
-
+        res.status(200).json({
+            message: `Appointment with id, ${id} deleted.`,
+        });
     } catch (err) {
         next(err);
     }
@@ -222,5 +232,5 @@ module.exports = {
     postAdminSignup,
     postAdminLogin,
     getAdminAppointments,
-    deleteAppointment
+    deleteAppointment,
 };

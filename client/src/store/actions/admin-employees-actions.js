@@ -3,28 +3,28 @@ const API_EMPLOYEES_URL = "/api/company/employees";
 function getEmployeesSuccess(employeeData) {
     return {
         type: "GET_EMPLOYEES_SUCCESS",
-        payload: employeeData
+        payload: employeeData,
     };
 }
 
 function patchEmployeeSuccess(updatedEmployeesArr) {
     return {
         type: "PATCH_EMPLOYEE_SUCCESS",
-        payload: updatedEmployeesArr
+        payload: updatedEmployeesArr,
     };
 }
 
 function removeEmployeeSuccess(updatedEmployeesArr) {
     return {
         type: "REMOVE_EMPLOYEE_SUCCESS",
-        payload: updatedEmployeesArr
+        payload: updatedEmployeesArr,
     };
 }
 
 function addEmployeeSuccess(updatedEmployeesArr) {
     return {
         type: "ADD_EMPLOYEE_SUCCESS",
-        payload: updatedEmployeesArr
+        payload: updatedEmployeesArr,
     };
 }
 
@@ -35,7 +35,6 @@ export function getEmployees() {
             const employees = await response.json();
 
             dispatch(getEmployeesSuccess(employees));
-
         } catch (err) {
             console.error(err);
         }
@@ -49,9 +48,9 @@ export function addEmployee(employeeData) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    Authorization: `Bearer ${localStorage.token}`,
                 },
-                body: JSON.stringify(employeeData)
+                body: JSON.stringify(employeeData),
             };
 
             const response = await fetch(API_EMPLOYEES_URL, options);
@@ -61,7 +60,6 @@ export function addEmployee(employeeData) {
             const updatedEmployeesArr = [...oldEmployeesArr, employeeData];
 
             dispatch(addEmployeeSuccess(updatedEmployeesArr));
-
         } catch (err) {
             console.error(err);
         }
@@ -76,9 +74,9 @@ export function patchEmployee(employeeData) {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.token}`
+                    Authorization: `Bearer ${localStorage.token}`,
                 },
-                body: JSON.stringify(employeeData)
+                body: JSON.stringify(employeeData),
             };
 
             // Update employee in db.
@@ -95,11 +93,9 @@ export function patchEmployee(employeeData) {
             });
 
             dispatch(patchEmployeeSuccess(updatedEmployeesArr));
-
         } catch (err) {
             console.error(err);
         }
-
     };
 }
 
@@ -110,8 +106,8 @@ export function removeEmployee(id) {
             const options = {
                 method: "DELETE",
                 headers: {
-                    "Authorization": `Bearer ${localStorage.token}`
-                }
+                    Authorization: `Bearer ${localStorage.token}`,
+                },
             };
 
             // Delete employee from db.
@@ -119,10 +115,11 @@ export function removeEmployee(id) {
             const data = await response.json();
             // Delete employee from store state.
             const oldEmployeesArr = getState().employees;
-            const updatedEmployeesArr = oldEmployeesArr.filter((employee) => employee.employee_id !== id);
+            const updatedEmployeesArr = oldEmployeesArr.filter(
+                (employee) => employee.employee_id !== id,
+            );
 
             dispatch(removeEmployeeSuccess(updatedEmployeesArr));
-
         } catch (err) {
             console.error(err);
         }

@@ -9,7 +9,7 @@
   "scripts": {
     "cy:run": "npx cypress run",
     "cy:open": "npx cypress open",
-    "lint": "eslint ./",
+    "lint": "npx eslint .",
     "start": "node --env-file=.env server.js",
     "dev": "node --env-file=.env --watch server.js",
     "heroku-postbuild": "cd client && npm ci && npm run build"
@@ -28,9 +28,13 @@
     "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@eslint/json": "^0.14.0",
     "cypress": "^9.5.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-cypress": "^2.12.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-cypress": "^5.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.2.0",
     "morgan": "^1.10.1"
   }
 }

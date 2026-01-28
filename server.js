@@ -43,7 +43,7 @@ app.use((err, req, res, next) => {
 });
 
 // Catch-all handler to send back React's index.html file.
-app.get("*", (req, res) => {
+app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 

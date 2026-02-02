@@ -13,7 +13,7 @@
         "format": "npx prettier . --write",
         "start": "node --env-file=.env server.js",
         "dev": "node --env-file=.env --watch server.js",
-        "heroku-postbuild": "cd client && npm ci && npm run build"
+        "heroku-postbuild": "cd client && npm ci --production && npm run build"
     },
     "author": "Alex Curran",
     "license": "ISC",

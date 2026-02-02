@@ -25,7 +25,12 @@ app.use(
         contentSecurityPolicy: {
             directives: {
                 "default-src": ["'self'"],
-                "img-src": ["'self'", "data:", "https://randomuser.me"],
+                "img-src": [
+                    "'self'",
+                    "data:",
+                    "https://randomuser.me",
+                    "https://res.cloudinary.com",
+                ],
                 "script-src": ["'self'", "'unsafe-inline'"],
                 "style-src": [
                     "'self'",

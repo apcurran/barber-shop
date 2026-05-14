@@ -10,7 +10,8 @@
         "cy:run": "npx cypress run",
         "cy:open": "npx cypress open",
         "lint": "npx eslint .",
-        "format": "npx prettier . --write",
+        "fmt": "oxfmt",
+        "fmt:check": "oxfmt --check",
         "start": "node --env-file=.env server.js",
         "dev": "node --env-file=.env --watch server.js",
         "heroku-postbuild": "cd client && npm ci --production && npm run build"
@@ -37,6 +38,6 @@
         "eslint-plugin-react": "^7.37.5",
         "globals": "^17.3.0",
         "morgan": "^1.10.1",
-        "prettier": "3.8.1"
+        "oxfmt": "^0.48.0"
     }
 }

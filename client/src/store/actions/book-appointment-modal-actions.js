@@ -23,7 +23,7 @@ export function bookAppointment() {
 
         try {
             const response = await fetch(API_URL, options);
-            const data = await response.json();
+            await response.json();
         } catch (err) {
             console.error(err);
         }

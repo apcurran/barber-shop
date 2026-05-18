@@ -20,9 +20,7 @@ function App() {
     );
 
     return (
-        <Router
-            future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
-        >
+        <Router>
             <div className="app">
                 <Header />
                 <Routes>

@@ -1,6 +1,5 @@
-import React from "react";
 import { useDispatch } from "react-redux";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 import { removeService } from "../../../../store/actions/admin-services-actions";
 
@@ -59,42 +58,47 @@ function ServicesTable({
                     </tr>
                 </thead>
                 <tbody className="employees-table__body">
-                    {servicesArr.map((service) => (
-                        <motion.tr
-                            layout
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            key={service.service_id}
-                        >
-                            <td className="employees-table__body__data">
-                                {service.title}
-                            </td>
-                            <td className="employees-table__body__data">
-                                ${service.price}
-                            </td>
-                            <td className="employees-table__body__data">
-                                {service.content.slice(0, 12)}...
-                            </td>
-                            <td className="employees-table__body__data">
-                                <button
-                                    onClick={() =>
-                                        handleEditingUpdate(service.service_id)
-                                    }
-                                    className="employee-action"
-                                >
-                                    edit
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        handleDelete(service.service_id)
-                                    }
-                                    className="employee-action"
-                                >
-                                    delete
-                                </button>
-                            </td>
-                        </motion.tr>
-                    ))}
+                    <AnimatePresence>
+                        {servicesArr.map((service) => (
+                            <motion.tr
+                                layout
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                key={service.service_id}
+                            >
+                                <td className="employees-table__body__data">
+                                    {service.title}
+                                </td>
+                                <td className="employees-table__body__data">
+                                    ${service.price}
+                                </td>
+                                <td className="employees-table__body__data">
+                                    {service.content.slice(0, 12)}...
+                                </td>
+                                <td className="employees-table__body__data">
+                                    <button
+                                        onClick={() =>
+                                            handleEditingUpdate(
+                                                service.service_id,
+                                            )
+                                        }
+                                        className="employee-action"
+                                    >
+                                        edit
+                                    </button>
+                                    <button
+                                        onClick={() =>
+                                            handleDelete(service.service_id)
+                                        }
+                                        className="employee-action"
+                                    >
+                                        delete
+                                    </button>
+                                </td>
+                            </motion.tr>
+                        ))}
+                    </AnimatePresence>
                 </tbody>
             </table>
         </div>

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 
 import { logOutUser } from "../../../store/actions/auth-actions";
